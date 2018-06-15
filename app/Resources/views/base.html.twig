@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     </head>
     <body>
+        {% block navbar %}
+            {{ include('::navbar.html.twig') }}
+        {% endblock %}
         {% block body %}{% endblock %}
         <script src="{{ asset('build/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
