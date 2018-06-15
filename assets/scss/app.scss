@@ -1,2 +1,7 @@
-@import url(./font.scss);
+@import './font';
+@import './colors';
+@import './grid';
 
+h1 {
+  color: map_get($colors, primary);
+}
