@@ -1,0 +1,29 @@
+{
+  "name": "storybookmarks",
+  "version": "1.0.0",
+  "description": "Symfony Standard Edition ========================",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.20.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcopano/storybookmarks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidcopano/storybookmarks/issues"
+  },
+  "homepage": "https://github.com/davidcopano/storybookmarks#readme"
+}
