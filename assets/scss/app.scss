@@ -12,8 +12,9 @@ $warning: map_get($custom_colors, warning);
 $danger: map_get($custom_colors, danger);
 
 // varios
-$enable-transitions: false;
+// $enable-transitions: false;
 $border-radius: 0;
+$modal-content-border-radius: false;
 
 @import '~bootstrap/scss/bootstrap';
 @import './reset';

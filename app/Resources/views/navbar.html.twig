@@ -2,8 +2,8 @@
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link text-secondary" href="https://github.com/davidcopano/storybookmarks">
-                    <i class="fab fa-github"></i>
+                <a class="nav-link text-secondary" href="https://github.com/davidcopano/storybookmarks" target="_blank" title="{{ 'navbar.show_github'|trans }}">
+                    <i class="fab fa-github fa-lg"></i>
                 </a>
             </li>
         </ul>
@@ -19,10 +19,34 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-secondary" href="#">Right</a>
+                <a class="nav-link text-secondary" href="#">{{ 'navbar.features'|trans }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-secondary" href="#">Link</a>
+                <button type="button" class="btn btn-link nav-link text-secondary" data-toggle="modal" data-target="#modalLogin">{{ 'navbar.login'|trans }}</button>
+                <!-- The Modal -->
+                <div class="modal fade" id="modalLogin">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">{{ 'navbar.login'|trans }}</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Modal body..
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
