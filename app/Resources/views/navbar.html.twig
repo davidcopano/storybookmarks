@@ -13,8 +13,8 @@
                         {{ 'navbar.lang'|trans }}
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">🇪🇸 - Español</a>
-                        <a class="dropdown-item" href="#">🇺🇸 - Inglés</a>
+                        <a class="dropdown-item" href="{{ path('index', { 'locale': 'es' }) }}">🇪🇸 - Español</a>
+                        <a class="dropdown-item" href="{{ path('index', { 'locale': 'en' }) }}">🇺🇸 - Inglés</a>
                     </div>
                 </div>
             </li>
