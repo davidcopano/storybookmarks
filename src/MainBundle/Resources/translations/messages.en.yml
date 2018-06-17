@@ -1,5 +1,5 @@
 navbar:
-  show_github: Ver proyecto en GitHub
+  show_github: Show project in GitHub
   features: Features
   login: Login
   lang: Language
