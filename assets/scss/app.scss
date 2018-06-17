@@ -1,7 +1,20 @@
-@import './font';
+@import url('https://fonts.googleapis.com/css?family=Muli');
 @import './colors';
-@import './grid';
 
-h1 {
-  color: map_get($colors, primary);
-}
+// fuente
+$font-family-sans-serif: 'Muli', sans-serif;
+
+// colores
+$primary: map_get($custom_colors, primary);
+$secondary: map_get($custom_colors, secondary);
+$success: map_get($custom_colors, success);
+$warning: map_get($custom_colors, warning);
+$danger: map_get($custom_colors, danger);
+
+// varios
+$enable-transitions: false;
+$border-radius: 0;
+
+@import '~bootstrap/scss/bootstrap';
+@import './reset';
+@import './navbar';

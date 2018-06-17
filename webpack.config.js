@@ -26,7 +26,9 @@ Encore
 // .enableVersioning()
 
 // allow sass/scss files to be processed
-    .enableSassLoader()
+    .enableSassLoader(function (sassOptions) {}, {
+        resolveUrlLoader: false
+    })
 ;
 
 // export the final configuration
