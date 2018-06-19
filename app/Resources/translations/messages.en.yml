@@ -1,0 +1,10 @@
+navbar:
+  show_github: Show project in GitHub
+  features: Features
+  login: Login
+  lang: Language
+index:
+  slogan: Save your bookmarks online
+  slogan_helper: And share it!
+  alt_img1: Laptop
+  alt_img2: Mobile phone

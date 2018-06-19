@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
-@import './colors';
+@import 'colors';
 
 // fuente
 $font-family-sans-serif: 'Muli', sans-serif;
@@ -17,4 +17,5 @@ $border-radius: 0;
 $modal-content-border-radius: false;
 
 @import '~bootstrap/scss/bootstrap';
-@import './reset';
+@import 'reset';
+@import 'pages/index';

@@ -1,0 +1,21 @@
+.index {
+  .slogan-container {
+    height: 500px;
+    ::-moz-selection {
+      background: map_get($custom_colors, primary);
+      color: map_get($custom_colors, secondary);
+    }
+    ::selection {
+      background: map_get($custom_colors, primary);
+      color: map_get($custom_colors, secondary);
+    }
+    .slogan {
+      h1 {
+        font-size: 44px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+}

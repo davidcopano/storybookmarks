@@ -1,0 +1,10 @@
+navbar:
+  show_github: Ver proyecto en GitHub
+  features: Características
+  login: Iniciar sesión
+  lang: Idioma
+index:
+  slogan: Guarda tus marcadores online
+  slogan_helper: ¡Y compártelos!
+  alt_img1: Portátil
+  alt_img2: Teléfono
