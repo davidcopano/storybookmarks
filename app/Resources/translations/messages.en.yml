@@ -22,3 +22,10 @@ index:
     open_source:
       title: Open source
       text: Are you a developer? You can contribute to the project by improving its source code.
+  contact:
+    title: ¿Algo no va bien?
+    text: Have you discovered any mistakes? Do you want to propose any improvements? You can contact us using this form to notify us of what you wish :)
+    form:
+      email: Email
+      subject: Subject
+      description: Description
