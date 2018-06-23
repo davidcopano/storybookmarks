@@ -8,3 +8,17 @@ index:
   slogan_helper: And share it!
   alt_img1: Laptop
   alt_img2: Mobile phone
+  features:
+    title: What does storybookmarks offer?
+    security:
+      title: Security
+      text: storybookmarks uses the latest web technologies on the market, so the bookmarks you save are safe and private (if you wish...).
+    easy_use:
+      title: Easy to use
+      text: We incorporate the latest design standards used, you will never get lost in storybookmarks ;)
+    share_bookmarks:
+      title: Share bookmarks
+      text: You can share any bookmarks you want, including expiration dates, whether the bookmark is private for web or public users, etc. You decide which bookmarks you want to share.
+    open_source:
+      title: Open source
+      text: Are you a developer? You can contribute to the project by improving its source code.

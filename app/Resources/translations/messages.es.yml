@@ -8,3 +8,17 @@ index:
   slogan_helper: ¡Y compártelos!
   alt_img1: Portátil
   alt_img2: Teléfono
+  features:
+    title: ¿Qué ofrece storybookmarks?
+    security:
+      title: Seguridad
+      text: storybookmarks utiliza las últimas tecnologías web del mercado, por lo que los marcadores que guardes estarán seguros y privados (si lo deseas...).
+    easy_use:
+      title: Fácil de usar
+      text: Incorporamos los últimos estándares de diseño utilizados, nunca te perderás por storybookmarks ;)
+    share_bookmarks:
+      title: Compartir marcadores
+      text: Puedes compartir los marcadores que desees, incluyendo fechas de expiración, si el marcador es privado para los usuarios de la web o público, etc. Tú decides los marcadores que desees compartir.
+    open_source:
+      title: Código abierto
+      text: ¿Eres desarrollador? Puedes contribuir al proyecto mejorando su código fuente.

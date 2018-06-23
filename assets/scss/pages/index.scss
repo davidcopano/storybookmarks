@@ -18,6 +18,13 @@
       }
     }
   }
+  #features {
+    .security, .easy-use, .share-bookmarks, .open-source {
+      img {
+        max-width: 30%;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -31,10 +38,13 @@
     }
     .slogan-container {
       height: auto;
-      margin-top: 1.2rem;
+      margin-top: 5rem !important;
       .images-container {
         text-align: center;
       }
+    }
+    #features {
+      padding: 0 !important;
     }
   }
 }
