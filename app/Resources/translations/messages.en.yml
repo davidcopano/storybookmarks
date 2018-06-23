@@ -1,3 +1,7 @@
+generics:
+  send: Send
+  save: Save
+# -------------------------------
 navbar:
   show_github: Show project in GitHub
   features: Features
@@ -23,7 +27,7 @@ index:
       title: Open source
       text: Are you a developer? You can contribute to the project by improving its source code.
   contact:
-    title: ¿Algo no va bien?
+    title: Something's wrong...
     text: Have you discovered any mistakes? Do you want to propose any improvements? You can contact us using this form to notify us of what you wish :)
     form:
       email: Email

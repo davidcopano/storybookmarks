@@ -1,3 +1,7 @@
+generics:
+  send: Enviar
+  save: Guardar
+# -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub
   features: Características
@@ -23,7 +27,7 @@ index:
       title: Código abierto
       text: ¿Eres desarrollador? Puedes contribuir al proyecto mejorando su código fuente.
   contact:
-    title: ¿Algo no va bien?
+    title: Algo no va bien...
     text: ¿Has descubierto algún error? ¿Quieres proponer alguna mejora? Puedes ponerte en contacto mediante este formulario para notificarnos de lo que desees :)
     form:
       email: Correo electrónico

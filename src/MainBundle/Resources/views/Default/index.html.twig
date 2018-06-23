@@ -19,38 +19,57 @@
         <h1 class="text-center mt-5 mb-5">{{ 'index.features.title'|trans }}</h1>
         <div class="row security">
             <div class="col-md-6">
-                <img src="{{ asset('images/features/security.svg') }}" alt="{{ 'index.features.security.title'|trans }}">
+                <img src="{{ asset('images/features/security.svg') }}"
+                     alt="{{ 'index.features.security.title'|trans }}">
                 <h2 class="mt-3 mb-3">{{ 'index.features.security.title'|trans }}</h2>
                 <p>{{ 'index.features.security.text'|trans }}</p>
             </div>
         </div>
         <div class="row easy-use text-right">
             <div class="col-md-6 offset-md-6">
-                <img src="{{ asset('images/features/easy_use.svg') }}" alt="{{ 'index.features.easy_use.title'|trans }}">
+                <img src="{{ asset('images/features/easy_use.svg') }}"
+                     alt="{{ 'index.features.easy_use.title'|trans }}">
                 <h2 class="mt-3 mb-3">{{ 'index.features.easy_use.title'|trans }}</h2>
                 <p>{{ 'index.features.easy_use.text'|trans }}</p>
             </div>
         </div>
         <div class="row share-bookmarks">
             <div class="col-md-6">
-                <img src="{{ asset('images/features/share.svg') }}" alt="{{ 'index.features.share_bookmarks.title'|trans }}">
+                <img src="{{ asset('images/features/share.svg') }}"
+                     alt="{{ 'index.features.share_bookmarks.title'|trans }}">
                 <h2 class="mt-3 mb-3">{{ 'index.features.share_bookmarks.title'|trans }}</h2>
                 <p>{{ 'index.features.share_bookmarks.text'|trans }}</p>
             </div>
         </div>
         <div class="row open-source text-right">
             <div class="col-md-6 offset-md-6">
-                <img src="{{ asset('images/features/open_source.svg') }}" alt="{{ 'index.features.open_source.title'|trans }}">
+                <img src="{{ asset('images/features/open_source.svg') }}"
+                     alt="{{ 'index.features.open_source.title'|trans }}">
                 <h2 class="mt-3 mb-3">{{ 'index.features.open_source.title'|trans }}</h2>
                 <p>{{ 'index.features.open_source.text'|trans }}</p>
             </div>
         </div>
     </div>
     <!-- contact form -->
-    <div id="contact">
+    <div id="contact" class="bg-primary text-white">
         <div class="container">
             <hr>
-            <h1 class="text-center mt-5 mb-5">{{ 'index.features.title'|trans }}</h1>
+            <h1 class="text-center mt-5 mb-3">{{ 'index.contact.title'|trans }}</h1>
+            <p class="text-center">{{ 'index.contact.text'|trans }}</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="email" name="email" required class="form-control" placeholder="{{ 'index.contact.form.email'|trans }}" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" required class="form-control" placeholder="{{ 'index.contact.form.subject'|trans }}" />
+                </div>
+                <div class="form-group">
+                    <textarea name="description" id="description" cols="30" rows="10" required class="form-control" placeholder="{{ 'index.contact.form.description'|trans }}"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">{{ 'generics.send'|trans }}</button>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}
