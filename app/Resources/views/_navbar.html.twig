@@ -21,7 +21,8 @@
         </ul>
     </div>
     <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto text-secondary" href="{% if (app.request.locale != 'es') or (app.request.locale != 'en') %} {{ path('root') }} {% endif %}">
+        <a class="navbar-brand mx-auto text-secondary" href="{% if (app.request.locale == 'es') or (app.request.locale == 'en') %} {{ path('index', { '_locale': app.request.locale }) }} {% else %} {{ path('index', { '_locale': 'es' }) }} {% endif %}
+">
             <h4>storybookmarks</h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">

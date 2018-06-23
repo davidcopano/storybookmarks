@@ -19,3 +19,22 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .index {
+    .navbar {
+      .navbar-nav {
+        .nav-item {
+          margin-left: 0 !important;
+        }
+      }
+    }
+    .slogan-container {
+      height: auto;
+      margin-top: 1.2rem;
+      .images-container {
+        text-align: center;
+      }
+    }
+  }
+}

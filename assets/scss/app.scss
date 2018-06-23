@@ -15,6 +15,7 @@ $danger: map_get($custom_colors, danger);
 // $enable-transitions: false;
 $border-radius: 0;
 $modal-content-border-radius: false;
+$navbar-dark-toggler-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(178, 219, 191)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 
 @import '~bootstrap/scss/bootstrap';
 @import 'reset';
