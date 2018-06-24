@@ -91,6 +91,20 @@
                 sendForm: function (e) {
                     e.preventDefault();
                     this.isSending = true;
+
+                    let formData = new FormData();
+                    formData.append('email', this.email);
+                    formData.append('subject', this.subject);
+                    formData.append('description', this.description);
+
+                    axios.post('{{ path('index.send_form') }}', formData).then(response => {
+                        this.isSending = false;
+                        console.log(response.data);
+                    }).catch(error => {
+                        this.isSending = false;
+                        console.log('error');
+                        console.log(error);
+                    })
                 }
             }
         });
