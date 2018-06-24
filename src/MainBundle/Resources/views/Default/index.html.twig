@@ -110,7 +110,9 @@
                         swal({
                             type: 'error',
                             title: '{{ 'index.contact.form.errors.sent_form.title'|trans }}',
-                            text: '{{ 'index.contact.form.errors.sent_form.text'|trans }}'
+                            text: '{{ 'index.contact.form.errors.sent_form.text'|trans }}',
+                            animation: false,
+                            customClass: 'animated shake'
                         });
                     })
                 }

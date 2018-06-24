@@ -9,6 +9,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
     "@symfony/webpack-encore": "^0.20.1",
+    "animate.css": "^3.6.1",
     "bootstrap": "^4.1.1",
     "popper.js": "^1.14.3"
   },
