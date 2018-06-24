@@ -70,7 +70,7 @@
                     <p class="text-danger" v-if="description === ''">{{ 'index.contact.form.errors.description'|trans }}</p>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success">{{ 'generics.send'|trans }} <i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></button>
+                    <button type="submit" class="btn btn-success" :disabled="isSending">{{ 'generics.send'|trans }} <i class="fas fa-circle-notch fa-spin ml-1" v-if="isSending"></i></button>
                 </div>
             </form>
         </div>

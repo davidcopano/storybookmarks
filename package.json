@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "@symfony/webpack-encore": "^0.20.1",
     "bootstrap": "^4.1.1",
     "popper.js": "^1.14.3"

@@ -1,4 +1,5 @@
 require('../scss/app.scss');
+require('@fortawesome/fontawesome-free');
 var $ = require('jquery');
 require('bootstrap');
 
