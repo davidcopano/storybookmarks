@@ -30,9 +30,6 @@ class IndexController extends Controller
      */
     public function sendFormAction(Request $request)
     {
-//        $data = json_decode(file_get_contents("php://input"), TRUE);
-//        var_dump($data);die;
-
         var_dump($_POST);die;
     }
 }

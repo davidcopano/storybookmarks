@@ -100,10 +100,18 @@
                     axios.post('{{ path('index.send_form') }}', formData).then(response => {
                         this.isSending = false;
                         console.log(response.data);
+
+                        swal({
+                            type: 'success',
+                            title: '{{ 'index.contact.form.success.title'|trans }}'
+                        });
                     }).catch(error => {
                         this.isSending = false;
-                        console.log('error');
-                        console.log(error);
+                        swal({
+                            type: 'error',
+                            title: '{{ 'index.contact.form.errors.sent_form.title'|trans }}',
+                            text: '{{ 'index.contact.form.errors.sent_form.text'|trans }}'
+                        });
                     })
                 }
             }

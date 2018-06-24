@@ -37,3 +37,8 @@ index:
         email: Email cannot be empty
         subject: Subject cannot be empty
         description: Description cannot be empty
+        sent_form:
+          title: There was an error processing the form
+          text: Try again later
+      success:
+        title: Form sent successfully
