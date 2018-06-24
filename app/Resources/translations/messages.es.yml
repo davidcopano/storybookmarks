@@ -33,3 +33,7 @@ index:
       email: Correo electrónico
       subject: Asunto
       description: Descripción
+      errors:
+        email: El correo electrónico no puede estar vacío
+        subject: El asunto no puede estar vacío
+        description: La descripción no puede estar vacía

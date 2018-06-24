@@ -33,3 +33,7 @@ index:
       email: Email
       subject: Subject
       description: Description
+      errors:
+        email: Email cannot be empty
+        subject: Subject cannot be empty
+        description: Description cannot be empty

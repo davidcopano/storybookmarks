@@ -56,20 +56,43 @@
             <hr>
             <h1 class="text-center mt-5 mb-3">{{ 'index.contact.title'|trans }}</h1>
             <p class="text-center">{{ 'index.contact.text'|trans }}</p>
-            <form id="contact-form">
+            <form id="contact-form" @submit="sendForm">
                 <div class="form-group">
-                    <input type="email" name="email" required class="form-control" placeholder="{{ 'index.contact.form.email'|trans }}" />
+                    <input type="email" name="email" required class="form-control" placeholder="{{ 'index.contact.form.email'|trans }}" v-model="email" />
+                    <p class="text-danger" v-if="email === ''">{{ 'index.contact.form.errors.email'|trans }}</p>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="subject" required class="form-control" placeholder="{{ 'index.contact.form.subject'|trans }}" />
+                    <input type="text" name="subject" required class="form-control" placeholder="{{ 'index.contact.form.subject'|trans }}" v-model="subject" />
+                    <p class="text-danger" v-if="subject === ''">{{ 'index.contact.form.errors.subject'|trans }}</p>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" id="description" cols="30" rows="10" required class="form-control" placeholder="{{ 'index.contact.form.description'|trans }}"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" required class="form-control" placeholder="{{ 'index.contact.form.description'|trans }}" v-model="description"></textarea>
+                    <p class="text-danger" v-if="description === ''">{{ 'index.contact.form.errors.description'|trans }}</p>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success">{{ 'generics.send'|trans }}</button>
+                    <button type="submit" class="btn btn-success">{{ 'generics.send'|trans }} <i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></button>
                 </div>
             </form>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const contactForm = new Vue({
+            el: '#contact-form',
+            data: {
+                email: undefined,
+                subject: undefined,
+                description: undefined,
+                isSending: false
+            },
+            methods: {
+                sendForm: function (e) {
+                    e.preventDefault();
+                    this.isSending = true;
+                }
+            }
+        });
+    </script>
 {% endblock %}
