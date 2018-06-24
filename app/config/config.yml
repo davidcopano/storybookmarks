@@ -54,10 +54,19 @@ doctrine:
 
 swiftmailer:
     transport: '%mailer_transport%'
+    encryption: '%mailer_encryption%'
+    auth_mode: '%mailer_auth_mode%'
     host: '%mailer_host%'
-    username: '%mailer_user%'
+    port: '%mailer_port%'
+    username: '%mailer_username%'
     password: '%mailer_password%'
-    spool: { type: memory }
+
+#swiftmailer:
+#    transport: '%mailer_transport%'
+#    host: '%mailer_host%'
+#    username: '%mailer_user%'
+#    password: '%mailer_password%'
+#    spool: { type: memory }
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
