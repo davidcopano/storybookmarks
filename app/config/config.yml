@@ -71,7 +71,7 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: MainBundle\Entity\User
     from_email:
         address: "fake@yopmail.com"
         sender_name: "Storybookmarks"
