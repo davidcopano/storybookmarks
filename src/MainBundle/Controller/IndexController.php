@@ -32,7 +32,7 @@ class IndexController extends Controller
      * @Route("{_locale}/send_form", name="index.send_form")
      * @param Request $request
      * @param Swift_Mailer $mailer
-     * @return JsonResponse
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function sendFormAction(Request $request, Swift_Mailer $mailer, LoggerInterface $logger)
     {
@@ -43,7 +43,11 @@ class IndexController extends Controller
                 $message = (new Swift_Message('Contacto storybookmarks: ' . $data['subject']))
                     ->setFrom('info@storybookmarks.com')
                     ->setTo('davidcopano96@gmail.com')
-                    ->setBody('Hola desde correo en PHP/Symfony');
+                    ->setBody($this->renderView('Emails/web_contact.html.twig', [
+                        'email' => $data['email'],
+                        'subject' => $data['subject'],
+                        'description' => $data['description']
+                    ]), 'text/html');
 
                 $mailer->send($message);
 

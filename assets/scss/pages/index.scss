@@ -25,6 +25,12 @@
       }
     }
   }
+  footer {
+    color: $primary;
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -45,6 +51,12 @@
     }
     #features {
       padding: 0 !important;
+      .security, .easy-use, .share-bookmarks, .open-source {
+        text-align: center !important;
+      }
+      .row:not(:first-of-type) {
+        margin-top: 30px !important;
+      }
     }
   }
 }

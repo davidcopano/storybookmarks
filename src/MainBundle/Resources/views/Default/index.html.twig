@@ -51,7 +51,7 @@
         </div>
     </div>
     <!-- contact form -->
-    <div id="contact" class="bg-primary text-white">
+    <div id="contact" class="bg-primary text-white pb-5">
         <div class="container">
             <hr>
             <h1 class="text-center mt-5 mb-3">{{ 'index.contact.title'|trans }}</h1>
@@ -75,6 +75,19 @@
             </form>
         </div>
     </div>
+    <!-- footer -->
+    <footer class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <p>storybookmarks</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="text-right">{{ 'now'|date('Y') }} <span class="copyleft">&copy;</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block javascripts %}

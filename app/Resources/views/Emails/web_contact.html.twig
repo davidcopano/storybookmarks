@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>storybookmarks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli');
+
+        body {
+            margin: 0;
+            font-family: 'Muli', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+        }
+
+        .nav {
+            background-color: #247ba0;
+            color: #b2dbbf;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 0;
+            line-height: 1.5;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-weight: 500;
+        }
+
+        h3 {
+            text-align: center;
+            color: #247ba0;
+        }
+        .details {
+            border: 1px solid #247ba0;
+            border-radius: 5px;
+            width: 50%;
+            margin: auto;
+            padding: 0 10px 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <h2>storybookmarks</h2>
+    </header>
+    <h3>Nuevo formulario de contacto</h3>
+    <section class="details">
+        <p><u>Correo electrónico</u>: {{ email }}</p>
+        <p><u>Asunto</u>: {{ subject }}</p>
+        <p><u>Descripción</u>:</p>
+        <p>{{ description }}</p>
+    </section>
+</body>
+</html>
