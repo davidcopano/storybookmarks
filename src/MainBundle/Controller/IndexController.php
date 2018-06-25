@@ -21,7 +21,9 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route("{_locale}/", name="index")
+     * @Route("{_locale}/", name="index", requirements={
+        "_locale": "es|en"
+*     })
      */
     public function indexAction()
     {
