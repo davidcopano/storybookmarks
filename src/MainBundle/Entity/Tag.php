@@ -41,6 +41,12 @@ class Tag
      */
     private $createdAt;
 
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User", inversedBy="tags")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -109,6 +115,24 @@ class Tag
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return Tag
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
     }
 }
 

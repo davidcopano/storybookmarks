@@ -31,11 +31,18 @@ class User extends BaseUser
      */
     private $bookmarks;
 
+    /**
+     * @var Tag
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Tag", mappedBy="user")
+     */
+    private $tags;
+
     public function __construct()
     {
         parent::__construct();
         $this->createdAt = new \DateTime();
         $this->bookmarks = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     /**
@@ -84,5 +91,35 @@ class User extends BaseUser
     public function getBookmarks()
     {
         return $this->bookmarks;
+    }
+
+    /**
+     * @return Tag
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return $this
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags->add($tag);
+        return $this;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return $this|bool
+     */
+    public function removeTag(Tag $tag)
+    {
+        if($this->tags->removeElement($tag)) {
+            return $this;
+        }
+        return false;
     }
 }
