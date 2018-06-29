@@ -1,0 +1,11 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block html_class %}login{% endblock %}
+
+{% block title %}storybookmarks - {{ 'generics.login'|trans }}{% endblock %}
+
+{% block body_class %}login{% endblock %}
+
+{% block fos_user_content %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock fos_user_content %}

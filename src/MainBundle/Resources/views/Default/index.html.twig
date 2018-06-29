@@ -3,6 +3,7 @@
 {% block body_class %}index{% endblock %}
 
 {% block body %}
+    {{ include('::_navbar.html.twig') }}
     <header class="row mt-5 slogan-container">
         <div class="col-md-6 text-md-right text-sm-left align-self-center slogan">
             <h1>{{ 'index.slogan'|trans }}</h1>

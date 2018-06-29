@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="{% block html_class %}{% endblock %}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +10,6 @@
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     </head>
     <body class="{% block body_class %}{% endblock %}">
-        {% block navbar %}
-            {{ include('::_navbar.html.twig') }}
-        {% endblock %}
         {% block body %}{% endblock %}
         <script src="{{ asset('build/app.js') }}"></script>
         <!-- vuejs -->
