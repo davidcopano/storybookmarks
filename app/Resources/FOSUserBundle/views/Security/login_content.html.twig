@@ -11,6 +11,14 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ 'layout.login'|trans }}</h4>
                         <form method="POST" action="{{ path("fos_user_security_check") }}">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <div class="alert alert-info show">
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    <a href="{{ path('fos_user_security_logout') }}" class="float-right">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                </div>
+                            {% endif %}
                             {% if error %}
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert">
@@ -30,20 +38,24 @@
 
                             <div class="form-group">
                                 <label for="password">{{ 'security.login.password'|trans }}</label>
-                                <input id="password" type="password" class="form-control" name="_password" required data-eye>
-                                <a href="#" class="float-right pt-2">{{ 'change_password.submit'|trans }}</a>
+                                <input id="password" type="password" class="form-control" name="_password" required
+                                       data-eye>
+                                <a href="{{ path('fos_user_resetting_request') }}" class="float-right pt-2">{{ 'form.forgot_password'|trans }}</a>
                             </div>
 
-                            <div class="custom-control custom-checkbox mt-3 mb-3">
-                                <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me" value="on" />
-                                <label class="custom-control-label" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            <div class="custom-control custom-checkbox mt-4 mb-3">
+                                <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me"
+                                       value="on"/>
+                                <label class="custom-control-label"
+                                       for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
                             </div>
 
                             <div class="form-group no-margin">
-                                <button type="submit" class="btn btn-primary btn-block">{{ 'layout.login'|trans }}</button>
+                                <button type="submit"
+                                        class="btn btn-primary btn-block">{{ 'layout.login'|trans }}</button>
                             </div>
                             <div class="margin-top20 text-center">
-                                {{ 'layout.dont_have_account'|trans }} <a href="#">{{ 'layout.register'|trans }}</a>
+                                {{ 'layout.dont_have_account'|trans }} <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans }}</a>
                             </div>
                         </form>
                     </div>

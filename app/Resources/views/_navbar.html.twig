@@ -35,33 +35,7 @@
                 <a class="nav-link text-secondary" href="#">{{ 'navbar.features'|trans }}</a>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-link nav-link text-secondary" data-toggle="modal"
-                        data-target="#modalLogin">{{ 'navbar.login'|trans }}</button>
-                <!-- The Modal -->
-                <div class="modal fade" id="modalLogin">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">{{ 'navbar.login'|trans }}</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Modal body..
-                                <a href="{{ path('fos_user_security_login') }}">ENLACE LOGIN</a>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <a class="btn btn-link nav-link text-secondary" href="{{ path('fos_user_security_login') }}">{{ 'navbar.login'|trans }}</a>
             </li>
         </ul>
     </div>

@@ -74,15 +74,16 @@ layout:
     logout: Salir
     login: Iniciar sesión
     register: Registrarse
-    logged_in_as: 'Identificado como %username%'
-    dont_have_account: '¿No tienes cuenta?'
+    logged_in_as: 'Estás identificado como %username%'
+    dont_have_account: '¿No posees una cuenta?'
 
 form:
     group_name: 'Nombre de grupo'
-    username: 'Nombre de usuario'
+    username: 'Usuario'
     email: Email
     current_password: 'Contraseña actual'
     password: Contraseña
     password_confirmation: 'Repita la contraseña'
     new_password: 'Nueva contraseña'
     new_password_confirmation: 'Repita la contraseña'
+    forgot_password: '¿Olvidaste tu contraseña?'
