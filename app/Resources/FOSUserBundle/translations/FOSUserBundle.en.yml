@@ -81,6 +81,7 @@ layout:
     register: Register
     logged_in_as: 'Logged in as %username%'
     dont_have_account: "Don't have an account?"
+    have_account: 'Have an account?'
 
 form:
     group_name: 'Group name'

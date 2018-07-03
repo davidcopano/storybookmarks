@@ -1,5 +1,11 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
+{% block html_class %}register{% endblock %}
+
+{% block title %}storybookmarks - {{ 'generics.register'|trans }}{% endblock %}
+
+{% block body_class %}register{% endblock %}
+
 {% block fos_user_content %}
-{% include "@FOSUser/Registration/register_content.html.twig" %}
+    {% include "@FOSUser/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}

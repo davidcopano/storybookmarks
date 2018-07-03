@@ -1,0 +1,94 @@
+html.register, body.register {
+  height: 100%;
+}
+
+body.register {
+  background-color: #f7f9fb;
+  font-size: 14px;
+}
+
+.register .brand {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin: 40px auto;
+  box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+.register .brand img {
+  width: 100%;
+}
+
+.register .card-wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.register .card {
+  border-color: transparent;
+  box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+.register .card.fat {
+  padding: 10px;
+}
+
+.register .card .card-title {
+  margin-bottom: 30px;
+}
+
+.register .form-control {
+  border-width: 2.3px;
+}
+
+.register .form-group label {
+  width: 100%;
+}
+
+.register .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.register .margin-top20 {
+  margin-top: 20px;
+}
+
+.register .no-margin {
+  margin: 0;
+}
+
+.register .footer {
+  margin: 40px 0;
+  color: #888;
+  text-align: center;
+}
+
+// alert error lists
+.register-errors {
+  ul {
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    li {
+      list-style-type: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .register .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .register .card.fat {
+    padding: 0;
+  }
+
+  .register .card.fat .card-body {
+    padding: 15px;
+  }
+}

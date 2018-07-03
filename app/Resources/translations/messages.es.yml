@@ -2,6 +2,7 @@ generics:
   send: Enviar
   save: Guardar
   login: Iniciar sesión
+  register: Registro
 # -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub
