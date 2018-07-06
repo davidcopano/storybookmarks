@@ -35,6 +35,11 @@
             <li class="nav-item">
                 <a class="nav-link text-secondary" href="#">{{ 'navbar.features'|trans }}</a>
             </li>
+            {% if not app.user %}
+                <li class="nav-item">
+                    <a href="{{ path('fos_user_registration_register') }}" class="nav-link text-secondary">{{ 'generics.register'|trans }}</a>
+                </li>
+            {% endif %}
             <li class="nav-item">
                 {% if app.user %}
                     <div class="dropdown" id="user-dropdown">
@@ -47,19 +52,18 @@
                                 <i class="fas fa-list-ul pr-2"></i>
                                 {{ 'navbar.logged_user.my_bookmarks'|trans }}
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">
                                 <i class="fas fa-user-edit pr-2"></i>
                                 {{ 'navbar.logged_user.edit_profile'|trans }}
                             </a>
                             <a class="dropdown-item" href="#" @click="closeSession()">
                                 <i class="fas fa-power-off pr-2"></i>
-                                {{ 'navbar.logged_user.logout'|trans }}
+                                {{ 'navbar.logged_user.logout.title'|trans }}
                             </a>
                         </div>
                     </div>
                 {% else %}
-                    <a class="btn btn-link nav-link text-secondary"
-                       href="{{ path('fos_user_security_login') }}">{{ 'navbar.login'|trans }}</a>
+                    <a class="btn btn-link nav-link text-secondary" href="{{ path('fos_user_security_login') }}">{{ 'navbar.login'|trans }}</a>
                 {% endif %}
             </li>
         </ul>

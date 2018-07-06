@@ -12,7 +12,10 @@ navbar:
   logged_user:
     my_bookmarks: Ir a Mis marcadores
     edit_profile: Editar mi perfil
-    logout: Cerrar sesión
+    logout:
+      title: Cerrar sesión
+      text: ¿Estás seguro de que deseas cerrar sesión?
+      cancel: Cancelar
 index:
   slogan: Guarda tus marcadores online
   slogan_helper: ¡Y compártelos!

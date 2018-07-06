@@ -12,7 +12,10 @@ navbar:
   logged_user:
     my_bookmarks: Go to My bookmarks
     edit_profile: Edit my profile
-    logout: Log out
+    logout:
+      title: Log out
+      text: Are you sure you want to log out?
+      cancel: Cancel
 index:
   slogan: Save your bookmarks online
   slogan_helper: And share it!

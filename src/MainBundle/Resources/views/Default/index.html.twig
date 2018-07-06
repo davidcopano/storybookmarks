@@ -59,19 +59,25 @@
             <p class="text-center">{{ 'index.contact.text'|trans }}</p>
             <form id="contact-form" @submit="sendForm">
                 <div class="form-group">
-                    <input type="email" name="email" required class="form-control" placeholder="{{ 'index.contact.form.email'|trans }}" v-model="email" />
+                    <input type="email" name="email" required class="form-control"
+                           placeholder="{{ 'index.contact.form.email'|trans }}" v-model="email"/>
                     <p class="text-danger" v-if="email === ''">{{ 'index.contact.form.errors.email'|trans }}</p>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="subject" required class="form-control" placeholder="{{ 'index.contact.form.subject'|trans }}" v-model="subject" />
+                    <input type="text" name="subject" required class="form-control"
+                           placeholder="{{ 'index.contact.form.subject'|trans }}" v-model="subject"/>
                     <p class="text-danger" v-if="subject === ''">{{ 'index.contact.form.errors.subject'|trans }}</p>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" id="description" cols="30" rows="10" required class="form-control" placeholder="{{ 'index.contact.form.description'|trans }}" v-model="description"></textarea>
-                    <p class="text-danger" v-if="description === ''">{{ 'index.contact.form.errors.description'|trans }}</p>
+                    <textarea name="description" id="description" cols="30" rows="10" required class="form-control"
+                              placeholder="{{ 'index.contact.form.description'|trans }}"
+                              v-model="description"></textarea>
+                    <p class="text-danger"
+                       v-if="description === ''">{{ 'index.contact.form.errors.description'|trans }}</p>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success" :disabled="isSending">{{ 'generics.send'|trans }} <i class="fas fa-circle-notch fa-spin ml-1" v-if="isSending"></i></button>
+                    <button type="submit" class="btn btn-success" :disabled="isSending">{{ 'generics.send'|trans }} <i
+                                class="fas fa-circle-notch fa-spin ml-1" v-if="isSending"></i></button>
                 </div>
             </form>
         </div>
@@ -133,13 +139,30 @@
             }
         });
 
-        const userDropdown = new Vue({
-            el: '#user-dropdown',
-            methods: {
-                closeSession: function () {
-                    console.log('closeSession');
+        let $userDropdown = document.getElementById('user-dropdown');
+
+        if($userDropdown) {
+            const userDropdown = new Vue({
+                el: '#user-dropdown',
+                methods: {
+                    closeSession: function () {
+                        swal({
+                            title: '{{ 'navbar.logged_user.logout.title'|trans }}',
+                            text: '{{ 'navbar.logged_user.logout.text'|trans }}',
+                            type: 'warning',
+                            showCancelButton: true,
+                            cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
+                            cancelButtonColor: '#247ba0',
+                            confirmButtonColor: '#ff1654',
+                            confirmButtonText: '{{ 'navbar.logged_user.logout.title'|trans }}'
+                        }).then((result) => {
+                            if (result.value) {
+                                location.replace('{{ path('fos_user_security_logout') }}')
+                            }
+                        })
+                    }
                 }
-            }
-        });
+            })
+        }
     </script>
 {% endblock %}
