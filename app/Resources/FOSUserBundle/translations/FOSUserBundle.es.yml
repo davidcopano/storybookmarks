@@ -20,7 +20,7 @@ profile:
         username: 'Nombre de usuario'
         email: Email
     edit:
-        submit: 'Actualizar usuario'
+        submit: 'Editar perfil'
     flash:
         updated: 'El perfil ha sido actualizado.'
 change_password:

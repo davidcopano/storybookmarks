@@ -1,0 +1,94 @@
+html.profile-edit, body.profile-edit {
+  height: 100%;
+}
+
+body.profile-edit {
+  background-color: #f7f9fb;
+  font-size: 14px;
+}
+
+.profile-edit .brand {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin: 40px auto;
+  box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+.profile-edit .brand img {
+  width: 100%;
+}
+
+.profile-edit .card-wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.profile-edit .card {
+  border-color: transparent;
+  box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+.profile-edit .card.fat {
+  padding: 10px;
+}
+
+.profile-edit .card .card-title {
+  margin-bottom: 30px;
+}
+
+.profile-edit .form-control {
+  border-width: 2.3px;
+}
+
+.profile-edit .form-group label {
+  width: 100%;
+}
+
+.profile-edit .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.profile-edit .margin-top20 {
+  margin-top: 20px;
+}
+
+.profile-edit .no-margin {
+  margin: 0;
+}
+
+.profile-edit .footer {
+  margin: 40px 0;
+  color: #888;
+  text-align: center;
+}
+
+// alert error lists
+.profile-edit-errors {
+  ul {
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    li {
+      list-style-type: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile-edit .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile-edit .card.fat {
+    padding: 0;
+  }
+
+  .profile-edit .card.fat .card-body {
+    padding: 15px;
+  }
+}

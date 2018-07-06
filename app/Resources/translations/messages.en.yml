@@ -3,6 +3,8 @@ generics:
   save: Save
   login: Login
   register: Register
+  profile:
+    edit: Edit profile
 # -------------------------------
 navbar:
   show_github: Show project in GitHub

@@ -1,5 +1,11 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
+{% block html_class %}profile-edit{% endblock %}
+
+{% block title %}storybookmarks - {{ 'generics.profile.edit'|trans }}{% endblock %}
+
+{% block body_class %}profile-edit{% endblock %}
+
 {% block fos_user_content %}
-{% include "@FOSUser/Profile/edit_content.html.twig" %}
+    {% include "@FOSUser/Profile/edit_content.html.twig" %}
 {% endblock fos_user_content %}
