@@ -2,12 +2,17 @@ generics:
   send: Send
   save: Save
   login: Login
+  register: Register
 # -------------------------------
 navbar:
   show_github: Show project in GitHub
   features: Features
   login: Login
   lang: Language
+  logged_user:
+    my_bookmarks: Go to My bookmarks
+    edit_profile: Edit my profile
+    logout: Log out
 index:
   slogan: Save your bookmarks online
   slogan_helper: And share it!

@@ -132,5 +132,14 @@
                 }
             }
         });
+
+        const userDropdown = new Vue({
+            el: '#user-dropdown',
+            methods: {
+                closeSession: function () {
+                    console.log('closeSession');
+                }
+            }
+        });
     </script>
 {% endblock %}

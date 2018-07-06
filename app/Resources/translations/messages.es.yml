@@ -9,6 +9,10 @@ navbar:
   features: Características
   login: Iniciar sesión
   lang: Idioma
+  logged_user:
+    my_bookmarks: Ir a Mis marcadores
+    edit_profile: Editar mi perfil
+    logout: Cerrar sesión
 index:
   slogan: Guarda tus marcadores online
   slogan_helper: ¡Y compártelos!

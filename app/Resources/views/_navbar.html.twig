@@ -21,7 +21,8 @@
         </ul>
     </div>
     <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto text-secondary" href="{% if (app.request.locale == 'es') or (app.request.locale == 'en') %} {{ path('index', { '_locale': app.request.locale }) }} {% else %} {{ path('index', { '_locale': 'es' }) }} {% endif %}
+        <a class="navbar-brand mx-auto text-secondary"
+           href="{% if (app.request.locale == 'es') or (app.request.locale == 'en') %} {{ path('index', { '_locale': app.request.locale }) }} {% else %} {{ path('index', { '_locale': 'es' }) }} {% endif %}
 ">
             <h4>storybookmarks</h4>
         </a>
@@ -35,7 +36,31 @@
                 <a class="nav-link text-secondary" href="#">{{ 'navbar.features'|trans }}</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-link nav-link text-secondary" href="{{ path('fos_user_security_login') }}">{{ 'navbar.login'|trans }}</a>
+                {% if app.user %}
+                    <div class="dropdown" id="user-dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-user pr-2"></i>
+                            {{ app.user.username }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list-ul pr-2"></i>
+                                {{ 'navbar.logged_user.my_bookmarks'|trans }}
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-edit pr-2"></i>
+                                {{ 'navbar.logged_user.edit_profile'|trans }}
+                            </a>
+                            <a class="dropdown-item" href="#" @click="closeSession()">
+                                <i class="fas fa-power-off pr-2"></i>
+                                {{ 'navbar.logged_user.logout'|trans }}
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="btn btn-link nav-link text-secondary"
+                       href="{{ path('fos_user_security_login') }}">{{ 'navbar.login'|trans }}</a>
+                {% endif %}
             </li>
         </ul>
     </div>
