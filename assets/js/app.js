@@ -21,7 +21,6 @@ function currentYPosition() {
     return 0;
 }
 
-
 function elmYPosition(eID) {
     let elm = document.getElementById(eID);
     let y = elm.offsetTop;
@@ -33,12 +32,25 @@ function elmYPosition(eID) {
     return y;
 }
 
-
 function smoothScroll(id) {
     $('html, body').animate({ scrollTop: $('#' + id).offset().top }, 'slow');
     return false
 }
 
+const Cookies = {
+    isAccepted: function () {
+        return document.cookie === 'accepted=true';
+
+    },
+    acceptCookies: function () {
+        document.cookie = 'accepted=true';
+    },
+    refuseCookies: function () {
+        document.cookie = 'accepted=false';
+    }
+};
+
 window.currentYPosition = currentYPosition;
 window.elmYPosition = elmYPosition;
 window.smoothScroll = smoothScroll;
+window.Cookies = Cookies;
