@@ -31,15 +31,15 @@
         </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" id="links-list">
             <li class="nav-item">
-                <a class="nav-link text-secondary" href="#features">{{ 'navbar.features'|trans }}</a>
+                <a class="nav-link text-secondary" href="#features" @click="scrollToFeatures()">{{ 'navbar.features'|trans }}</a>
             </li>
             <li class="nav-item text-secondary pl-1 pr-1">
                 <span class="baseline-middle">|</span>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-secondary" href="#contact">{{ 'navbar.contact'|trans }}</a>
+                <a class="nav-link text-secondary" href="#contact" @click="scrollToContact()">{{ 'navbar.contact'|trans }}</a>
             </li>
             <li class="nav-item text-secondary pl-1 pr-1">
                 <span class="baseline-middle">|</span>
@@ -54,7 +54,7 @@
             {% endif %}
             <li class="nav-item">
                 {% if app.user %}
-                    <div class="dropdown" id="user-dropdown">
+                    <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle text-secondary" data-toggle="dropdown">
                             <i class="fas fa-user pr-2"></i>
                             {{ app.user.username }}

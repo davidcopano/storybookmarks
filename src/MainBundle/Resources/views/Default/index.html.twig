@@ -140,7 +140,6 @@
         });
 
         let $userDropdown = document.getElementById('user-dropdown');
-
         if($userDropdown) {
             const userDropdown = new Vue({
                 el: '#user-dropdown',
@@ -164,5 +163,33 @@
                 }
             })
         }
+
+        const linksList = new Vue({
+            el: '#links-list',
+            methods: {
+                scrollToFeatures: function () {
+                    smoothScroll('features');
+                },
+                scrollToContact: function () {
+                    smoothScroll('contact');
+                },
+                closeSession: function () {
+                    swal({
+                        title: '{{ 'navbar.logged_user.logout.title'|trans }}',
+                        text: '{{ 'navbar.logged_user.logout.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
+                        cancelButtonColor: '#247ba0',
+                        confirmButtonColor: '#ff1654',
+                        confirmButtonText: '{{ 'navbar.logged_user.logout.title'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace('{{ path('fos_user_security_logout') }}')
+                        }
+                    })
+                }
+            }
+        })
     </script>
 {% endblock %}
