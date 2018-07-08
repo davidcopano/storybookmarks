@@ -39,14 +39,13 @@ function smoothScroll(id) {
 
 const Cookies = {
     isAccepted: function () {
-        return document.cookie === 'accepted=true';
-
+        return !!localStorage.acceptedCookies;
     },
     acceptCookies: function () {
-        document.cookie = 'accepted=true';
+        localStorage.acceptedCookies = true;
     },
     refuseCookies: function () {
-        document.cookie = 'accepted=false';
+        localStorage.acceptedCookies = false;
     }
 };
 
