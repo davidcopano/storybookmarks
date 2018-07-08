@@ -12,3 +12,8 @@
   transform: rotate(180deg);
   vertical-align: middle;
 }
+
+.baseline-middle {
+  vertical-align: -moz-middle-with-baseline;
+  vertical-align: -webkit-baseline-middle;
+}

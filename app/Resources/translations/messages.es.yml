@@ -9,6 +9,7 @@ generics:
 navbar:
   show_github: Ver proyecto en GitHub
   features: Características
+  contact: Contacto
   login: Iniciar sesión
   lang: Idioma
   logged_user:
