@@ -74,11 +74,16 @@ class Bookmark
      */
     private $createdAt;
 
+    /**
+     * @var Folder
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Folder", inversedBy="bookmarks")
+     */
+    private $folder;
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**

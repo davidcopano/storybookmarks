@@ -37,12 +37,19 @@ class User extends BaseUser
      */
     private $tags;
 
+    /**
+     * @var Folder
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Folder", mappedBy="user")
+     */
+    private $folders;
+
     public function __construct()
     {
         parent::__construct();
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime('now');
         $this->bookmarks = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->folders = new ArrayCollection();
     }
 
     /**
@@ -118,6 +125,36 @@ class User extends BaseUser
     public function removeTag(Tag $tag)
     {
         if($this->tags->removeElement($tag)) {
+            return $this;
+        }
+        return false;
+    }
+
+    /**
+     * @return Folder
+     */
+    public function getFolders()
+    {
+        return $this->folders;
+    }
+
+    /**
+     * @param Folder $folder
+     * @return $this
+     */
+    public function addFolder(Folder $folder)
+    {
+        $this->folders->add($folder);
+        return $this;
+    }
+
+    /**
+     * @param Folder $folder
+     * @return $this|bool
+     */
+    public function removeFolder(Folder $folder)
+    {
+        if($this->folders->removeElement($folder)) {
             return $this;
         }
         return false;
