@@ -243,5 +243,23 @@ class Bookmark
     {
         return $this->createdAt;
     }
+
+    /**
+     * @return Folder
+     */
+    public function getFolder()
+    {
+        return $this->folder;
+    }
+
+    /**
+     * @param Folder $folder
+     * @return Bookmark
+     */
+    public function setFolder($folder)
+    {
+        $this->folder = $folder;
+        return $this;
+    }
 }
 
