@@ -8,13 +8,12 @@ body.login {
 }
 
 .login .brand {
-  width: 90px;
-  height: 90px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin: 0 auto;
   margin: 40px auto;
-  box-shadow: 0 0 40px rgba(0,0,0,.05);
+  h1 {
+    a:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .login .brand img {
