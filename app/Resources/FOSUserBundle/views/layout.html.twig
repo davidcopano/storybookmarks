@@ -15,7 +15,10 @@
     {% if app.request.hasPreviousSession %}
         {% for type, messages in app.session.flashbag.all() %}
             {% for message in messages %}
-                <div class="flash-{{ type }}">
+                <div class="alert alert-{{ type }} alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="fas fa-times"></i>
+                    </button>
                     {{ message }}
                 </div>
             {% endfor %}

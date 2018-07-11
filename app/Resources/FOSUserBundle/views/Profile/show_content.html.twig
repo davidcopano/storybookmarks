@@ -1,6 +1,52 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
+<section class="h-100" id="profile-show">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    <img src="http://via.placeholder.com/350x150">
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ user.username }}</h4>
+                        <p class="text-center">
+                            <i class="fas fa-envelope pr-1"></i> {{ user.email }}
+                        </p>
+                        <a href="{{ path('fos_user_profile_edit') }}" class="float-left">{{ 'profile.edit.submit'|trans }}</a>
+                        <a href="#" @click="closeSession()" class="float-right">{{ 'layout.logout'|trans }}</a>
+                    </div>
+                </div>
+                <div class="footer">
+                    <span class="copyleft">&copy;</span> {{ 'now'|date('Y') }} - storybookmarks
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const profileShow = new Vue({
+            el: '#profile-show',
+            methods: {
+                closeSession: function () {
+                    swal({
+                        title: '{{ 'navbar.logged_user.logout.title'|trans }}',
+                        text: '{{ 'navbar.logged_user.logout.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
+                        cancelButtonColor: '#247ba0',
+                        confirmButtonColor: '#ff1654',
+                        confirmButtonText: '{{ 'navbar.logged_user.logout.title'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace('{{ path('fos_user_security_logout') }}')
+                        }
+                    })
+                }
+            }
+        })
+    })
+</script>

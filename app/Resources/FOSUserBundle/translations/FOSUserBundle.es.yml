@@ -88,3 +88,12 @@ form:
     new_password: 'Nueva contraseña'
     new_password_confirmation: 'Repita la contraseña'
     forgot_password: '¿Olvidaste tu contraseña?'
+
+navbar:
+  logged_user:
+    my_bookmarks: Ir a Mis marcadores
+    edit_profile: Editar mi perfil
+    logout:
+      title: Cerrar sesión
+      text: ¿Estás seguro de que deseas cerrar sesión?
+      cancel: Cancelar

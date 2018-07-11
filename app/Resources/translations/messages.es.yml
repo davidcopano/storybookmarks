@@ -5,6 +5,7 @@ generics:
   register: Registro
   profile:
     edit: Editar perfil
+    show: Ver perfil
 # -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub

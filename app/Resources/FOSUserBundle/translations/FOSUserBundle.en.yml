@@ -93,3 +93,12 @@ form:
     new_password: 'New password'
     new_password_confirmation: 'Repeat new password'
     forgot_password: 'Forgot password?'
+
+navbar:
+  logged_user:
+    my_bookmarks: Go to My bookmarks
+    edit_profile: Edit my profile
+    logout:
+      title: Log out
+      text: Are you sure you want to log out?
+      cancel: Cancel
