@@ -15,6 +15,7 @@ navbar:
   lang: Idioma
   logged_user:
     my_bookmarks: Ir a Mis marcadores
+    show_profile: Ver mi perfil
     edit_profile: Editar mi perfil
     logout:
       title: Cerrar sesión

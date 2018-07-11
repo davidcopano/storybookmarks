@@ -15,6 +15,7 @@ navbar:
   lang: Language
   logged_user:
     my_bookmarks: Go to My bookmarks
+    show_profile: Show my profile
     edit_profile: Edit my profile
     logout:
       title: Log out

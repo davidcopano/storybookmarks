@@ -64,8 +64,12 @@
                                 <i class="fas fa-list-ul pr-2"></i>
                                 {{ 'navbar.logged_user.my_bookmarks'|trans }}
                             </a>
+                            <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">
+                                <i class="fas fa-user-circle pr-2"></i>
+                                {{ 'navbar.logged_user.show_profile'|trans }}
+                            </a>
                             <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">
-                                <i class="fas fa-user-edit pr-2"></i>
+                                <i class="fas fa-user-edit pr-1"></i>
                                 {{ 'navbar.logged_user.edit_profile'|trans }}
                             </a>
                             <a class="dropdown-item" href="#" @click="closeSession()">
