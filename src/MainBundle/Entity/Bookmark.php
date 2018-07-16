@@ -41,9 +41,9 @@ class Bookmark
     /**
      * @var string
      *
-     * @ORM\Column(name="favicon_url", type="string", length=255)
+     * @ORM\Column(name="color", type="string", length=255)
      */
-    private $faviconUrl;
+    private $color;
 
     /**
      * @var string
@@ -143,29 +143,6 @@ class Bookmark
     }
 
     /**
-     * Set faviconUrl
-     *
-     * @param string $faviconUrl
-     *
-     * @return Bookmark
-     */
-    public function setFaviconUrl($faviconUrl)
-    {
-        $this->faviconUrl = $faviconUrl;
-        return $this;
-    }
-
-    /**
-     * Get faviconUrl
-     *
-     * @return string
-     */
-    public function getFaviconUrl()
-    {
-        return $this->faviconUrl;
-    }
-
-    /**
      * Set note
      *
      * @param string $note
@@ -259,6 +236,24 @@ class Bookmark
     public function setFolder($folder)
     {
         $this->folder = $folder;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     * @return Bookmark
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
         return $this;
     }
 }
