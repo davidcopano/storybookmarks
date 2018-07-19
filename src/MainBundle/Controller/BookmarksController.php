@@ -29,7 +29,7 @@ class BookmarksController extends Controller
 
         $bookmarks = $this->getUser()->getBookmarks();
 
-        return new Response('<h1>bookmarks</h1>');
+        return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks]);
     }
 
     /**

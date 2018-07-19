@@ -68,3 +68,7 @@ fos_user:
     from_email:
         address: "fake@yopmail.com"
         sender_name: "Storybookmarks"
+
+knp_menu:
+    twig:
+        template: MainBundle:Menu:knp_menu.html.twig

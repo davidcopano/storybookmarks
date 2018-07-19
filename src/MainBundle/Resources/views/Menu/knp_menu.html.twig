@@ -1,0 +1,6 @@
+<div class="sidenav">
+    <h1></h1>
+    {% for menu_item in item %}
+        <a href="{{ menu_item.uri }}">{{ menu_item.name }}</a>
+    {% endfor %}
+</div>

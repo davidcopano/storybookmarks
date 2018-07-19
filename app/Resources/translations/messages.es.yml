@@ -56,3 +56,11 @@ index:
           text: Inténtalo de nuevo más tarde
       success:
         title: Formulario enviado con éxito
+# -------------------------------
+menu:
+  my_panel: Mi panel
+  new: Nuevo
+  items:
+    bookmarks: Marcadores
+    folders: Carpetas
+    tags: Etiquetas

@@ -56,3 +56,11 @@ index:
           text: Try again later
       success:
         title: Form sent successfully
+# -------------------------------
+menu:
+  my_panel: My panel
+  new: New
+  items:
+    bookmarks: Bookmarks
+    folders: Folders
+    tags: Tags
