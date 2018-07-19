@@ -19,9 +19,9 @@ class Builder implements ContainerAwareInterface
         $tags = $translator->trans('menu.items.tags');
 
         $menu = $factory->createItem('root');
-        $menu->addChild($bookmarks, ['route' => 'bookmarks_list']);
-        $menu->addChild($folders, ['route' => 'folders_list']);
-        $menu->addChild($tags, ['route' => 'tags_list']);
+        $menu->addChild($bookmarks, ['route' => 'bookmarks_list', 'extras' => ['icon' => 'fas fa-star']]);
+        $menu->addChild($folders, ['route' => 'folders_list', 'extras' => ['icon' => 'fas fa-folder']]);
+        $menu->addChild($tags, ['route' => 'tags_list', 'extras' => ['icon' => 'fas fa-tag']]);
 
         return $menu;
     }

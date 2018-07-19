@@ -1,6 +1,12 @@
 <div class="sidenav">
-    <h1></h1>
-    {% for menu_item in item %}
-        <a href="{{ menu_item.uri }}">{{ menu_item.name }}</a>
-    {% endfor %}
+    <h1 class="text-center text-secondary mt-2 mb-0">{{ 'menu.my_panel'|trans }}</h1>
+    <a href="{{ path('index', { '_locale': app.request.locale }) }}" class="text-light text-right mr-2 index-link">storybookmarks</a>
+    <div class="sidenav-links mt-4">
+        {% for menu_item in item %}
+            <a href="{{ menu_item.uri }}" class="text-secondary mt-2">
+                <i class="{{ menu_item.extras.icon }} pr-3"></i>
+                {{ menu_item.name }}
+            </a>
+        {% endfor %}
+    </div>
 </div>
