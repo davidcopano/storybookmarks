@@ -1,6 +1,17 @@
 <div class="sidenav">
     <h1 class="text-center text-secondary mt-2 mb-0">{{ 'menu.my_panel'|trans }}</h1>
     <a href="{{ path('index', { '_locale': app.request.locale }) }}" class="text-light text-right mr-2 index-link">storybookmarks</a>
+    <hr>
+    <div class="dropdown text-center new-dropdown">
+        <button type="button" class="btn btn-secondary dropdown-toggle ml-3 mt-3" data-toggle="dropdown">
+            {{ 'menu.new.text'|trans }}
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ path('bookmarks_new') }}">{{ 'menu.new.bookmark'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('folders_new') }}">{{ 'menu.new.folder'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('tags_new') }}">{{ 'menu.new.tag'|trans}}</a>
+        </div>
+    </div>
     <div class="sidenav-links mt-4">
         {% for menu_item in item %}
             <a href="{{ menu_item.uri }}" class="text-secondary mt-2">

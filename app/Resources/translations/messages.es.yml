@@ -59,7 +59,11 @@ index:
 # -------------------------------
 menu:
   my_panel: Mi panel
-  new: Nuevo
+  new:
+    text: Nuevo
+    bookmark: Marcador
+    folder: Carpeta
+    tag: Etiqueta
   items:
     bookmarks: Marcadores
     folders: Carpetas

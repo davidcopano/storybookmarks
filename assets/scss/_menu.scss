@@ -8,6 +8,11 @@
   background-color: map_get($custom_colors, primary);
   overflow-x: hidden;
   padding-top: 20px;
+  .new-dropdown {
+    a {
+      font-size: 16px;
+    }
+  }
   a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
