@@ -68,3 +68,6 @@ menu:
     bookmarks: Marcadores
     folders: Carpetas
     tags: Etiquetas
+# -------------------------------
+search:
+  text: Buscar (marcadores, carpetas...)

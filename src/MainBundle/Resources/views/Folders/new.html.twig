@@ -5,6 +5,7 @@
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">
+        {{ include('MainBundle:Search:search.list.twig') }}
         <h1>folders nuevo - desde twig</h1>
     </div>
 {% endblock %}
