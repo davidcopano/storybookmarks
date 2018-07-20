@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
+{% block title %}storybookmarks - {{ 'menu.items.folders'|trans }}{% endblock %}
 
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">
-        <h1>bookmarks - desde twig</h1>
+        <h1>folders - desde twig</h1>
     </div>
 {% endblock %}

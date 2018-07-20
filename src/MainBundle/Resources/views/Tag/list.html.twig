@@ -1,7 +1,10 @@
-{% extends "::base.html.twig" %}
+{% extends '::base.html.twig' %}
 
-{% block title %}MainBundle:Tag:list{% endblock %}
+{% block title %}storybookmarks - {{ 'menu.items.tags'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Tag:list page</h1>
+    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    <div class="main">
+        <h1>tags - desde twig</h1>
+    </div>
 {% endblock %}

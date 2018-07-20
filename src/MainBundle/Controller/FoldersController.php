@@ -29,7 +29,7 @@ class FoldersController extends Controller
 
         $folders = $this->getUser()->getFolders();
 
-        return new Response('<h1>folders</h1>');
+        return $this->render('MainBundle:Folders:list.html.twig', ['folders' => $folders]);
     }
 
     /**
@@ -43,7 +43,7 @@ class FoldersController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>folders - new</h1>');
+        return $this->render('MainBundle:Folders:new.html.twig');
     }
 
     /**

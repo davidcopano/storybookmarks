@@ -43,7 +43,7 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>bookmarks - new</h1>');
+        return $this->render('MainBundle:Bookmarks:new.html.twig');
     }
 
     /**

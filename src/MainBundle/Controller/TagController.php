@@ -25,7 +25,9 @@ class TagController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>tag</h1>');
+        $tags = $this->getUser()->getTags();
+
+        return $this->render('MainBundle:Tag:list.html.twig', ['tags' => $tags]);
     }
 
     /**
@@ -39,7 +41,7 @@ class TagController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>tag - new</h1>');
+        return $this->render('MainBundle:Tag:new.html.twig');
     }
 
     /**
