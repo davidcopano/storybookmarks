@@ -77,3 +77,4 @@ new_bookmark:
     note: Note (optional)
     tags: Tags
     folder: Folder
+  success: Bookmarks saved successfully

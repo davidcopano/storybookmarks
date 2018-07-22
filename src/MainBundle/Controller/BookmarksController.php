@@ -49,6 +49,18 @@ class BookmarksController extends Controller
         $bookmark->setUser($this->getUser());
 
         $form = $this->createForm(BookmarkType::class, $bookmark);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($bookmark);
+            $em->flush();
+
+            $translator = $this->get('translator');
+            $this->addFlash('success', $translator->trans('new_bookmark.success'));
+
+            return $this->redirectToRoute('bookmarks_list');
+        }
 
         return $this->render('MainBundle:Bookmarks:new.html.twig', ['form' => $form->createView()]);
     }

@@ -9,6 +9,14 @@
             {{ include('MainBundle:Search:search.list.twig') }}
             {{ include('MainBundle:UserDropdown:user.html.twig') }}
         </div>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="fas fa-times"></i>
+                </button>
+                {{ message }}
+            </div>
+        {% endfor %}
         <h1>bookmarks - desde twig</h1>
     </div>
 {% endblock %}

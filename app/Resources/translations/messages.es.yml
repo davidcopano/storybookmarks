@@ -81,3 +81,4 @@ new_bookmark:
     note: Nota (opcional)
     tags: Etiquetas
     folder: Carpeta
+  success: El marcador se ha guardado con éxito
