@@ -5,7 +5,10 @@
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">
-        {{ include('MainBundle:Search:search.list.twig') }}
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
         <h1>folders - desde twig</h1>
     </div>
 {% endblock %}

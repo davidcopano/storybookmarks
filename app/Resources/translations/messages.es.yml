@@ -71,3 +71,13 @@ menu:
 # -------------------------------
 search:
   text: Buscar (marcadores, carpetas...)
+# -------------------------------
+new_bookmark:
+  text: Nuevo marcador
+  fields:
+    title: Título
+    url: URL
+    color: Color para diferenciar tu marcador (opcional)
+    note: Nota (opcional)
+    tags: Etiquetas
+    folder: Carpeta

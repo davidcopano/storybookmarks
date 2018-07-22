@@ -67,3 +67,13 @@ menu:
 # -------------------------------
 search:
   text: Search (bookmarks, folders...)
+# -------------------------------
+new_bookmark:
+  text: New bookmark
+  fields:
+    title: Title
+    url: URL
+    color: Color to differentiate your bookmark (optional)
+    note: Note (optional)
+    tags: Tags
+    folder: Folder

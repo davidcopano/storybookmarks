@@ -5,7 +5,41 @@
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">
-        {{ include('MainBundle:Search:search.list.twig') }}
-        <h1>bookmarks nuevo - desde twig</h1>
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
+        <h1 class="text-center">{{ 'new_bookmark.text'|trans }}</h1>
+        <div class="form-container container">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.title, 'new_bookmark.fields.title'|trans) }}
+                {{ form_widget(form.title, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.url, 'new_bookmark.fields.url'|trans) }}
+                {{ form_widget(form.url, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.color, 'new_bookmark.fields.color'|trans) }}
+                {{ form_widget(form.color, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.note, 'new_bookmark.fields.note'|trans) }}
+                {{ form_widget(form.note, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.tags, 'new_bookmark.fields.tags'|trans) }}
+                {{ form_widget(form.tags, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.folder, 'new_bookmark.fields.folder'|trans) }}
+                {{ form_widget(form.folder, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

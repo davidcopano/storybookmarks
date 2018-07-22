@@ -3,6 +3,8 @@
 namespace MainBundle\Controller;
 
 use Doctrine\Common\Util\Debug;
+use MainBundle\Entity\Bookmark;
+use MainBundle\Form\BookmarkType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -43,7 +45,12 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return $this->render('MainBundle:Bookmarks:new.html.twig');
+        $bookmark = new Bookmark();
+        $bookmark->setUser($this->getUser());
+
+        $form = $this->createForm(BookmarkType::class, $bookmark);
+
+        return $this->render('MainBundle:Bookmarks:new.html.twig', ['form' => $form->createView()]);
     }
 
     /**

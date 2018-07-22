@@ -4,9 +4,9 @@
             <i class="fas fa-user-circle vertical-align-middle"></i> {{ app.user.username }}
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Link 1</a>
-            <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="#">Link 3</a>
+            <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">{{ 'generics.profile.show'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">{{ 'generics.profile.edit'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ 'navbar.logged_user.logout.title'|trans }}</a>
         </div>
     </div>
 </div>
