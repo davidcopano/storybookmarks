@@ -72,6 +72,9 @@ menu:
 search:
   text: Buscar (marcadores, carpetas...)
 # -------------------------------
+bookmarks:
+  show_details: Ver detalles del marcador
+# -------------------------------
 new_bookmark:
   text: Nuevo marcador
   fields:

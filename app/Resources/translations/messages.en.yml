@@ -68,6 +68,9 @@ menu:
 search:
   text: Search (bookmarks, folders...)
 # -------------------------------
+bookmarks:
+  show_details: Show bookmark details
+# -------------------------------
 new_bookmark:
   text: New bookmark
   fields:
