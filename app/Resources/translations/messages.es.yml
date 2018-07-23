@@ -96,3 +96,10 @@ new_folder:
     name: Nombre
     color: Color (opcional)
   success: La carpeta se ha guardado con éxito
+# -------------------------------
+new_tag:
+  text: Nueva etiqueta
+  fields:
+    title: Título
+    color: Color
+  success: La etiqueta se ha guardado con éxito

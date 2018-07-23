@@ -22,7 +22,7 @@
             {% for bookmark in bookmarks %}
                 <div class="card col-md-4" {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                     <div class="card-body">
-                        <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right" title="{{ 'bookmarks.show_details'|trans }}"><i class="far fa-eye"></i></a></h4>
+                        <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right" {% if bookmark.color is not null %}style="color: {{ bookmark.color }}"{% endif %} title="{{ 'bookmarks.show_details'|trans }}"><i class="far fa-eye"></i></a></h4>
                         <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
                     </div>
                 </div>

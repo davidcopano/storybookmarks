@@ -2,6 +2,8 @@
 
 namespace MainBundle\Controller;
 
+use MainBundle\Entity\Tag;
+use MainBundle\Form\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +43,24 @@ class TagController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return $this->render('MainBundle:Tag:new.html.twig');
+        $tag = new Tag();
+        $tag->setUser($this->getUser());
+
+        $form = $this->createForm(TagType::class, $tag);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($tag);
+            $em->flush();
+
+            $translator = $this->get('translator');
+            $this->addFlash('success', $translator->trans('new_tag.success'));
+
+            return $this->redirectToRoute('tags_list');
+        }
+
+        return $this->render('MainBundle:Tag:new.html.twig', ['form' => $form->createView()]);
     }
 
     /**

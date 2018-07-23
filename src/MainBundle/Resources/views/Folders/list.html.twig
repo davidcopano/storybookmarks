@@ -18,14 +18,14 @@
             </div>
         {% endfor %}
         <h1 class="ml-3">{{ 'menu.items.folders'|trans }}</h1>
-        <div class="row container bookmarks-container mt-4">
+        <div class="row container folders-container mt-4">
             {% for folder in folders %}
-                <div class="card col-md-4" {% if folder.color is not null %}style="border: 1px solid {{ folder.color }}"{% endif %}>
+                <div class="card col-md-4 mr-3" {% if folder.color is not null %}style="border: 1px solid {{ folder.color }}"{% endif %}>
                     <div class="card-body">
                         <h4 class="card-title">
                             <i class="fas fa-folder pr-2" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}></i>
                             {{ folder.name }}
-                            <a href="http://google.com" class="float-right">
+                            <a href="http://google.com" class="float-right" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}>
                                 <i class="far fa-eye"></i>
                             </a>
                         </h4>

@@ -92,3 +92,10 @@ new_folder:
     name: Name
     color: Color (optional)
   success: Folder saved successfully
+# -------------------------------
+new_tag:
+  text: New tag
+  fields:
+    title: Title
+    color: Color
+  success: Tag saved successfully

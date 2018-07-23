@@ -52,6 +52,11 @@ class Tag
         $this->createdAt = new \DateTime();
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     /**
      * Get id
      *
