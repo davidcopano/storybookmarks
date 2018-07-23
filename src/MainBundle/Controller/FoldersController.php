@@ -3,6 +3,8 @@
 namespace MainBundle\Controller;
 
 use Doctrine\Common\Util\Debug;
+use MainBundle\Entity\Folder;
+use MainBundle\Form\FolderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -43,7 +45,24 @@ class FoldersController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return $this->render('MainBundle:Folders:new.html.twig');
+        $folder = new Folder();
+        $folder->setUser($this->getUser());
+
+        $form = $this->createForm(FolderType::class, $folder);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($folder);
+            $em->flush();
+
+            $translator = $this->get('translator');
+            $this->addFlash('success', $translator->trans('new_folder.success'));
+
+            return $this->redirectToRoute('folders_list');
+        }
+
+        return $this->render('MainBundle:Folders:new.html.twig', ['form' => $form->createView()]);
     }
 
     /**

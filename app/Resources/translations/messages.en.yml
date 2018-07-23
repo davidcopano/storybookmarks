@@ -71,6 +71,10 @@ search:
 bookmarks:
   show_details: Show bookmark details
 # -------------------------------
+folders:
+  bookmarks_length: '%bookmark_length% bookmark/s'
+  no_bookmarks: This folder does not contain any bookmarks
+# -------------------------------
 new_bookmark:
   text: New bookmark
   fields:
@@ -81,3 +85,10 @@ new_bookmark:
     tags: Tags
     folder: Folder
   success: Bookmarks saved successfully
+# -------------------------------
+new_folder:
+  text: New folder
+  fields:
+    name: Name
+    color: Color (optional)
+  success: Folder saved successfully

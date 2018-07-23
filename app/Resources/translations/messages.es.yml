@@ -75,6 +75,10 @@ search:
 bookmarks:
   show_details: Ver detalles del marcador
 # -------------------------------
+folders:
+  bookmarks_length: '%bookmark_length% marcador/es'
+  no_bookmarks: Esta carpeta no contiene ningún marcador
+# -------------------------------
 new_bookmark:
   text: Nuevo marcador
   fields:
@@ -85,3 +89,10 @@ new_bookmark:
     tags: Etiquetas
     folder: Carpeta
   success: El marcador se ha guardado con éxito
+# -------------------------------
+new_folder:
+  text: Nueva carpeta
+  fields:
+    name: Nombre
+    color: Color (opcional)
+  success: La carpeta se ha guardado con éxito
