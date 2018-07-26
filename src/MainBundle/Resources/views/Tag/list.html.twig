@@ -18,13 +18,19 @@
             </div>
         {% endfor %}
         <h1 class="ml-3">{{ 'menu.items.tags'|trans }}</h1>
-        <div class="row container tags-container mt-4">
-            {% for tag in tags %}
-                <a class="chip mr-3" {% if tag.color is not null %}style="border: 1px solid {{ tag.color }}; color: {{ tag.color }}"{% endif %} href="http://google.com">
-                    <i class="fas fa-tag pr-1 vertical-align-middle"></i>
-                    {{ tag.title }}
-                </a>
-            {% endfor %}
-        </div>
+        {% if tags|length > 0 %}
+            <div class="row container tags-container mt-4">
+                {% for tag in tags %}
+                    <a class="chip mr-3"
+                       {% if tag.color is not null %}style="border: 1px solid {{ tag.color }}; color: {{ tag.color }}"{% endif %}
+                       href="http://google.com">
+                        <i class="fas fa-tag pr-1 vertical-align-middle"></i>
+                        {{ tag.title }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="text-center mt-4">{{ 'tags.without'|trans }}</h3>
+        {% endif %}
     </div>
 {% endblock %}

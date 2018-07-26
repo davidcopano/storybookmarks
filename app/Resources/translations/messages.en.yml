@@ -70,10 +70,15 @@ search:
 # -------------------------------
 bookmarks:
   show_details: Show bookmark details
+  without: You don't have any bookmarks saved at the moment
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% bookmark/s'
+  without: You don't have any folders saved at the moment
   no_bookmarks: This folder does not contain any bookmarks
+# -------------------------------
+tags:
+  without: No tienes ninguna etiqueta guardada por ahora
 # -------------------------------
 new_bookmark:
   text: New bookmark

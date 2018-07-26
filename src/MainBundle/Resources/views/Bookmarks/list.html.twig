@@ -18,15 +18,23 @@
             </div>
         {% endfor %}
         <h1 class="ml-3">{{ 'menu.items.bookmarks'|trans }}</h1>
-        <div class="row container bookmarks-container mt-4">
-            {% for bookmark in bookmarks %}
-                <div class="card col-md-4" {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right" {% if bookmark.color is not null %}style="color: {{ bookmark.color }}"{% endif %} title="{{ 'bookmarks.show_details'|trans }}"><i class="far fa-eye"></i></a></h4>
-                        <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+        {% if bookmarks|length > 0 %}
+            <div class="row container bookmarks-container mt-4">
+                {% for bookmark in bookmarks %}
+                    <div class="card col-md-4"
+                         {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right"
+                                                                           {% if bookmark.color is not null %}style="color: {{ bookmark.color }}"{% endif %}
+                                                                           title="{{ 'bookmarks.show_details'|trans }}"><i
+                                            class="far fa-eye"></i></a></h4>
+                            <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="text-center mt-4">{{ 'bookmarks.without'|trans }}</h3>
+        {% endif %}
     </div>
 {% endblock %}

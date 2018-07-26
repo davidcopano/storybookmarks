@@ -1,0 +1,78 @@
+html.register-confirmed, body.register-confirmed {
+  height: 100%;
+}
+
+body.register-confirmed {
+  background-color: #f7f9fb;
+  font-size: 14px;
+}
+
+.register-confirmed .brand {
+  margin: 40px auto;
+  h1 {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.register-confirmed .brand img {
+  width: 100%;
+}
+
+.register-confirmed .card-wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.register-confirmed .card {
+  border-color: transparent;
+  box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+.register-confirmed .card.fat {
+  padding: 10px;
+}
+
+.register-confirmed .form-control {
+  border-width: 2.3px;
+}
+
+.register-confirmed .form-group label {
+  width: 100%;
+}
+
+.register-confirmed .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.register-confirmed .margin-top20 {
+  margin-top: 20px;
+}
+
+.register-confirmed .no-margin {
+  margin: 0;
+}
+
+.register-confirmed .footer {
+  margin: 40px 0;
+  color: #888;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .register-confirmed .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .register-confirmed .card.fat {
+    padding: 0;
+  }
+
+  .register-confirmed .card.fat .card-body {
+    padding: 15px;
+  }
+}

@@ -67,15 +67,16 @@ class BookmarksController extends Controller
 
     /**
      * @param Request $request
+     * @param Bookmark $bookmark
      * @return Response
-     * @Route("/edit", name="bookmarks_edit")
+     * @Route("/edit/{id}", name="bookmarks_edit")
      */
-    public function editAction(Request $request)
+    public function editAction(Request $request, Bookmark $bookmark)
     {
         if(!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>bookmarks - edit</h1>');
+        return $this->render('MainBundle:Bookmarks:edit.html.twig', ['bookmark' => $bookmark]);
     }
 }

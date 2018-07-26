@@ -2,8 +2,47 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block html_class %}register-confirmed{% endblock %}
+
+{% block body_class %}register-confirmed{% endblock %}
+
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100">
+                <div class="card-wrapper">
+                    <div class="brand">
+                        <h1 class="text-center text-primary">
+                            <a href="{{ path('root') }}">storybookmarks</a>
+                        </h1>
+                    </div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <div class="alert alert-success">
+                                    {{ 'registration.confirmed'|trans({'%username%': user.username}) }}
+                                </div>
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{ path('index', {'_locale': app.request.locale}) }}"><i class="fas fa-arrow-circle-left pr-2"></i>{{ 'registration.back'|trans }}</a>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right">
+                                    <a href="{{ path('bookmarks_list') }}"><i class="fas fa-list-ul pr-2"></i>{{ 'navbar.logged_user.my_bookmarks'|trans }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <span class="copyleft">&copy;</span> {{ 'now'|date('Y') }} - storybookmarks
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {#<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>#}
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}

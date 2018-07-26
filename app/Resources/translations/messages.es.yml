@@ -74,10 +74,15 @@ search:
 # -------------------------------
 bookmarks:
   show_details: Ver detalles del marcador
+  without: No tienes ningún marcador guardado por ahora
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% marcador/es'
+  without: No tienes ninguna carpeta guardada por ahora
   no_bookmarks: Esta carpeta no contiene ningún marcador
+# -------------------------------
+tags:
+  without: No tienes ninguna etiqueta guardada por ahora
 # -------------------------------
 new_bookmark:
   text: Nuevo marcador

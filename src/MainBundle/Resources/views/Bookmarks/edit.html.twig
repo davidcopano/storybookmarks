@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
+
+{% block body %}
+    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    <div class="main">
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
+        <h1 class="text-center">{{ 'new_bookmark.text'|trans }}</h1>
+        {{ dump(bookmark) }}
+    </div>
+{% endblock %}
