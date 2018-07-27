@@ -2,6 +2,7 @@
 
 namespace MainBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,7 +22,7 @@ class BookmarkType extends AbstractType
                 ->add('url', UrlType::class, ['required' => true])
                 ->add('color', ColorType::class, ['required' => false])
                 ->add('note', TextareaType::class, ['required' => false])
-                ->add('tags')
+                ->add('tag', EntityType::class, ['class' => 'MainBundle\Entity\Tag', 'choices' => $options['data']['tags']])
                 ->add('folder');
     }/**
      * {@inheritdoc}

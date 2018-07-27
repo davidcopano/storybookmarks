@@ -60,13 +60,9 @@ class Bookmark
 
     /**
      * @var Tag
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag")
-     * @JoinTable(name="bookmarks_tags",
-     *      joinColumns={@JoinColumn(name="bookmark_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Tag", inversedBy="bookmark")
      */
-    private $tags;
+    private $tag;
 
     /**
      * @var \DateTime
@@ -82,7 +78,6 @@ class Bookmark
 
     public function __construct()
     {
-        $this->tags = new ArrayCollection();
         $this->createdAt = new \DateTime('now');
     }
 
@@ -184,36 +179,6 @@ class Bookmark
     }
 
     /**
-     * @return Tag
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param Tag $tag
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags->add($tag);
-        return $this;
-    }
-
-    /**
-     * @param Tag $tag
-     * @return $this|bool
-     */
-    public function removeTag(Tag $tag)
-    {
-        if($this->tags->removeElement($tag)) {
-            return $this;
-        }
-        return false;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -254,6 +219,24 @@ class Bookmark
     public function setColor($color)
     {
         $this->color = $color;
+        return $this;
+    }
+
+    /**
+     * @return Tag
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return Bookmark
+     */
+    public function setTag(Tag $tag)
+    {
+        $this->tag = $tag;
         return $this;
     }
 }

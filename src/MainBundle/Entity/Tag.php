@@ -47,6 +47,12 @@ class Tag
      */
     private $user;
 
+    /**
+     * @var Bookmark
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Bookmark", mappedBy="tag")
+     */
+    private $bookmark;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -137,6 +143,24 @@ class Tag
     public function setUser($user)
     {
         $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return Bookmark
+     */
+    public function getBookmark()
+    {
+        return $this->bookmark;
+    }
+
+    /**
+     * @param Bookmark $bookmark
+     * @return Tag
+     */
+    public function setBookmark($bookmark)
+    {
+        $this->bookmark = $bookmark;
         return $this;
     }
 }

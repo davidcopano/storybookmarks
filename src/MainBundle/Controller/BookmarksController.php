@@ -48,7 +48,7 @@ class BookmarksController extends Controller
         $bookmark = new Bookmark();
         $bookmark->setUser($this->getUser());
 
-        $form = $this->createForm(BookmarkType::class, $bookmark);
+        $form = $this->createForm(BookmarkType::class, $bookmark, ['data' => ['tags' => $this->getUser()->getTags()], 'data_class' => null]);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
