@@ -6,6 +6,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -25,7 +26,8 @@ class BookmarkType extends AbstractType
                 ->add('note', TextareaType::class, ['required' => false])
                 ->add('tag', EntityType::class, ['class' => 'MainBundle\Entity\Tag', 'required' => false, 'choices' => $options['data']['tags'], 'placeholder' => 'new_bookmark.fields.no_tag'])
                 ->add('folder', EntityType::class, ['class' => 'MainBundle\Entity\Folder', 'required' => false, 'choices' => $options['data']['folders'], 'placeholder' => 'new_bookmark.fields.no_folder'])
-                ->add('public', CheckboxType::class);
+                ->add('public', CheckboxType::class, ['required' => false, 'data' => false])
+                ->add('expirationDate', DateType::class, ['widget' => 'choice', 'format' => 'dd-MM-yyyy']);
     }/**
      * {@inheritdoc}
      */
