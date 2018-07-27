@@ -23,7 +23,7 @@
         {% if bookmarks|length > 0 %}
             <div class="row container bookmarks-container mt-4">
                 {% for bookmark in bookmarks %}
-                    <div class="card col-md-4"
+                    <div class="card col-md-4 mr-3"
                          {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                         <div class="card-body">
                             <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right"

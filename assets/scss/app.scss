@@ -27,6 +27,32 @@ $navbar-dark-toggler-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg viewBo
   background-color: #f1f1f1;
 }
 
+input.switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  width: 40px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #D9DADC;
+  border-radius: 50px;
+  -webkit-box-shadow: inset -20px 0px 0px 0px #D9DADC;
+  box-shadow: inset -20px 0px 0px 0px #D9DADC;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+input.switch:checked {
+  -webkit-box-shadow: inset 20px 0px 0px 1px #247ba0;
+  box-shadow: inset 20px 0px 0px 1px #247ba0;
+}
+
+input.switch::-ms-check {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+  filter: alpha(opacity=0); /* IE 5-7 */
+  opacity: 0;
+}
+
 @import '~bootstrap/scss/bootstrap';
 @import 'reset';
 @import 'menu';

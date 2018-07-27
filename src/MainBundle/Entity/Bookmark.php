@@ -76,6 +76,18 @@ class Bookmark
      */
     private $folder;
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="public", type="boolean", nullable=true)
+     */
+    private $public;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="expiration_date", type="datetime", nullable=true, options={"comment":"Expiration date if public bookmark"})
+     */
+    private $expirationDate;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
@@ -238,6 +250,47 @@ class Bookmark
     {
         $this->tag = $tag;
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublic()
+    {
+        return $this->public;
+    }
+
+    /**
+     * @param bool $public
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->expirationDate;
+    }
+
+    /**
+     * @param \DateTime $expirationDate
+     */
+    public function setExpirationDate($expirationDate)
+    {
+        $this->expirationDate = $expirationDate;
+    }
+
+    /**
+     * @return bool
+     * Check if actual bookmark is a valid public bookmark
+     */
+    public function checkValidPublic() {
+        $todayDatetime = new \DateTime();
+        return isset($this->public) && $todayDatetime > $this->getExpirationDate();
     }
 }
 

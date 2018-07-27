@@ -95,6 +95,7 @@ new_bookmark:
     no_tag: --- Dejar sin etiqueta ---
     folder: Carpeta (opcional)
     no_folder: --- Dejar sin carpeta ---
+    public: Crear este marcador como público
   success: El marcador se ha guardado con éxito
 # -------------------------------
 new_folder:
