@@ -7,7 +7,6 @@ use MainBundle\Entity\Bookmark;
 use MainBundle\Form\BookmarkType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,7 +24,7 @@ class BookmarksController extends Controller
      */
     public function listAction(Request $request)
     {
-        if(!$this->getUser()) {
+        if (!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
@@ -41,17 +40,29 @@ class BookmarksController extends Controller
      */
     public function newAction(Request $request)
     {
-        if(!$this->getUser()) {
+        if (!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
         $bookmark = new Bookmark();
         $bookmark->setUser($this->getUser());
 
-        $form = $this->createForm(BookmarkType::class, $bookmark, ['data' => ['tags' => $this->getUser()->getTags()], 'data_class' => null]);
+        $form = $this->createForm(BookmarkType::class, $bookmark, ['data' =>
+            ['tags' => $this->getUser()->getTags(), 'folders' => $this->getUser()->getFolders()],
+            'data_class' => null
+        ]);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            // debido a que tenemos a null el 'data_class',
+            // tenemos que rellenar los datos obtenidos a pelo en la nueva entidad
+            $bookmark->setTitle($form->all()['title']->getData())
+                    ->setUrl($form->all()['url']->getData())
+                    ->setColor($form->all()['color']->getData())
+                    ->setNote($form->all()['note']->getData())
+                    ->setTag($form->all()['tag']->getData())
+                    ->setFolder($form->all()['folder']->getData());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($bookmark);
             $em->flush();
@@ -73,7 +84,7 @@ class BookmarksController extends Controller
      */
     public function editAction(Request $request, Bookmark $bookmark)
     {
-        if(!$this->getUser()) {
+        if (!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 

@@ -10,11 +10,13 @@
             {{ include('MainBundle:UserDropdown:user.html.twig') }}
         </div>
         {% for message in app.flashes('success') %}
-            <div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">
-                    <i class="fas fa-times"></i>
-                </button>
-                {{ message }}
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    {{ message }}
+                </div>
             </div>
         {% endfor %}
         <h1 class="ml-3">{{ 'menu.items.bookmarks'|trans }}</h1>

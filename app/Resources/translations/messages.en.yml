@@ -87,8 +87,10 @@ new_bookmark:
     url: URL
     color: Color to differentiate your bookmark (optional)
     note: Note (optional)
-    tags: Tags
-    folder: Folder
+    tags: Tag (optional)
+    no_tag: --- Leave without tag ---
+    folder: Folder (optional)
+    no_folder: --- Leave without folder ---
   success: Bookmarks saved successfully
 # -------------------------------
 new_folder:
