@@ -40,6 +40,10 @@
                 {{ form_widget(form.public, { 'attr': { 'class': 'switch vertical-align-middle mr-2' } }) }}
                 {{ form_label(form.public, 'new_bookmark.fields.public'|trans, { 'attr': { 'class': 'form-check-label' } }) }}
             </div>
+            <div class="expiration-date form-group d-none">
+                {{ form_label(form.expirationDate, 'new_bookmark.fields.exp_date'|trans) }}
+                {{ form_widget(form.expirationDate) }}
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
             </div>
@@ -49,15 +53,33 @@
     <script>
         window.onload = () => {
             const publicBookmark = document.querySelector('#new-bookmark-form input[type="checkbox"]');
+            if(publicBookmark.checked) {
+                showExpirationDate();
+            }
             publicBookmark.addEventListener('change', (event) => {
                 let isChecked = event.target.checked;
+
                 if(isChecked) {
-                    alert('esta chequeado');
+                    showExpirationDate();
                 }
                 else {
-                    alert('NO lo está')
+                    hideExpirationDate();
                 }
             })
+        };
+
+        function showExpirationDate() {
+            const expirationDate = document.querySelector('.expiration-date');
+            if(expirationDate.classList.contains('d-none')) {
+                expirationDate.classList.remove('d-none');
+            }
+        }
+
+        function hideExpirationDate() {
+            const expirationDate = document.querySelector('.expiration-date');
+            if(!expirationDate.classList.contains('d-none')) {
+                expirationDate.classList.add('d-none');
+            }
         }
     </script>
 {% endblock %}

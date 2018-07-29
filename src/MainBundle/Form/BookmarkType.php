@@ -27,7 +27,7 @@ class BookmarkType extends AbstractType
                 ->add('tag', EntityType::class, ['class' => 'MainBundle\Entity\Tag', 'required' => false, 'choices' => $options['data']['tags'], 'placeholder' => 'new_bookmark.fields.no_tag'])
                 ->add('folder', EntityType::class, ['class' => 'MainBundle\Entity\Folder', 'required' => false, 'choices' => $options['data']['folders'], 'placeholder' => 'new_bookmark.fields.no_folder'])
                 ->add('public', CheckboxType::class, ['required' => false, 'data' => false])
-                ->add('expirationDate', DateType::class, ['widget' => 'choice', 'format' => 'dd-MM-yyyy']);
+                ->add('expirationDate', DateType::class, ['widget' => 'choice', 'format' => 'dd-MM-yyyy', 'years' => [2018, 2019, 2020, 2021, 2022]]);
     }/**
      * {@inheritdoc}
      */

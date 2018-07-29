@@ -92,6 +92,7 @@ new_bookmark:
     folder: Folder (optional)
     no_folder: --- Leave without folder ---
     public: Create this bookmark as public
+    exp_date: Expiration date of the public link
   success: Bookmarks saved successfully
 # -------------------------------
 new_folder:

@@ -96,6 +96,7 @@ new_bookmark:
     folder: Carpeta (opcional)
     no_folder: --- Dejar sin carpeta ---
     public: Crear este marcador como público
+    exp_date: Fecha de expiración del enlace público
   success: El marcador se ha guardado con éxito
 # -------------------------------
 new_folder:
