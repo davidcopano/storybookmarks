@@ -61,6 +61,7 @@ class Bookmark
     /**
      * @var Tag
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Tag", inversedBy="bookmark")
+     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id", nullable=true)
      */
     private $tag;
 
@@ -246,7 +247,7 @@ class Bookmark
      * @param Tag $tag
      * @return Bookmark
      */
-    public function setTag(Tag $tag)
+    public function setTag($tag)
     {
         $this->tag = $tag;
         return $this;
@@ -262,10 +263,12 @@ class Bookmark
 
     /**
      * @param bool $public
+     * @return Bookmark
      */
     public function setPublic($public)
     {
         $this->public = $public;
+        return $this;
     }
 
     /**
@@ -278,10 +281,12 @@ class Bookmark
 
     /**
      * @param \DateTime $expirationDate
+     * @return Bookmark
      */
     public function setExpirationDate($expirationDate)
     {
         $this->expirationDate = $expirationDate;
+        return $this;
     }
 
     /**
@@ -290,7 +295,10 @@ class Bookmark
      */
     public function checkValidPublic() {
         $todayDatetime = new \DateTime();
-        return isset($this->public) && $todayDatetime > $this->getExpirationDate();
+        if($this->isPublic() && $this->getExpirationDate() > $todayDatetime ) {
+            return true;
+        }
+        return false;
     }
 }
 

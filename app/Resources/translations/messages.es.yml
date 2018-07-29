@@ -75,6 +75,14 @@ search:
 bookmarks:
   show_details: Ver detalles del marcador
   without: No tienes ningún marcador guardado por ahora
+  public: Este marcador es público
+  help:
+    note: Advertencia
+    text: Los marcadores que tengas públicos los puede ver cualquier persona, si tienen la URL correspondiente
+# -------------------------------
+public_bookmark:
+  errors:
+    not_found: No se ha encontrado el marcador público que has solicitado
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% marcador/es'

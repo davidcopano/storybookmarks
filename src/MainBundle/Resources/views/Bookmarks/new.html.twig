@@ -2,6 +2,8 @@
 
 {% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
 
+{% block body_class %}bookmark-new{% endblock %}
+
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">

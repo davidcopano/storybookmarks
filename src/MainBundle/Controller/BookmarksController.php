@@ -5,6 +5,7 @@ namespace MainBundle\Controller;
 use Doctrine\Common\Util\Debug;
 use MainBundle\Entity\Bookmark;
 use MainBundle\Form\BookmarkType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,6 +62,8 @@ class BookmarksController extends Controller
                     ->setColor($form->all()['color']->getData())
                     ->setNote($form->all()['note']->getData())
                     ->setTag($form->all()['tag']->getData())
+                    ->setPublic($form->all()['public']->getData())
+                    ->setExpirationDate($bookmark->isPublic() ? $form->all()['expirationDate']->getData() : null)
                     ->setFolder($form->all()['folder']->getData());
 
             $em = $this->getDoctrine()->getManager();
@@ -89,5 +92,27 @@ class BookmarksController extends Controller
         }
 
         return $this->render('MainBundle:Bookmarks:edit.html.twig', ['bookmark' => $bookmark]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Bookmark $bookmark
+     * @Route("/public/{id}", name="bookmarks_public")
+     * @return Response
+     */
+    public function showPublicAction(Request $request, Bookmark $bookmark = null)
+    {
+        $translator = $this->get('translator');
+        if(!$bookmark) {
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('index');
+        }
+
+        if($bookmark->checkValidPublic()) {
+            return $this->render('MainBundle:Bookmarks/Public:show.html.twig', ['bookmark' => $bookmark]);
+        }
+        else {
+            die("NO es publico");
+        }
     }
 }

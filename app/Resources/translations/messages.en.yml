@@ -71,6 +71,14 @@ search:
 bookmarks:
   show_details: Show bookmark details
   without: You don't have any bookmarks saved at the moment
+  public: This bookmark is public
+  help:
+    note: Warning
+    text: The bookmarks you have public can be viewed by anyone, if they have the corresponding URL
+# -------------------------------
+public_bookmark:
+  errors:
+    not_found: The public bookmark you requested was not found
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% bookmark/s'

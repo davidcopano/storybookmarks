@@ -2,6 +2,8 @@
 
 {% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
 
+{% block body_class %}bookmark-list{% endblock %}
+
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
     <div class="main">
@@ -20,17 +22,26 @@
             </div>
         {% endfor %}
         <h1 class="ml-3">{{ 'menu.items.bookmarks'|trans }}</h1>
+        <p class="ml-3 mt-3"><u>{{ 'bookmarks.help.note'|trans }}</u>: {{ 'bookmarks.help.text'|trans }}</p>
         {% if bookmarks|length > 0 %}
             <div class="row container bookmarks-container mt-4">
                 {% for bookmark in bookmarks %}
-                    <div class="card col-md-4 mr-3"
+                    <div class="card col-md-5 mt-3 offset-1"
                          {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                         <div class="card-body">
-                            <h4 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right"
+                            <h3 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right"
                                                                            {% if bookmark.color is not null %}style="color: {{ bookmark.color }}"{% endif %}
-                                                                           title="{{ 'bookmarks.show_details'|trans }}"><i
-                                            class="far fa-eye"></i></a></h4>
+                                                                           title="{{ 'bookmarks.show_details'|trans }}">
+                                    <i class="far fa-eye"></i></a></h3>
+                            {% if bookmark.note is not null %}
+                                <p class="card-text">{{ bookmark.note }}</p>
+                            {% endif %}
                             <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+                            {% if bookmark.checkValidPublic %}
+                                <p class="float-right bookmark-public" data-toggle="tooltip" title="{{ 'bookmarks.public'|trans }}">
+                                    <i class="fas fa-lock-open"></i>
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

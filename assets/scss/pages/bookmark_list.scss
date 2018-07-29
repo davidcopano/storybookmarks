@@ -1,0 +1,16 @@
+.bookmark-list {
+  .main {
+    .bookmarks-container {
+      .bookmark-public {
+        background-color: map_get($custom_colors, primary);
+        color: map_get($custom_colors, secondary);
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        border-radius: 999px;
+        i {
+          padding: 14px;
+        }
+      }
+    }
+  }
+}
