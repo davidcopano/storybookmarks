@@ -62,11 +62,14 @@
                     path = path.replace('article_id', this.dataset.id);
                     copyToClipboard(path);
                     let title = '{{ 'bookmarks.copied'|trans }}';
-                    $(this).tooltip('hide')
-                        .attr('data-original-title', title)
+                    $(this).attr('data-original-title', title)
                         .tooltip('show');
                 });
             }
+
+            $(bookmarkPublic).on('hidden.bs.tooltip', function () {
+                $(this).attr('data-original-title', '{{ 'bookmarks.public'|trans }}');
+            })
         };
     </script>
 {% endblock %}
