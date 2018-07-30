@@ -58,9 +58,13 @@
             const bookmarkPublic = document.querySelectorAll('.bookmark-public');
             for (let bp of bookmarkPublic) {
                 bp.addEventListener('click', function () {
-                    let path = '{{ url("bookmarks_public", {'id': 'article_id'}) }}';
+                    let path = '{{ url('bookmarks_public', {'id': 'article_id'}) }}';
                     path = path.replace('article_id', this.dataset.id);
                     copyToClipboard(path);
+                    let title = '{{ 'bookmarks.copied'|trans }}';
+                    $(this).tooltip('hide')
+                        .attr('data-original-title', title)
+                        .tooltip('show');
                 });
             }
         };

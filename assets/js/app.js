@@ -64,3 +64,4 @@ window.elmYPosition = elmYPosition;
 window.smoothScroll = smoothScroll;
 window.Cookies = Cookies;
 window.copyToClipboard = copyToClipboard;
+window.$ = $;
