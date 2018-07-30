@@ -50,7 +50,17 @@ const Cookies = {
     }
 };
 
+function copyToClipboard (str) {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+}
+
 window.currentYPosition = currentYPosition;
 window.elmYPosition = elmYPosition;
 window.smoothScroll = smoothScroll;
 window.Cookies = Cookies;
+window.copyToClipboard = copyToClipboard;

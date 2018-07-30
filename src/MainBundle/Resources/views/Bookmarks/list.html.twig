@@ -55,12 +55,14 @@
 {% block javascripts %}
     <script>
         window.onload = () => {
-          const bookmarkPublic = document.querySelectorAll('.bookmark-public');
-          for(let bp of bookmarkPublic) {
-              bp.addEventListener('click', function () {
-                 console.log('clicked');
-              });
-          }
+            const bookmarkPublic = document.querySelectorAll('.bookmark-public');
+            for (let bp of bookmarkPublic) {
+                bp.addEventListener('click', function () {
+                    let path = '{{ url("bookmarks_public", {'id': 'article_id'}) }}';
+                    path = path.replace('article_id', this.dataset.id);
+                    copyToClipboard(path);
+                });
+            }
         };
     </script>
 {% endblock %}
