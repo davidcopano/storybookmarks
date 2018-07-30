@@ -29,18 +29,18 @@
                     <div class="card col-md-5 mt-3 offset-1"
                          {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                         <div class="card-body">
-                            <h3 class="card-title">{{ bookmark.title }} <a href="http://google.com" class="float-right"
-                                                                           {% if bookmark.color is not null %}style="color: {{ bookmark.color }}"{% endif %}
-                                                                           title="{{ 'bookmarks.show_details'|trans }}">
-                                    <i class="far fa-eye"></i></a></h3>
+                            <h3 class="card-title">
+                                {{ bookmark.title }}
+                            </h3>
                             {% if bookmark.note is not null %}
                                 <p class="card-text">{{ bookmark.note }}</p>
                             {% endif %}
                             <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
                             {% if bookmark.checkValidPublic %}
-                                <p class="float-right bookmark-public" data-toggle="tooltip" title="{{ 'bookmarks.public'|trans }}">
+                                <a href="#" class="float-right bookmark-public" data-toggle="tooltip"
+                                   title="{{ 'bookmarks.public'|trans }}" data-id="{{ bookmark.id }}">
                                     <i class="fas fa-lock-open"></i>
-                                </p>
+                                </a>
                             {% endif %}
                         </div>
                     </div>
@@ -50,4 +50,17 @@
             <h3 class="text-center mt-4">{{ 'bookmarks.without'|trans }}</h3>
         {% endif %}
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload = () => {
+          const bookmarkPublic = document.querySelectorAll('.bookmark-public');
+          for(let bp of bookmarkPublic) {
+              bp.addEventListener('click', function () {
+                 console.log('clicked');
+              });
+          }
+        };
+    </script>
 {% endblock %}
