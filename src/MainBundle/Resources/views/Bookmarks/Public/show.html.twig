@@ -10,7 +10,9 @@
     <div class="flex-container">
         <div class="flex-row">
             <h1 class="flex-item">{{ bookmark.title }}</h1>
-            <p class="flex-item">URL: <a href="{{ bookmark.url }}">{{ bookmark.url }}</a></p>
+            <p class="flex-item">
+                <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+            </p>
         </div>
     </div>
 {% endblock %}

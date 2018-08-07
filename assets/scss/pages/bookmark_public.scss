@@ -19,13 +19,20 @@ body.bookmark-public {
     justify-content: center;
     .flex-row {
       width: auto;
-      .flex-item {
-        margin: 40px;
+      h1.flex-item, p.flex-item {
+        margin: 65px;
         line-height: 20px;
-        color: white;
-        font-weight: bold;
-        font-size: 2em;
         text-align: center;
+      }
+      h1.flex-item {
+        font-size: 4rem;
+      }
+      p.flex-item {
+        a {
+          font-size: 1.5rem;
+          color: #f8f9fa !important;
+          text-decoration: underline;
+        }
       }
     }
   }
