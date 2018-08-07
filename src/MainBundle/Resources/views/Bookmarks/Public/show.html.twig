@@ -1,9 +1,16 @@
 {% extends '::base.html.twig' %}
 
+{% block html_class %}bookmark-public{% endblock %}
+
 {% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
 
 {% block body_class %}bookmark-public{% endblock %}
 
 {% block body %}
-    <h1>marcador publico</h1>
+    <div class="flex-container">
+        <div class="flex-row">
+            <h1 class="flex-item">{{ bookmark.title }}</h1>
+            <p class="flex-item">URL: <a href="{{ bookmark.url }}">{{ bookmark.url }}</a></p>
+        </div>
+    </div>
 {% endblock %}

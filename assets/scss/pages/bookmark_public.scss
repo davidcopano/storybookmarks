@@ -1,0 +1,32 @@
+html.bookmark-public, body.bookmark-public {
+  height: 100%;
+}
+
+body.bookmark-public {
+  margin: 0;
+  .flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: map_get($custom_colors, primary);
+    color: #f8f9fa;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .flex-row {
+      width: auto;
+      .flex-item {
+        margin: 40px;
+        line-height: 20px;
+        color: white;
+        font-weight: bold;
+        font-size: 2em;
+        text-align: center;
+      }
+    }
+  }
+}
