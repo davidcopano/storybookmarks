@@ -36,6 +36,9 @@
                                 <p class="card-text">{{ bookmark.note }}</p>
                             {% endif %}
                             <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+                            <a href="#" class="float-right delete-bookmark ml-3" data-toggle="tooltip" title="{{ 'bookmarks.delete'|trans }}" data-id="{{ bookmark.id }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
                             {% if bookmark.checkValidPublic %}
                                 <a href="#" class="float-right bookmark-public" data-toggle="tooltip"
                                    title="{{ 'bookmarks.public'|trans }}" data-id="{{ bookmark.id }}">
@@ -69,7 +72,27 @@
 
             $(bookmarkPublic).on('hidden.bs.tooltip', function () {
                 $(this).attr('data-original-title', '{{ 'bookmarks.public'|trans }}');
-            })
+            });
+
+            const deleteBookmarks = document.querySelectorAll('.delete-bookmark');
+            for(let db of deleteBookmarks) {
+                db.addEventListener('click', function () {
+                    swal({
+                        title: '{{ 'bookmarks.delete_alert.title'|trans }}',
+                        text: '{{ 'bookmarks.delete_alert.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#ff1654',
+                        cancelButtonColor: '#247ba0',
+                        cancelButtonText: '{{ 'bookmarks.delete_alert.cancel'|trans }}',
+                        confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            alert('bueno, pos ok');
+                        }
+                    })
+                })
+            }
         };
     </script>
 {% endblock %}

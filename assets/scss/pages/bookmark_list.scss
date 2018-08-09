@@ -11,6 +11,16 @@
           padding: 14px;
         }
       }
+      .delete-bookmark {
+        background-color: map_get($custom_colors, danger);
+        color: #fafafa;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        border-radius: 999px;
+        i {
+          padding: 14px;
+        }
+      }
     }
   }
 }

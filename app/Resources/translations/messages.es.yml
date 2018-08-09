@@ -77,6 +77,12 @@ bookmarks:
   without: No tienes ningún marcador guardado por ahora
   public: Este marcador es público. Pulsa para copiar el enlace
   copied: ¡Copiado al portapapeles!
+  delete: Borrar marcador
+  delete_alert:
+    title: ¿Estás seguro de que deseas borrar este marcador?
+    text: Esta acción no se puede deshacer
+    cancel: Cancelar
+    confirm: Borrar marcador
   help:
     note: Advertencia
     text: Los marcadores que tengas públicos los puede ver cualquier persona, si tienen la URL correspondiente
