@@ -83,6 +83,7 @@ bookmarks:
     text: Esta acción no se puede deshacer
     cancel: Cancelar
     confirm: Borrar marcador
+  deleted: Marcador borrado con éxito
   help:
     note: Advertencia
     text: Los marcadores que tengas públicos los puede ver cualquier persona, si tienen la URL correspondiente

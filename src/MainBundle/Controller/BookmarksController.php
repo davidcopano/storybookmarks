@@ -85,13 +85,40 @@ class BookmarksController extends Controller
      * @return Response
      * @Route("/edit/{id}", name="bookmarks_edit")
      */
-    public function editAction(Request $request, Bookmark $bookmark)
+    public function editAction(Request $request, Bookmark $bookmark = null)
     {
         if (!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
         return $this->render('MainBundle:Bookmarks:edit.html.twig', ['bookmark' => $bookmark]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Bookmark $bookmark
+     * @return Response
+     * @Route("/delete/{id}", name="bookmarks_delete")
+     */
+    public function deleteAction(Request $request, Bookmark $bookmark = null)
+    {
+        $translator = $this->get('translator');
+        if(!$bookmark) {
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('index');
+        }
+
+        if($this->isOwnedBookmark($bookmark)) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($bookmark);
+            $em->flush();
+
+            $this->addFlash('success', $translator->trans('bookmarks.deleted'));
+            return $this->redirectToRoute('bookmarks_list');
+        }
+        else {
+            return $this->redirectToRoute('bookmarks_list');
+        }
     }
 
     /**
@@ -112,7 +139,18 @@ class BookmarksController extends Controller
             return $this->render('MainBundle:Bookmarks/Public:show.html.twig', ['bookmark' => $bookmark]);
         }
         else {
-            die("NO es publico");
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('index');
         }
+    }
+
+    private function isOwnedBookmark(Bookmark $bookmark)
+    {
+        foreach($this->getUser()->getBookmarks() as $item) {
+            if($item->getId() == $bookmark->getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

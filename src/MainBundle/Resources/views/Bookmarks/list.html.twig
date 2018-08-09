@@ -77,6 +77,9 @@
             const deleteBookmarks = document.querySelectorAll('.delete-bookmark');
             for(let db of deleteBookmarks) {
                 db.addEventListener('click', function () {
+                    let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';
+                    path = path.replace('bookmark_id', this.dataset.id);
+
                     swal({
                         title: '{{ 'bookmarks.delete_alert.title'|trans }}',
                         text: '{{ 'bookmarks.delete_alert.text'|trans }}',
@@ -88,7 +91,7 @@
                         confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
                     }).then((result) => {
                         if (result.value) {
-                            alert('bueno, pos ok');
+                            location.replace(path);
                         }
                     })
                 })
