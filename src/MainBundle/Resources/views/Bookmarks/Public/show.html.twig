@@ -2,17 +2,27 @@
 
 {% block html_class %}bookmark-public{% endblock %}
 
-{% block title %}storybookmarks - {{ 'menu.items.bookmarks'|trans }}{% endblock %}
+{% block title %}storybookmarks - {{ bookmark.title }}{% endblock %}
 
 {% block body_class %}bookmark-public{% endblock %}
 
 {% block body %}
+    <h4 class="text-right bg-primary mb-0 p-4">
+        <a class="text-secondary" href="{{ path('index', { '_locale': app.request.locale }) }}" target="_blank">storybookmarks</a>
+    </h4>
     <div class="flex-container">
         <div class="flex-row">
             <h1 class="flex-item">{{ bookmark.title }}</h1>
             <p class="flex-item">
-                <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+                <a href="{{ bookmark.url }}" target="_blank">
+                    <i class="fas fa-link"></i>
+                    {{ bookmark.url }}</a>
             </p>
+            {% if bookmark.note is not null %}
+                <p class="flex-item">
+                    <i class="fas fa-sticky-note vertical-align-middle"></i> {{ bookmark.note }}
+                </p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
