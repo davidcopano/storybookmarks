@@ -68,14 +68,50 @@ class FoldersController extends Controller
     /**
      * @param Request $request
      * @return Response
-     * @Route("/edit", name="folders_edit")
+     * @param Folder $folder
+     * @Route("/edit/{id}", name="folders_edit")
      */
-    public function editAction(Request $request)
+    public function editAction(Request $request, Folder $folder = null)
     {
         if(!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>folders - edit</h1>');
+        $translator = $this->get('translator');
+        if(!$folder) {
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('bookmarks_list');
+        }
+
+        if($this->isOwnedFolder($folder)) {
+            $form = $this->createForm(FolderType::class, $folder);
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($folder);
+                $em->flush();
+
+                $translator = $this->get('translator');
+                $this->addFlash('success', $translator->trans('new_folder.success'));
+
+                return $this->redirectToRoute('folders_list');
+            }
+
+            return $this->render('@Main/Folders/edit.html.twig', ['form' => $form->createView(), 'folder' => $folder]);
+        }
+        else {
+            return $this->redirectToRoute('folders_list');
+        }
+    }
+
+    private function isOwnedFolder(Folder $folder)
+    {
+        foreach($this->getUser()->getFolders() as $item) {
+            if($item->getId() == $folder->getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

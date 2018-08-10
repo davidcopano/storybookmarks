@@ -21,6 +21,16 @@
           padding: 14px;
         }
       }
+      .edit-bookmark {
+        background-color: map_get($custom_colors, success);
+        color: #fafafa;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        border-radius: 999px;
+        i {
+          padding: 14px;
+        }
+      }
     }
   }
 }

@@ -27,12 +27,10 @@
                          {% if folder.color is not null %}style="border: 1px solid {{ folder.color }}"{% endif %}>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <i class="fas fa-folder pr-2"
-                                   {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}></i>
+                                <i class="fas fa-folder pr-2" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}></i>
                                 {{ folder.name }}
-                                <a href="http://google.com" class="float-right"
-                                   {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}>
-                                    <i class="far fa-eye"></i>
+                                <a href="{{ path('folders_edit', {'id': folder.id}) }}" class="float-right" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}>
+                                    <i class="fas fa-edit"></i>
                                 </a>
                             </h4>
                             <p class="card-text">

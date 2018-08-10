@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}storybookmarks - {{ folder.name }}{% endblock %}
+
+{% block body %}
+    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    <div class="main">
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
+        <h1 class="text-center">{{ folder.name }}</h1>
+        <div class="form-container container">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.name, 'new_folder.fields.name'|trans) }}
+                {{ form_widget(form.name, { 'attr': { 'class': 'form-control' }, 'value': folder.name }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.color, 'new_folder.fields.color'|trans) }}
+                {{ form_widget(form.color, { 'attr': { 'class': 'form-control' }, 'value': folder.color }) }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
