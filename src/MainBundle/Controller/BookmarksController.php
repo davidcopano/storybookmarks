@@ -91,6 +91,47 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
+        $translator = $this->get('translator');
+        if(!$bookmark) {
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('bookmarks_list');
+        }
+
+        if($this->isOwnedBookmark($bookmark)) {
+            $form = $this->createForm(BookmarkType::class, $bookmark, ['data' =>
+                ['tags' => $this->getUser()->getTags(), 'folders' => $this->getUser()->getFolders()],
+                'data_class' => null
+            ]);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                // debido a que tenemos a null el 'data_class',
+                // tenemos que rellenar los datos obtenidos a pelo en la entidad
+                $bookmark->setTitle($form->all()['title']->getData())
+                    ->setUrl($form->all()['url']->getData())
+                    ->setColor($form->all()['color']->getData())
+                    ->setNote($form->all()['note']->getData())
+                    ->setTag($form->all()['tag']->getData())
+                    ->setPublic($form->all()['public']->getData())
+                    ->setExpirationDate($bookmark->isPublic() ? $form->all()['expirationDate']->getData() : null)
+                    ->setFolder($form->all()['folder']->getData());
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($bookmark);
+                $em->flush();
+
+                $translator = $this->get('translator');
+                $this->addFlash('success', $translator->trans('new_bookmark.success'));
+
+                return $this->redirectToRoute('bookmarks_list');
+            }
+
+            return $this->render('@Main/Bookmarks/edit.html.twig', ['form' => $form->createView(), 'bookmark' => $bookmark]);
+        }
+        else {
+            return $this->redirectToRoute('bookmarks_list');
+        }
+
         return $this->render('MainBundle:Bookmarks:edit.html.twig', ['bookmark' => $bookmark]);
     }
 
