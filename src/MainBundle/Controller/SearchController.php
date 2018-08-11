@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Class SearchController
@@ -19,7 +24,7 @@ class SearchController extends Controller
     /**
      * @Route("/", name="search_index")
      * @param Request $request
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     public function indexAction(Request $request)
     {
@@ -30,6 +35,15 @@ class SearchController extends Controller
         if(!$this->getUser()) {
             return new JsonResponse(['type' => 'error', 'message' => 'No se ha encontrado usuario logeado']);
         }
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
 
         $bookmarks = $this->getDoctrine()
                             ->getRepository('MainBundle:Bookmark')
@@ -61,6 +75,44 @@ class SearchController extends Controller
                     ->getQuery()
                     ->getResult();
 
-        Debug::dump($bookmarks);die;
+        $jsonResults = [];
+
+        if(count($bookmarks) > 0) {
+            foreach($bookmarks as $bookmark) {
+                $jsonResults['bookmarks'][] = [
+                    'id' => $bookmark->getId(),
+                    'title' => $bookmark->getTitle()
+                ];
+            }
+        }
+        else {
+            $jsonResults['bookmarks'] = [];
+        }
+
+        if(count($folders) > 0) {
+            foreach ($folders as $folder) {
+                $jsonResults['folders'][] = [
+                    'id' => $folder->getId(),
+                    'name' => $folder->getName()
+                ];
+            }
+        }
+        else {
+            $jsonResults['folders'] = [];
+        }
+
+        if(count($tags) > 0) {
+            foreach($tags as $tag) {
+                $jsonResults['tags'][] = [
+                    'id' => $tag->getId(),
+                    'title' => $tag->getTitle()
+                ];
+            }
+        }
+        else {
+            $jsonResults['tags'] = [];
+        }
+
+        return new JsonResponse($jsonResults);
     }
 }
