@@ -1,8 +1,47 @@
-<div class="search-container col-8 input-group mt-5 mb-5">
+<div class="search-container col-8 input-group mt-5 mb-5" id="search-container">
     <div class="input-group-prepend">
         <span class="input-group-text">
             <i class="fas fa-search"></i>
         </span>
     </div>
-    <input type="text" class="form-control" placeholder="{{ 'search.text'|trans }}">
+    <input type="text" class="form-control" placeholder="{{ 'search.text'|trans }}" v-model="query"
+           v-on:input="getQueryResults()">
+    <ul v-if="bookmarks.length > 0">
+        <li v-for="b in bookmarks">
+            <a :href="b.url">[[b.title]]</a>
+        </li>
+    </ul>
 </div>
+
+<script>
+    window.onload = () => {
+        const searchContainer = new Vue({
+            el: '#search-container',
+            delimiters: ['[[', ']]'],
+            data: {
+                query: undefined,
+                bookmarks: [],
+                folders: [],
+                tags: []
+            },
+            methods: {
+                getQueryResults: function () {
+                    if (this.query) {
+                        axios.get('{{ url('search_index') }}' + '?query=' + this.query)
+                            .then(result => {
+                                let json = result.data;
+                                this.bookmarks = json.bookmarks;
+                                this.folders = json.folders;
+                                this.tags = json.tags;
+                            })
+                    }
+                    else {
+                        this.bookmarks = [];
+                        this.folders = [];
+                        this.tags = [];
+                    }
+                }
+            }
+        });
+    }
+</script>

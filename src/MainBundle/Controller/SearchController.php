@@ -72,7 +72,8 @@ class SearchController extends Controller
             foreach($bookmarks as $bookmark) {
                 $jsonResults['bookmarks'][] = [
                     'id' => $bookmark->getId(),
-                    'title' => $bookmark->getTitle()
+                    'title' => $bookmark->getTitle(),
+                    'url' => $this->generateUrl('bookmarks_edit', ['id' => $bookmark->getId()], true)
                 ];
             }
         }
