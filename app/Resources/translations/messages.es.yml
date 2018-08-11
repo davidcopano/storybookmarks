@@ -90,7 +90,7 @@ bookmarks:
 # -------------------------------
 public_bookmark:
   errors:
-    not_found: No se ha encontrado el marcador que has solicitado
+    not_found: No se ha encontrado el elemento que has solicitado
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% marcador/es'

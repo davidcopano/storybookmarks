@@ -86,7 +86,7 @@ bookmarks:
 # -------------------------------
 public_bookmark:
   errors:
-    not_found: The bookmark you requested was not found
+    not_found: The item you requested was not found
 # -------------------------------
 folders:
   bookmarks_length: '%bookmark_length% bookmark/s'

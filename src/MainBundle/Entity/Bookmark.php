@@ -61,7 +61,7 @@ class Bookmark
     /**
      * @var Tag
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Tag", inversedBy="bookmark")
-     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $tag;
 

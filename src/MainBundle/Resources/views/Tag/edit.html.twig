@@ -22,8 +22,37 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+                <a href="#" data-id="{{ tag.id }}" class="btn btn-danger float-right delete-tag">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
             </div>
             {{ form_end(form) }}
         </div>
     </div>
+    <script>
+        window.onload = () => {
+            const deleteTag = document.querySelectorAll('.delete-tag');
+            for(let dt of deleteTag) {
+                dt.addEventListener('click', function () {
+                    let path = '{{ url('tags_delete', {'id': 'tag_id'}) }}';
+                    path = path.replace('tag_id', this.dataset.id);
+
+                    swal({
+                        title: '{{ 'bookmarks.delete_alert.title'|trans }}',
+                        text: '{{ 'bookmarks.delete_alert.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#ff1654',
+                        cancelButtonColor: '#247ba0',
+                        cancelButtonText: '{{ 'bookmarks.delete_alert.cancel'|trans }}',
+                        confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace(path);
+                        }
+                    })
+                })
+            }
+        };
+    </script>
 {% endblock %}

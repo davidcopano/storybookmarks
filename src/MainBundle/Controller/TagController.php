@@ -102,6 +102,32 @@ class TagController extends Controller
             return $this->redirectToRoute('tags_list');
         }
     }
+    /**
+     * @param Request $request
+     * @param Tag $tag
+     * @return Response
+     * @Route("/delete/{id}", name="tags_delete")
+     */
+    public function deleteAction(Request $request, Tag $tag)
+    {
+        $translator = $this->get('translator');
+        if(!$tag) {
+            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
+            return $this->redirectToRoute('index');
+        }
+
+        if($this->isOwnedTag($tag)) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($tag);
+            $em->flush();
+
+            $this->addFlash('success', $translator->trans('bookmarks.deleted'));
+            return $this->redirectToRoute('tags_list');
+        }
+        else {
+            return $this->redirectToRoute('tags_list');
+        }
+    }
 
     private function isOwnedTag(Tag $tag)
     {
