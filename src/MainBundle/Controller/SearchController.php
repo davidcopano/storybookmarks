@@ -36,15 +36,6 @@ class SearchController extends Controller
             return new JsonResponse(['type' => 'error', 'message' => 'No se ha encontrado usuario logeado']);
         }
 
-        $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizer = new ObjectNormalizer();
-        $normalizer->setCircularReferenceLimit(2);
-        $normalizer->setCircularReferenceHandler(function ($object) {
-            return $object->getId();
-        });
-        $normalizers = array($normalizer);
-        $serializer = new Serializer($normalizers, $encoders);
-
         $bookmarks = $this->getDoctrine()
                             ->getRepository('MainBundle:Bookmark')
                             ->createQueryBuilder('b')
