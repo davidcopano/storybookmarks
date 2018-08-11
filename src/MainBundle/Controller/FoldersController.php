@@ -77,10 +77,8 @@ class FoldersController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        $translator = $this->get('translator');
         if(!$folder) {
-            $this->addFlash('error', $translator->trans('public_bookmark.errors.not_found'));
-            return $this->redirectToRoute('bookmarks_list');
+            return $this->redirectToRoute('folders_list');
         }
 
         if($this->isOwnedFolder($folder)) {
@@ -99,6 +97,36 @@ class FoldersController extends Controller
             }
 
             return $this->render('@Main/Folders/edit.html.twig', ['form' => $form->createView(), 'folder' => $folder]);
+        }
+        else {
+            return $this->redirectToRoute('folders_list');
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Folder $folder
+     * @Route("/delete/{id}", name="folders_delete")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAction(Request $request, Folder $folder)
+    {
+        if(!$this->getUser()) {
+            $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
+        }
+
+        if(!$folder) {
+            return $this->redirectToRoute('folders_list');
+        }
+
+        if($this->isOwnedFolder($folder)) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($folder);
+            $em->flush();
+
+            $translator = $this->get('translator');
+            $this->addFlash('success', $translator->trans('folders.deleted'));
+            return $this->redirectToRoute('folders_list');
         }
         else {
             return $this->redirectToRoute('folders_list');

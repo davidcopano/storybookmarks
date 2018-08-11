@@ -77,13 +77,13 @@ bookmarks:
   without: No tienes ningún marcador guardado por ahora
   public: Este marcador es público. Pulsa para copiar el enlace
   copied: ¡Copiado al portapapeles!
-  delete: Borrar marcador
+  delete: Borrar
   delete_alert:
-    title: ¿Estás seguro de que deseas borrar este marcador?
+    title: ¿Estás seguro de que deseas borrar este elemento?
     text: Esta acción no se puede deshacer
     cancel: Cancelar
-    confirm: Borrar marcador
-  deleted: Marcador borrado con éxito
+    confirm: Borrar
+  deleted: Elemento borrado con éxito
   help:
     note: Advertencia
     text: Los marcadores que tengas públicos los puede ver cualquier persona, si tienen la URL correspondiente
@@ -96,6 +96,7 @@ folders:
   bookmarks_length: '%bookmark_length% marcador/es'
   without: No tienes ninguna carpeta guardada por ahora
   no_bookmarks: Esta carpeta no contiene ningún marcador
+  deleted: Carpeta borrada con éxito
 # -------------------------------
 tags:
   without: No tienes ninguna etiqueta guardada por ahora

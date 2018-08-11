@@ -74,6 +74,7 @@ class Bookmark
     /**
      * @var Folder
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Folder", inversedBy="bookmarks")
+     * @JoinColumn(name="folder_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $folder;
 

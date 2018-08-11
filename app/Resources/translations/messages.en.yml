@@ -75,11 +75,11 @@ bookmarks:
   copied: Copied to clipboard!
   delete: Delete bookmark
   delete_alert:
-    title: Are you sure you want to delete this bookmark?
+    title: Are you sure you want to delete this ítem?
     text: This action cannot be undone
     cancel: Cancel
-    confirm: Delete bookmark
-  deleted: Bookmark deleted successfully
+    confirm: Delete
+  deleted: Deleted successfully
   help:
     note: Warning
     text: The bookmarks you have public can be viewed by anyone, if they have the corresponding URL
@@ -92,6 +92,7 @@ folders:
   bookmarks_length: '%bookmark_length% bookmark/s'
   without: You don't have any folders saved at the moment
   no_bookmarks: This folder does not contain any bookmarks
+  deleted: Folder deleted successfully
 # -------------------------------
 tags:
   without: No tienes ninguna etiqueta guardada por ahora

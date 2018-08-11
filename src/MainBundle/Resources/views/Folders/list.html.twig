@@ -29,6 +29,9 @@
                             <h4 class="card-title">
                                 <i class="fas fa-folder pr-2" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}></i>
                                 {{ folder.name }}
+                                <a href="#" class="float-right ml-3 delete-folder" style="color: red" data-id="{{ folder.id }}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
                                 <a href="{{ path('folders_edit', {'id': folder.id}) }}" class="float-right" {% if folder.color is not null %}style="color: {{ folder.color }}"{% endif %}>
                                     <i class="fas fa-edit"></i>
                                 </a>
@@ -48,4 +51,30 @@
             <h3 class="text-center mt-4">{{ 'folders.without'|trans }}</h3>
         {% endif %}
     </div>
+    <script>
+        window.onload = () => {
+            const deleteFolders = document.querySelectorAll('.delete-folder');
+            for(let df of deleteFolders) {
+                df.addEventListener('click', function () {
+                    let path = '{{ url('folders_delete', {'id': 'folder_id'}) }}';
+                    path = path.replace('folder_id', this.dataset.id);
+
+                    swal({
+                        title: '{{ 'bookmarks.delete_alert.title'|trans }}',
+                        text: '{{ 'bookmarks.delete_alert.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#ff1654',
+                        cancelButtonColor: '#247ba0',
+                        cancelButtonText: '{{ 'bookmarks.delete_alert.cancel'|trans }}',
+                        confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace(path);
+                        }
+                    })
+                })
+            }
+        };
+    </script>
 {% endblock %}
