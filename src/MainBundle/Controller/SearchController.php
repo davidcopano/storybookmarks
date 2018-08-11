@@ -36,10 +36,8 @@ class SearchController extends Controller
                             ->createQueryBuilder('b')
                             ->where('b.user = :user')
                             ->andWhere('b.title LIKE :title')
-                            ->orWhere('b.note LIKE :note')
                             ->setParameter('user', $this->getUser())
                             ->setParameter('title', '%' . $query . '%')
-                            ->setParameter('note', '%' . $query . '%')
                             ->getQuery()
                             ->getResult();
 
