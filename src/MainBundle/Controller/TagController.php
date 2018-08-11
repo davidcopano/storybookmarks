@@ -3,6 +3,7 @@
 namespace MainBundle\Controller;
 
 use MainBundle\Entity\Tag;
+use MainBundle\Form\FolderType;
 use MainBundle\Form\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -64,17 +65,51 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("/edit", name="tags_edit")
+     * @Route("/edit/{id}", name="tags_edit")
      * @param Request $request
+     * @param Tag $tag
      * @return Response
      */
-    public function editAction(Request $request)
+    public function editAction(Request $request, Tag $tag = null)
     {
         if(!$this->getUser()) {
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        return new Response('<h1>tag - edit</h1>');
+        $translator = $this->get('translator');
+        if(!$tag) {
+            return $this->redirectToRoute('tags_list');
+        }
+
+        if($this->isOwnedTag($tag)) {
+            $form = $this->createForm(TagType::class, $tag);
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($tag);
+                $em->flush();
+
+                $translator = $this->get('translator');
+                $this->addFlash('success', $translator->trans('new_tag.success'));
+
+                return $this->redirectToRoute('tags_list');
+            }
+
+            return $this->render('MainBundle:Tag:edit.html.twig', ['form' => $form->createView(), 'tag' => $tag]);
+        }
+        else {
+            return $this->redirectToRoute('tags_list');
+        }
     }
 
+    private function isOwnedTag(Tag $tag)
+    {
+        foreach($this->getUser()->getTags() as $item) {
+            if($item->getId() == $tag->getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

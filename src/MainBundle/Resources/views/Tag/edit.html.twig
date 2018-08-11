@@ -1,7 +1,29 @@
-{% extends "::base.html.twig" %}
+{% extends '::base.html.twig' %}
 
-{% block title %}MainBundle:Tag:edit{% endblock %}
+{% block title %}storybookmarks - {{ tag.title }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Tag:edit page</h1>
+    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    <div class="main">
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
+        <h1 class="text-center">{{ 'new_tag.text'|trans }}</h1>
+        <div class="form-container container">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.title, 'new_folder.fields.name'|trans) }}
+                {{ form_widget(form.title, { 'attr': { 'class': 'form-control' }, 'value': tag.title }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.color, 'new_folder.fields.color'|trans) }}
+                {{ form_widget(form.color, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

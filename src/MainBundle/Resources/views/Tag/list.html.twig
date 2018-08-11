@@ -23,7 +23,7 @@
         {% if tags|length > 0 %}
             <div class="row container tags-container mt-4">
                 {% for tag in tags %}
-                    <a class="chip mr-3" {% if tag.color is not null %}style="border: 1px solid {{ tag.color }}; color: {{ tag.color }}"{% endif %} href="#">
+                    <a class="chip mr-3" {% if tag.color is not null %}style="border: 1px solid {{ tag.color }}; color: {{ tag.color }}"{% endif %} href="{{ path('tags_edit', {'id': tag.id}) }}">
                         <i class="fas fa-tag pr-1 vertical-align-middle"></i>
                         {{ tag.title }}
                     </a>
