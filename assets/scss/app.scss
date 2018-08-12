@@ -56,6 +56,8 @@ input.switch::-ms-check {
 @import '~bootstrap/scss/bootstrap';
 @import 'reset';
 @import 'menu';
+@import "search";
+@import "userdropdown";
 // paginas
 @import 'pages/index';
 @import 'pages/login';
