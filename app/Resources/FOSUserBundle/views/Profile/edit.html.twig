@@ -7,5 +7,9 @@
 {% block body_class %}profile-edit{% endblock %}
 
 {% block fos_user_content %}
+    <a href="{{ path('bookmarks_list') }}" class="back m-3">
+        <i class="fas fa-arrow-left pr-2"></i>
+        {{ 'navbar.logged_user.my_bookmarks'|trans }}
+    </a>
     {% include "@FOSUser/Profile/edit_content.html.twig" %}
 {% endblock fos_user_content %}
