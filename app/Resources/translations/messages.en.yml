@@ -59,7 +59,11 @@ index:
 # -------------------------------
 menu:
   my_panel: My panel
-  new: New
+  new:
+    text: New
+    bookmark: Bookmark
+    folder: Folder
+    tag: Tag
   items:
     bookmarks: Bookmarks
     folders: Folders
