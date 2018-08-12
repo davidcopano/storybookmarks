@@ -66,25 +66,8 @@
                 else {
                     hideExpirationDate();
                 }
-            })
-        };
+            });
 
-        function showExpirationDate() {
-            const expirationDate = document.querySelector('.expiration-date');
-            if(expirationDate.classList.contains('d-none')) {
-                expirationDate.classList.remove('d-none');
-            }
-        }
-
-        function hideExpirationDate() {
-            const expirationDate = document.querySelector('.expiration-date');
-            if(!expirationDate.classList.contains('d-none')) {
-                expirationDate.classList.add('d-none');
-            }
-        }
-    </script>
-    <script>
-        window.onload = () => {
             const searchContainer = new Vue({
                 el: '#search-container',
                 delimiters: ['[[', ']]'],
@@ -114,5 +97,19 @@
                 }
             });
         };
+
+        function showExpirationDate() {
+            const expirationDate = document.querySelector('.expiration-date');
+            if(expirationDate.classList.contains('d-none')) {
+                expirationDate.classList.remove('d-none');
+            }
+        }
+
+        function hideExpirationDate() {
+            const expirationDate = document.querySelector('.expiration-date');
+            if(!expirationDate.classList.contains('d-none')) {
+                expirationDate.classList.add('d-none');
+            }
+        }
     </script>
 {% endblock %}

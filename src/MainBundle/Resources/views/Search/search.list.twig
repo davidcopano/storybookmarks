@@ -6,7 +6,7 @@
     </div>
     <input type="text" class="form-control" placeholder="{{ 'search.text'|trans }}" v-model="query"
            v-on:input="getQueryResults()">
-    <div class="search-results">
+    <div class="search-results" v-cloak>
         <ul v-if="bookmarks.length > 0">
             <h1>{{ 'menu.items.bookmarks'|trans }}</h1>
             <li v-for="b in bookmarks">

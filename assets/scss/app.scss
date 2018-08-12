@@ -53,6 +53,11 @@ input.switch::-ms-check {
   opacity: 0;
 }
 
+// oculta carga de componentes Vue hasta que cargue
+[v-cloak] {
+  display: none;
+}
+
 @import '~bootstrap/scss/bootstrap';
 @import 'reset';
 @import 'menu';

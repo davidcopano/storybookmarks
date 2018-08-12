@@ -65,7 +65,8 @@
         window.onload = () => {
             const bookmarkPublic = document.querySelectorAll('.bookmark-public');
             for (let bp of bookmarkPublic) {
-                bp.addEventListener('click', function () {
+                bp.addEventListener('click', function (e) {
+                    e.preventDefault();
                     let path = '{{ url('bookmarks_public', {'id': 'article_id'}) }}';
                     path = path.replace('article_id', this.dataset.id);
                     copyToClipboard(path);
@@ -101,10 +102,7 @@
                     })
                 })
             }
-        };
-    </script>
-    <script>
-        window.onload = () => {
+
             const searchContainer = new Vue({
                 el: '#search-container',
                 delimiters: ['[[', ']]'],
