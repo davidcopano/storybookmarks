@@ -33,7 +33,8 @@
         window.onload = () => {
             const deleteTag = document.querySelectorAll('.delete-tag');
             for(let dt of deleteTag) {
-                dt.addEventListener('click', function () {
+                dt.addEventListener('click', function (e) {
+                    e.preventDefault();
                     let path = '{{ url('tags_delete', {'id': 'tag_id'}) }}';
                     path = path.replace('tag_id', this.dataset.id);
 

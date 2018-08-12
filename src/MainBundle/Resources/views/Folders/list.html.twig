@@ -55,7 +55,8 @@
         window.onload = () => {
             const deleteFolders = document.querySelectorAll('.delete-folder');
             for(let df of deleteFolders) {
-                df.addEventListener('click', function () {
+                df.addEventListener('click', function (e) {
+                    e.preventDefault();
                     let path = '{{ url('folders_delete', {'id': 'folder_id'}) }}';
                     path = path.replace('folder_id', this.dataset.id);
 
@@ -75,13 +76,7 @@
                     })
                 })
             }
-        };
-    </script>
-{% endblock %}
 
-{% block javascripts %}
-    <script>
-        window.onload = () => {
             const searchContainer = new Vue({
                 el: '#search-container',
                 delimiters: ['[[', ']]'],

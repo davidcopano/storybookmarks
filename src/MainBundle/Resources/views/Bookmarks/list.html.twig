@@ -82,7 +82,8 @@
 
             const deleteBookmarks = document.querySelectorAll('.delete-bookmark');
             for(let db of deleteBookmarks) {
-                db.addEventListener('click', function () {
+                db.addEventListener('click', function (e) {
+                    e.preventDefault();
                     let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';
                     path = path.replace('bookmark_id', this.dataset.id);
 

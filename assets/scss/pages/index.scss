@@ -39,6 +39,15 @@
       .navbar-nav {
         .nav-item {
           margin-left: 0 !important;
+          .nav-link {
+            text-align: left !important;
+          }
+          .baseline-middle {
+            display: none !important;
+          }
+          .dropdown {
+            margin-left: -10px;
+          }
         }
       }
     }

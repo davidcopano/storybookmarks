@@ -75,7 +75,7 @@ bookmarks:
   copied: Copied to clipboard!
   delete: Delete bookmark
   delete_alert:
-    title: Are you sure you want to delete this ítem?
+    title: Are you sure you want to delete this item?
     text: This action cannot be undone
     cancel: Cancel
     confirm: Delete
