@@ -27,3 +27,38 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload = () => {
+            const searchContainer = new Vue({
+                el: '#search-container',
+                delimiters: ['[[', ']]'],
+                data: {
+                    query: undefined,
+                    bookmarks: [],
+                    folders: [],
+                    tags: []
+                },
+                methods: {
+                    getQueryResults: function () {
+                        if (this.query) {
+                            axios.get('{{ url('search_index') }}' + '?query=' + this.query)
+                                .then(result => {
+                                    let json = result.data;
+                                    this.bookmarks = json.bookmarks;
+                                    this.folders = json.folders;
+                                    this.tags = json.tags;
+                                })
+                        }
+                        else {
+                            this.bookmarks = [];
+                            this.folders = [];
+                            this.tags = [];
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+{% endblock %}
