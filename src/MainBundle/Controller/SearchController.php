@@ -85,7 +85,8 @@ class SearchController extends Controller
             foreach ($folders as $folder) {
                 $jsonResults['folders'][] = [
                     'id' => $folder->getId(),
-                    'name' => $folder->getName()
+                    'name' => $folder->getName(),
+                    'url' => $this->generateUrl('folders_edit', ['id' => $folder->getId()], true)
                 ];
             }
         }
@@ -97,7 +98,8 @@ class SearchController extends Controller
             foreach($tags as $tag) {
                 $jsonResults['tags'][] = [
                     'id' => $tag->getId(),
-                    'title' => $tag->getTitle()
+                    'title' => $tag->getTitle(),
+                    'url' => $this->generateUrl('tags_edit', ['id' => $tag->getId()], true)
                 ];
             }
         }
