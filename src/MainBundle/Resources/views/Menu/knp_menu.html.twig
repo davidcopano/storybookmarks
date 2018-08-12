@@ -9,7 +9,7 @@
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ path('bookmarks_new') }}">{{ 'menu.new.bookmark'|trans }}</a>
             <a class="dropdown-item" href="{{ path('folders_new') }}">{{ 'menu.new.folder'|trans }}</a>
-            <a class="dropdown-item" href="{{ path('tags_new') }}">{{ 'menu.new.tag'|trans}}</a>
+            <a class="dropdown-item" href="{{ path('tags_new') }}">{{ 'menu.new.tag'|trans }}</a>
         </div>
     </div>
     <div class="sidenav-links mt-4">
@@ -20,4 +20,37 @@
             </a>
         {% endfor %}
     </div>
+</div>
+
+<div class="sidenav sidenav-mobile mb-5">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="{{ path('bookmarks_list') }}">{{ 'menu.my_panel'|trans }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <div class="dropdown text-center new-dropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle ml-3 mt-3" data-toggle="dropdown">
+                            {{ 'menu.new.text'|trans }}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('bookmarks_new') }}">{{ 'menu.new.bookmark'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('folders_new') }}">{{ 'menu.new.folder'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('tags_new') }}">{{ 'menu.new.tag'|trans }}</a>
+                        </div>
+                    </div>
+                </li>
+                {% for menu_item in item %}
+                    <li class="nav-item">
+                        <a href="{{ menu_item.uri }}" class="text-secondary mt-2 nav-link">
+                            <i class="{{ menu_item.extras.icon }} pr-3"></i>
+                            {{ menu_item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
 </div>
