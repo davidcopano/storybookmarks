@@ -36,18 +36,20 @@
                                 <p class="card-text">{{ bookmark.note }}</p>
                             {% endif %}
                             <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
-                            <a href="#" class="float-right delete-bookmark ml-3" data-id="{{ bookmark.id }}">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                            <a href="{{ path('bookmarks_edit', {'id': bookmark.id}) }}" class="float-right edit-bookmark ml-3" data-id="{{ bookmark.id }}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            {% if bookmark.checkValidPublic %}
-                                <a href="#" class="float-right bookmark-public" data-toggle="tooltip"
-                                   title="{{ 'bookmarks.public'|trans }}" data-id="{{ bookmark.id }}">
-                                    <i class="fas fa-lock-open"></i>
+                            <div class="buttons-container">
+                                <a href="#" class="float-right delete-bookmark ml-3" data-id="{{ bookmark.id }}">
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
-                            {% endif %}
+                                <a href="{{ path('bookmarks_edit', {'id': bookmark.id}) }}" class="float-right edit-bookmark ml-3" data-id="{{ bookmark.id }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                {% if bookmark.checkValidPublic %}
+                                    <a href="#" class="float-right bookmark-public" data-toggle="tooltip"
+                                       title="{{ 'bookmarks.public'|trans }}" data-id="{{ bookmark.id }}">
+                                        <i class="fas fa-lock-open"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

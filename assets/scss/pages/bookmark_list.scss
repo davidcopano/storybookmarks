@@ -34,3 +34,30 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .bookmarks-container {
+    .card {
+      margin-left: 0 !important;
+      .card-body {
+        padding-left: 0;
+        .buttons-container {
+          margin-top: 16px;
+          a:first-child {
+            margin-left: 0 !important;
+          }
+          .delete-bookmark, .edit-bookmark, .bookmark-public {
+            float: none !important;
+            padding: 10px 0 !important;
+            i {
+              padding: 12px !important;
+            }
+          }
+          .bookmark-public {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

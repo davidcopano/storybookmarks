@@ -6,22 +6,24 @@
     </div>
     <input type="text" class="form-control" placeholder="{{ 'search.text'|trans }}" v-model="query"
            v-on:input="getQueryResults()">
-    <ul v-if="bookmarks.length > 0">
-        <h1>{{ 'menu.items.bookmarks'|trans }}</h1>
-        <li v-for="b in bookmarks">
-            <a :href="b.url">[[b.title]]</a>
-        </li>
-    </ul>
-    <ul v-if="folders.length > 0">
-        <h1>{{ 'menu.items.folders'|trans }}</h1>
-        <li v-for="f in folders">
-            <a :href="f.url">[[f.name]]</a>
-        </li>
-    </ul>
-    <ul v-if="tags.length > 0">
-        <h1>{{ 'menu.items.tags'|trans }}</h1>
-        <li v-for="t in tags">
-            <a :href="t.url">[[t.title]]</a>
-        </li>
-    </ul>
+    <div class="search-results">
+        <ul v-if="bookmarks.length > 0">
+            <h1>{{ 'menu.items.bookmarks'|trans }}</h1>
+            <li v-for="b in bookmarks">
+                <a :href="b.url">[[b.title]]</a>
+            </li>
+        </ul>
+        <ul v-if="folders.length > 0">
+            <h1>{{ 'menu.items.folders'|trans }}</h1>
+            <li v-for="f in folders">
+                <a :href="f.url">[[f.name]]</a>
+            </li>
+        </ul>
+        <ul v-if="tags.length > 0">
+            <h1>{{ 'menu.items.tags'|trans }}</h1>
+            <li v-for="t in tags">
+                <a :href="t.url">[[t.title]]</a>
+            </li>
+        </ul>
+    </div>
 </div>
