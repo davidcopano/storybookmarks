@@ -76,6 +76,7 @@ bookmarks:
   show_details: Ver detalles del marcador
   without: No tienes ningún marcador guardado por ahora
   public: Este marcador es público. Pulsa para copiar el enlace
+  download: Descargar marcadores
   copied: ¡Copiado al portapapeles!
   delete: Borrar
   delete_alert:

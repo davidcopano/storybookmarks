@@ -21,7 +21,13 @@
                 </div>
             </div>
         {% endfor %}
-        <h1 class="ml-3">{{ 'menu.items.bookmarks'|trans }}</h1>
+        <h1 class="ml-3">
+            {{ 'menu.items.bookmarks'|trans }}
+            <button type="button" class="btn btn-primary" id="download-bookmarks">
+                <i class="fas fa-cloud-download-alt"></i>
+                {{ 'bookmarks.download'|trans }}
+            </button>
+        </h1>
         <p class="ml-3 mt-3"><u>{{ 'bookmarks.help.note'|trans }}</u>: {{ 'bookmarks.help.text'|trans }}</p>
         {% if bookmarks|length > 0 %}
             <div class="row container bookmarks-container mt-4">
@@ -61,6 +67,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('build/download.js') }}"></script>
     <script>
         window.onload = () => {
             const bookmarkPublic = document.querySelectorAll('.bookmark-public');
@@ -132,6 +139,15 @@
                     }
                 }
             });
+
+            const downloadBookmarks = document.getElementById('download-bookmarks');
+            downloadBookmarks.addEventListener('click', () => {
+                axios.get('{{ path('bookmarks_download') }}')
+                    .then(result => {
+                        let html = result.data;
+                        download(html, 'bookmarks.html', undefined);
+                    })
+            })
         };
     </script>
 {% endblock %}

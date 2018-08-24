@@ -76,6 +76,7 @@ bookmarks:
   show_details: Show bookmark details
   without: You don't have any bookmarks saved at the moment
   public: This bookmark is public. Click to copy the link
+  download: Download bookmarks
   copied: Copied to clipboard!
   delete: Delete bookmark
   delete_alert:

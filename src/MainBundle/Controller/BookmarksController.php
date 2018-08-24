@@ -185,6 +185,17 @@ class BookmarksController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @Route("/download", name="bookmarks_download")
+     * @return Response
+     */
+    public function downloadAction(Request $request)
+    {
+        $bookmarks = $this->getUser()->getBookmarks();
+        return $this->render('@Main/Bookmarks/download.html.twig', ['bookmarks' => $bookmarks]);
+    }
+
     private function isOwnedBookmark(Bookmark $bookmark)
     {
         foreach($this->getUser()->getBookmarks() as $item) {
