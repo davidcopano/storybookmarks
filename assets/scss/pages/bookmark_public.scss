@@ -4,7 +4,9 @@ html.bookmark-public, body.bookmark-public {
 
 body.bookmark-public {
   margin: 0;
+  overflow-y: hidden;
   .flex-container {
+    overflow-y: hidden;
     height: 100%;
     padding: 0;
     margin: 0;
@@ -31,6 +33,23 @@ body.bookmark-public {
           font-size: 1.5rem;
           color: #f8f9fa !important;
           text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.bookmark-public {
+    .flex-container {
+      .flex-row {
+        h1.flex-item {
+          font-size: 2.5rem;
+        }
+        p.flex-item {
+          a {
+            font-size: 16px;
+          }
         }
       }
     }
