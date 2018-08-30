@@ -42,11 +42,11 @@ npm install
 php bin/console server:run
 ```
   
-### Deployment
+## Deployment
 
 I followed [this guide](https://symfony.com/doc/3.4/deployment.html), made by the guys at Symfony, to deploy the project on my server.
 
-### Built with
+## Built with
 
 - [Symfony](https://symfony.com/) - PHP framework for web applications
 - [Encore](https://symfony.com/doc/3.4/frontend/encore/installation.html) - Front end tasks
@@ -58,10 +58,10 @@ I followed [this guide](https://symfony.com/doc/3.4/deployment.html), made by th
 - [SweetAlert2](https://github.com/sweetalert2/sweetalert2) - Cool alerts
 - [Axios](https://github.com/axios/axios) - AJAX requests
 
-### Authors
+## Authors
 
 - **David Copano** - _Initial work_ - [davidcopano](https://github.com/davidcopano)
 
-### License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/davidcopano/storybookmarks/blob/master/LICENSE.md) file for details.
