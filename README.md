@@ -31,6 +31,11 @@ Once you have installed these tools, run these commands on a terminal:
 - ```
   npm install
   ```
+  
+- Build .scss and .js bundles (use ``--watch`` flag for build when this files changes):
+- ```
+  /node_modules/.bin/encore dev
+  ```
 
 - Ejecutar servidor local
     - ``php bin/console server:run``
