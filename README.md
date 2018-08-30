@@ -41,3 +41,14 @@ Once you have installed these tools, run these commands on a terminal:
 - ```
   php bin/console server:run
   ```
+  
+### Deployment
+
+I followed [this guide](https://symfony.com/doc/3.4/deployment.html), made by the guys at Symfony, to deploy the project on my server.
+
+### Built with
+
+- [Symfony](https://symfony.com/) - PHP framework for web applications
+- [Encore](https://symfony.com/doc/3.4/frontend/encore/installation.html) - Front end tasks
+- [VueJS](https://vuejs.org/) - Some client functionalities
+- [SCSS](https://sass-lang.com/) - Styling
