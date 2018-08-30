@@ -46,6 +46,13 @@ php bin/console server:run
 
 I followed [this guide](https://symfony.com/doc/3.4/deployment.html), made by the guys at Symfony, to deploy the project on my server.
 
+## Testing funcionalities
+
+If you don't want to install the project locally, or if you do not want to register with your own data, you can use these test credentials to log in and test the functions [on the website](https://storybookmarks.dcopano.xyz/):
+
+- Username: **user**
+- Password: **password**
+
 ## Built with
 
 - [Symfony](https://symfony.com/) - PHP framework for web applications
