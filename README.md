@@ -16,7 +16,7 @@ To install and run the project locally you must have the following tools install
 
 Once you have installed these tools, run these commands on a terminal:
 
-- Clone this project:
+- Clone the project:
 - ```
   git clone https://github.com/davidcopano/storybookmarks.git
   ```
@@ -37,8 +37,7 @@ Once you have installed these tools, run these commands on a terminal:
   /node_modules/.bin/encore dev
   ```
 
-- Ejecutar servidor local
-    - ``php bin/console server:run``
-
--  Compilar SCSS y JS: 
-    - ``./node_modules/.bin/encore dev --watch``
+- Finally, run the project:
+- ```
+  php bin/console server:run
+  ```
