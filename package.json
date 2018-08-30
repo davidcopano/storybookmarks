@@ -1,7 +1,7 @@
 {
   "name": "storybookmarks",
   "version": "1.0.0",
-  "description": "Symfony Standard Edition ========================",
+  "description": "This project allows you to save your bookmarks online, among other functions.",
   "main": "webpack.config.js",
   "directories": {
     "test": "tests"

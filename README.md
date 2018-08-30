@@ -51,4 +51,13 @@ I followed [this guide](https://symfony.com/doc/3.4/deployment.html), made by th
 - [Symfony](https://symfony.com/) - PHP framework for web applications
 - [Encore](https://symfony.com/doc/3.4/frontend/encore/installation.html) - Front end tasks
 - [VueJS](https://vuejs.org/) - Some client functionalities
-- [SCSS](https://sass-lang.com/) - Styling
+- [Bootstrap](https://getbootstrap.com/) - CSS framework
+- [SCSS](https://sass-lang.com/) - For custom Bootstrap styles and my own CSS
+- [jQuery](https://github.com/jquery/jquery) - JavaScript library
+- [FontAwesome](https://fontawesome.com/) - Cool icons
+- [SweetAlert2](https://github.com/sweetalert2/sweetalert2) - Cool alerts
+- [Axios](https://github.com/axios/axios) - AJAX requests
+
+### Authors
+
+- **David Copano** - _Initial work_ - [davidcopano](https://github.com/davidcopano)
