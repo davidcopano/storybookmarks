@@ -10,6 +10,7 @@ To install and run the project locally you must have the following tools install
 
 - [Composer](https://getcomposer.org/download/)
 - [NodeJS](https://nodejs.org/)
+- [NPM](https://www.npmjs.com/get-npm)
 
 ### Installing
 
@@ -19,9 +20,16 @@ Once you have installed these tools, run these commands on a terminal:
 - ```
   git clone https://github.com/davidcopano/storybookmarks.git
   ```
+  
 - Install the project dependencies:
 - ```
   composer install
+  ```
+  During the installation you will be asked for some parameters (data related to the database, data to send emails...).
+  
+- Install front end dependencies:
+- ```
+  npm install
   ```
 
 - Ejecutar servidor local
