@@ -15,9 +15,14 @@ To install and run the project locally you must have the following tools install
 
 Once you have installed these tools, run these commands on a terminal:
 
-```console
-composer install # install project dependencies
-```
+- Clone this project:
+- ```
+  git clone https://github.com/davidcopano/storybookmarks.git
+  ```
+- Install the project dependencies:
+- ```
+  composer install
+  ```
 
 - Ejecutar servidor local
     - ``php bin/console server:run``
