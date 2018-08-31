@@ -5,7 +5,7 @@ imports:
     - { resource: "@MainBundle/Resources/config/services.yml" }
 
 parameters:
-    locale: es
+    locale: en
 
 framework:
     #esi: ~
