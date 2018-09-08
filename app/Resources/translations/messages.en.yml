@@ -68,6 +68,7 @@ menu:
     bookmarks: Bookmarks
     folders: Folders
     tags: Tags
+    options: Options
 # -------------------------------
 search:
   text: Search (bookmarks, folders...)
