@@ -34,12 +34,13 @@
         </p>
         <form class="ml-3 mt-3" action="{{ path('bookmarks_list') }}" method="get" style="max-width: 75%;" id="form_order_by">
             <div class="form-group">
+                {% set orderBy = app.request.get('order_by') %}
                 <label for="order_by">{{ 'bookmarks.order_by.text'|trans }}</label>
                 <select name="order_by" id="order_by" class="form-control">
-                    <option value="default">{{ 'bookmarks.order_by.options.default'|trans }}</option>
-                    <option value="oldest_to_lowest">{{ 'bookmarks.order_by.options.oldest_to_newest'|trans }}</option>
-                    <option value="a_to_z">{{ 'bookmarks.order_by.options.a_to_z'|trans }}</option>
-                    <option value="z_to_a">{{ 'bookmarks.order_by.options.z_to_a'|trans }}</option>
+                    <option value="default" {% if orderBy == 'default' %}selected{% endif %}>{{ 'bookmarks.order_by.options.default'|trans }}</option>
+                    <option value="oldest_to_lowest" {% if orderBy == 'oldest_to_lowest' %}selected{% endif %}>{{ 'bookmarks.order_by.options.oldest_to_newest'|trans }}</option>
+                    <option value="a_to_z" {% if orderBy == 'a_to_z' %}selected{% endif %}>{{ 'bookmarks.order_by.options.a_to_z'|trans }}</option>
+                    <option value="z_to_a" {% if orderBy == 'z_to_a' %}selected{% endif %}>{{ 'bookmarks.order_by.options.z_to_a'|trans }}</option>
                 </select>
             </div>
         </form>
