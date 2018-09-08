@@ -2,10 +2,8 @@
 
 namespace MainBundle\Controller;
 
-use Doctrine\Common\Util\Debug;
 use MainBundle\Entity\Bookmark;
 use MainBundle\Form\BookmarkType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +27,8 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        $bookmarks = $this->getUser()->getBookmarks();
+        // $bookmarks = $this->getUser()->getBookmarks();
+        $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
 
         return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks]);
     }
