@@ -27,7 +27,26 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
+        $orderBy = $request->query->get('order_by');
+        $bookmarks = null;
+
+        if(isset($orderBy)) {
+            if($orderBy === 'default') {
+                $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
+            }
+            else if($orderBy === 'oldest_to_lowest') {
+                $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'ASC']);
+            }
+            else if($orderBy === 'a_to_z') {
+                $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['title' => 'ASC']);
+            }
+            else if($orderBy === 'z_to_a') {
+                $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['title' => 'DESC']);
+            }
+        }
+        else {
+            $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
+        }
 
         return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks]);
     }
