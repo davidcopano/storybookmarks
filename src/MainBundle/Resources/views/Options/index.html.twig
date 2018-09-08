@@ -12,7 +12,6 @@
             {{ include('MainBundle:UserDropdown:user.html.twig') }}
         </div>
         <h1 class="ml-3">{{ 'menu.items.options'|trans }}</h1>
-        {{ dump(options) }}
         <div class="form-container container mt-4">
             {{ form_start(form, { 'attr': { 'id': 'options-form' } }) }}
             <div class="form-group">
