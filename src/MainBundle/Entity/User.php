@@ -43,6 +43,13 @@ class User extends BaseUser
      */
     private $folders;
 
+    /**
+     * @var Options
+     * @ORM\OneToOne(targetEntity="MainBundle\Entity\Options")
+     * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
+     */
+    private $options;
+
     public function __construct()
     {
         parent::__construct();
@@ -158,5 +165,21 @@ class User extends BaseUser
             return $this;
         }
         return false;
+    }
+
+    /**
+     * @return Options
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param Options $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
     }
 }
