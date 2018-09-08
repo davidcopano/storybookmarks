@@ -28,7 +28,21 @@
                 {{ 'bookmarks.download'|trans }}
             </button>
         </h1>
-        <p class="ml-3 mt-3"><u>{{ 'bookmarks.help.note'|trans }}</u>: {{ 'bookmarks.help.text'|trans }}</p>
+        <p class="ml-3 mt-3">
+            <u>{{ 'bookmarks.help.note'|trans }}</u>:
+            {{ 'bookmarks.help.text'|trans }}
+        </p>
+        <form class="ml-3 mt-3" action="{{ path('bookmarks_list') }}" method="get" style="max-width: 75%;" id="form_order_by">
+            <div class="form-group">
+                <label for="order_by">Ordenar por:</label>
+                <select name="order_by" id="order_by" class="form-control">
+                    <option value="default">Defecto (más nuevo a más antiguo)</option>
+                    <option value="oldest_to_lowest">Más antiguo a más nuevo</option>
+                    <option value="a_to_z">De la A a la Z</option>
+                    <option value="z_to_a">De la Z a la A</option>
+                </select>
+            </div>
+        </form>
         {% if bookmarks|length > 0 %}
             <div class="row container bookmarks-container mt-4">
                 {% for bookmark in bookmarks %}

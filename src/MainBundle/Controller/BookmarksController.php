@@ -27,7 +27,6 @@ class BookmarksController extends Controller
             $this->redirectToRoute('index', ['_locale' => $request->getLocale()]);
         }
 
-        // $bookmarks = $this->getUser()->getBookmarks();
         $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
 
         return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks]);
