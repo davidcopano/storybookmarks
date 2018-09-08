@@ -37,6 +37,13 @@
                         <div class="card-body">
                             <h3 class="card-title">
                                 {{ bookmark.title }}
+                                <span class="float-right text-muted bookmark-date">
+                                    {% if app.request.locale == 'es' %}
+                                        {{ bookmark.createdAt | date('d/m/Y, H:i') }}
+                                        {% else %}
+                                        {{ bookmark.createdAt | date('Y-m-d, H:i') }}
+                                    {% endif %}
+                                </span>
                             </h3>
                             {% if bookmark.note is not null %}
                                 <p class="card-text">{{ bookmark.note }}</p>
