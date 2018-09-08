@@ -170,5 +170,10 @@
                     })
             })
         };
+
+        const select_formOrderBy = document.querySelector('#form_order_by select');
+        select_formOrderBy.addEventListener('change', () => {
+            document.getElementById('form_order_by').submit();
+        });
     </script>
 {% endblock %}
