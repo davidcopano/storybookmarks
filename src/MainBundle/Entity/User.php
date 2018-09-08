@@ -57,9 +57,7 @@ class User extends BaseUser
         $this->bookmarks = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->folders = new ArrayCollection();
-
         $this->options = new Options();
-        $this->options->setMultimediaEnabled(false);
     }
 
     /**

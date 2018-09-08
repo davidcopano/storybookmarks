@@ -1,7 +1,30 @@
-{% extends "::base.html.twig" %}
+{% extends '::base.html.twig' %}
 
-{% block title %}MainBundle:Options:index{% endblock %}
+{% block title %}storybookmarks - {{ 'menu.items.options'|trans }}{% endblock %}
+
+{% block body_class %}options{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Options:index page</h1>
+    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    <div class="main">
+        <div class="row">
+            {{ include('MainBundle:Search:search.list.twig') }}
+            {{ include('MainBundle:UserDropdown:user.html.twig') }}
+        </div>
+        <h1 class="ml-3">{{ 'menu.items.options'|trans }}</h1>
+        {{ dump(options) }}
+        <div class="form-container container mt-4">
+            {{ form_start(form, { 'attr': { 'id': 'options-form' } }) }}
+            <div class="form-group">
+                {{ form_widget(form.multimediaEnabled, { 'attr': { 'class': 'switch vertical-align-middle mr-2' } }) }}
+                {{ form_label(form.multimediaEnabled, 'options.multimedia.text'|trans, { 'attr': { 'class': 'form-check-label' } }) }}
+                <small class="form-text text-muted">{{ 'options.multimedia.help'|trans }}.</small>
+                <small class="form-text text-muted"><strong>{{ 'options.multimedia.help_bold'|trans }}</strong></small>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

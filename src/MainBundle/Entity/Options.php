@@ -29,6 +29,11 @@ class Options
     private $multimediaEnabled;
 
 
+    public function __construct()
+    {
+        $this->multimediaEnabled = false;
+    }
+
     /**
      * Get id
      *
