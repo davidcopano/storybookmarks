@@ -88,6 +88,13 @@ bookmarks:
   help:
     note: Warning
     text: The bookmarks you have public can be viewed by anyone, if they have the corresponding URL
+  order_by:
+    text: 'Order by:'
+    options:
+      default: Default (newest to oldest)
+      oldest_to_newest: Oldest to newest
+      a_to_z: From A to Z
+      z_to_a: From Z to A
 # -------------------------------
 public_bookmark:
   errors:

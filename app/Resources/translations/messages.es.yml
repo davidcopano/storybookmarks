@@ -88,6 +88,13 @@ bookmarks:
   help:
     note: Advertencia
     text: Los marcadores que tengas públicos los puede ver cualquier persona, si tienen la URL correspondiente
+  order_by:
+    text: 'Ordenar por:'
+    options:
+      default: Defecto (más nuevo a más antiguo)
+      oldest_to_newest: Más antiguo a más nuevo
+      a_to_z: De la A a la Z
+      z_to_a: De la Z a la A
 # -------------------------------
 public_bookmark:
   errors:
