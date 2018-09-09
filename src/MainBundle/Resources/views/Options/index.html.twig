@@ -23,17 +23,17 @@
                     </div>
                 </div>
             {% endfor %}
-            {{ form_start(form, { 'attr': { 'id': 'options-form' } }) }}
-            <div class="form-group">
-                {{ form_widget(form.multimediaEnabled, { 'attr': { 'class': 'switch vertical-align-middle mr-2' } }) }}
-                {{ form_label(form.multimediaEnabled, 'options.multimedia.text'|trans, { 'attr': { 'class': 'form-check-label' } }) }}
-                <small class="form-text text-muted">{{ 'options.multimedia.help'|trans }}.</small>
-                <small class="form-text text-muted"><strong>{{ 'options.multimedia.help_bold'|trans }}</strong></small>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
-            </div>
-            {{ form_end(form) }}
+            <form action="{{ path('options_index') }}" id="options-form" method="post">
+                <div class="form-group">
+                    <input type="checkbox" class="switch vertical-align-middle mr-2" id="enable_multimedia">
+                    <label for="enable_multimedia" class="form-check-label">{{ 'options.multimedia.text'|trans }}</label>
+                    <small class="form-text text-muted">{{ 'options.multimedia.help'|trans }}.</small>
+                    <small class="form-text text-muted"><strong>{{ 'options.multimedia.help_bold'|trans }}</strong></small>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}

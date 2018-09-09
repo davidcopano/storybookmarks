@@ -44,11 +44,10 @@ class User extends BaseUser
     private $folders;
 
     /**
-     * @var Options
-     * @ORM\OneToOne(targetEntity="MainBundle\Entity\Options")
-     * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
+     * @var boolean
+     * @ORM\Column(type="boolean")
      */
-    private $options;
+    private $enableMultimedia;
 
     public function __construct()
     {
@@ -57,7 +56,7 @@ class User extends BaseUser
         $this->bookmarks = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->folders = new ArrayCollection();
-        $this->options = new Options();
+        $this->enableMultimedia = false;
     }
 
     /**
@@ -169,18 +168,18 @@ class User extends BaseUser
     }
 
     /**
-     * @return Options
+     * @return bool
      */
-    public function getOptions()
+    public function getEnableMultimedia()
     {
-        return $this->options;
+        return $this->enableMultimedia;
     }
 
     /**
-     * @param Options $options
+     * @param bool $enableMultimedia
      */
-    public function setOptions($options)
+    public function setEnableMultimedia($enableMultimedia)
     {
-        $this->options = $options;
+        $this->enableMultimedia = $enableMultimedia;
     }
 }
