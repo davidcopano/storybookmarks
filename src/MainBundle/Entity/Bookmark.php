@@ -301,5 +301,20 @@ class Bookmark
         }
         return false;
     }
+
+    public function isUrl_aImage() {
+        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+        foreach ($extensions as $extension) {
+            if($this->getUrlExtension() === $extension) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function getUrlExtension() {
+        $array = explode('.', $this->getUrl());
+        return strtolower(end($array));
+    }
 }
 
