@@ -144,3 +144,5 @@ options:
     text: Enable multimedia
     help: When you enable this option, the URLs you have, whether they are images or videos, will be displayed inside the bookmark,being able to see the content without having to go to the link
     help_bold: If you enable this option, the list of markers may consume more data.
+  success:
+    text: Options saved successfully

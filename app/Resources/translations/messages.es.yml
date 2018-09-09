@@ -144,3 +144,5 @@ options:
     text: Habilitar multimedia
     help: Al habilitar esta opción, las URLs que tengas, si son imágenes o vídeos, se mostrarán dentro del marcador, pudiendo ver el contenido sin necesidad de ir al enlace
     help_bold: Si habilitas esta opción, el listado de marcadores puede que consuma más datos
+  success:
+    text: Opciones guardadas con éxito

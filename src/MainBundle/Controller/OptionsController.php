@@ -29,8 +29,24 @@ class OptionsController extends Controller
             $this->getUser()->setOptions($options);
         }
 
-        $form = $this->createForm(OptionsType::class, $options);
+        $form = $this->createForm(OptionsType::class, $options, ['data' => ['options' => $options], 'data_class' => null]);
         $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $multimediaEnabled = $form->all()['multimediaEnabled']->getData();
+            $options->setMultimediaEnabled($multimediaEnabled);
+
+            $this->getUser()->setOptions($options);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($options);
+            $em->persist($this->getUser());
+
+            $em->flush();
+
+            $translator = $this->get('translator');
+            $this->addFlash('success', $translator->trans('options.success.text'));
+        }
 
         return $this->render('MainBundle:Options:index.html.twig', ['form' => $form->createView(), 'options' => $options]);
     }

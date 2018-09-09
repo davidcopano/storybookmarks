@@ -31,3 +31,4 @@ security:
         - { path: ^/folders/*, role: ROLE_USER }
         - { path: ^/tags/*, role: ROLE_USER }
         - { path: ^/search/*, role: ROLE_USER }
+        - { path: ^/options/*, role: ROLE_USER }

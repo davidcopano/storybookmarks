@@ -34,7 +34,7 @@ npm install
   
 - Build .scss and .js bundles (use ``--watch`` flag for build when this files changes):
 ```
-/node_modules/.bin/encore dev
+./node_modules/.bin/encore dev
 ```
 
 - Finally, run the project:
