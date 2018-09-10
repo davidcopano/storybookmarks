@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 {{ form_label(form.color, 'new_bookmark.fields.color'|trans) }}
-                {{ form_widget(form.color, { 'attr': { 'class': 'form-control', 'value': bookmark.color } }) }}
+                {{ form_widget(form.color, { 'attr': { 'class': 'form-control jscolor', 'value': bookmark.color } }) }}
             </div>
             <div class="form-group">
                 {{ form_label(form.note, 'new_bookmark.fields.note'|trans) }}
@@ -50,6 +50,7 @@
             {{ form_end(form) }}
         </div>
     </div>
+    <script src="{{ asset('jscolor.js') }}"></script>
     <script>
         window.onload = () => {
             const publicBookmark = document.querySelector('#new-bookmark-form input[type="checkbox"]');
@@ -95,6 +96,10 @@
                         }
                     }
                 }
+            });
+            const newBookmarkForm = document.getElementById('new-bookmark-form');
+            newBookmarkForm.addEventListener('submit', () => {
+                document.getElementById('mainbundle_bookmark_color').value = '#' + document.getElementById('mainbundle_bookmark_color').value;
             });
         };
 

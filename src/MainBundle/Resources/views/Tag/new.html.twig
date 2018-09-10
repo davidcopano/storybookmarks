@@ -11,14 +11,14 @@
         </div>
         <h1 class="text-center">{{ 'new_tag.text'|trans }}</h1>
         <div class="form-container container">
-            {{ form_start(form) }}
+            {{ form_start(form, { 'attr': { 'id': 'new-tag-form' } }) }}
             <div class="form-group">
                 {{ form_label(form.title, 'new_folder.fields.name'|trans) }}
                 {{ form_widget(form.title, { 'attr': { 'class': 'form-control' } }) }}
             </div>
             <div class="form-group">
                 {{ form_label(form.color, 'new_folder.fields.color'|trans) }}
-                {{ form_widget(form.color, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_widget(form.color, { 'attr': { 'class': 'form-control jscolor' } }) }}
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
@@ -29,6 +29,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('jscolor.js') }}"></script>
     <script>
         window.onload = () => {
             const searchContainer = new Vue({
@@ -58,6 +59,10 @@
                         }
                     }
                 }
+            });
+            const newBookmarkForm = document.getElementById('new-tag-form');
+            newBookmarkForm.addEventListener('submit', () => {
+                document.getElementById('mainbundle_tag_color').value = '#' + document.getElementById('mainbundle_tag_color').value;
             });
         };
     </script>

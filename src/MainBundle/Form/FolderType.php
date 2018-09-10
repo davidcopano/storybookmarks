@@ -16,7 +16,7 @@ class FolderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', TextType::class)
-                ->add('color', ColorType::class);
+                ->add('color', TextType::class);
     }/**
      * {@inheritdoc}
      */

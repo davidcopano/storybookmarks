@@ -148,8 +148,6 @@ class BookmarksController extends Controller
         else {
             return $this->redirectToRoute('bookmarks_list');
         }
-
-        return $this->render('MainBundle:Bookmarks:edit.html.twig', ['bookmark' => $bookmark]);
     }
 
     /**

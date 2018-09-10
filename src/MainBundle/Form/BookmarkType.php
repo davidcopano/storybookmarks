@@ -22,7 +22,7 @@ class BookmarkType extends AbstractType
     {
         $builder->add('title', TextType::class, ['required' => true])
                 ->add('url', UrlType::class, ['required' => true])
-                ->add('color', ColorType::class, ['required' => false])
+                ->add('color', TextType::class, ['required' => false])
                 ->add('note', TextareaType::class, ['required' => false])
                 ->add('tag', EntityType::class, ['class' => 'MainBundle\Entity\Tag', 'required' => false, 'choices' => $options['data']['tags'], 'placeholder' => 'new_bookmark.fields.no_tag'])
                 ->add('folder', EntityType::class, ['class' => 'MainBundle\Entity\Folder', 'required' => false, 'choices' => $options['data']['folders'], 'placeholder' => 'new_bookmark.fields.no_folder'])
