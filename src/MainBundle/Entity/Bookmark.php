@@ -312,6 +312,16 @@ class Bookmark
         return false;
     }
 
+    public function isUrl_aVideo() {
+        $extensions = ['3g2', '3gp', 'aaf', 'asf', 'avchd', 'avi', 'drc', 'flv', 'm2v', 'm4p', 'm4v', 'mkv', 'mng', 'mov', 'mp2', 'mp4', 'mpe', 'mpeg', 'mpg', 'mpv', 'mxf', 'nsv', 'ogg', 'ogv', 'qt', 'rm', 'rmvb', 'roq', 'svi', 'vob', 'webm', 'wmv', 'yuv'];
+        foreach ($extensions as $extension) {
+            if($this->getUrlExtension() === $extension) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private function getUrlExtension() {
         $array = explode('.', $this->getUrl());
         return strtolower(end($array));

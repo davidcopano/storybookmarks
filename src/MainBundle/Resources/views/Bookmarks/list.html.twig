@@ -47,8 +47,7 @@
         {% if bookmarks|length > 0 %}
             <div class="row container bookmarks-container mt-4">
                 {% for bookmark in bookmarks %}
-                    <div class="card col-md-5 mt-3 offset-1"
-                         {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
+                    <div class="card col-md-5 mt-3 offset-1 h-100" {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                         <div class="card-body">
                             <h3 class="card-title">
                                 {{ bookmark.title }}
@@ -64,7 +63,7 @@
                                 <p class="card-text">{{ bookmark.note }}</p>
                             {% endif %}
                             <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
-                            <div class="buttons-container">
+                            <div class="buttons-container mt-3">
                                 <a href="#" class="float-right delete-bookmark ml-3" data-id="{{ bookmark.id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
@@ -78,6 +77,18 @@
                                     </a>
                                 {% endif %}
                             </div>
+                            {% if app.user.enableMultimedia %}
+                                {% if bookmark.isUrl_aImage %}
+                                    <img class="img-fluid img-thumbnail mt-3" src="{{ bookmark.url }}" alt="{{ bookmark.title }} - storybookmarks" />
+                                {% endif %}
+                                {% if bookmark.isUrl_aVideo %}
+                                    <div class="text-center">
+                                        <video controls>
+                                            <source src="{{ bookmark.url }}">
+                                        </video>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
