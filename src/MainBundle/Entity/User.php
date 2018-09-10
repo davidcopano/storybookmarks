@@ -177,9 +177,11 @@ class User extends BaseUser
 
     /**
      * @param bool $enableMultimedia
+     * @return User
      */
     public function setEnableMultimedia($enableMultimedia)
     {
         $this->enableMultimedia = $enableMultimedia;
+        return $this;
     }
 }
