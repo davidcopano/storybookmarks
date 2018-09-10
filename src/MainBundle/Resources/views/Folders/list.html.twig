@@ -23,7 +23,7 @@
         {% if folders|length > 0 %}
             <div class="row container folders-container mt-4">
                 {% for folder in folders %}
-                    <div class="card col-md-4 mr-3"
+                    <div class="card col-md-4 mr-3 mt-3"
                          {% if folder.color is not null %}style="border: 1px solid {{ folder.color }}"{% endif %}>
                         <div class="card-body">
                             <h4 class="card-title">
