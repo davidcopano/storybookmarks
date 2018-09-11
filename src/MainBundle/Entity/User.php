@@ -49,6 +49,12 @@ class User extends BaseUser
      */
     private $enableMultimedia;
 
+    /**
+     * @var UserConnection
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\UserConnection", mappedBy="user")
+     */
+    private $userConnections;
+
     public function __construct()
     {
         parent::__construct();
