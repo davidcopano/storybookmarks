@@ -32,31 +32,37 @@
             <u>{{ 'bookmarks.help.note'|trans }}</u>:
             {{ 'bookmarks.help.text'|trans }}
         </p>
-        <form class="ml-3 mt-3" action="{{ path('bookmarks_list') }}" method="get" style="max-width: 75%;" id="form_order_by">
+        <form class="ml-3 mt-3" action="{{ path('bookmarks_list') }}" method="get" style="max-width: 75%;"
+              id="form_order_by">
             <div class="form-group">
                 {% set orderBy = app.request.get('order_by') %}
                 <label for="order_by">{{ 'bookmarks.order_by.text'|trans }}</label>
                 <select name="order_by" id="order_by" class="form-control">
-                    <option value="default" {% if orderBy == 'default' %}selected{% endif %}>{{ 'bookmarks.order_by.options.default'|trans }}</option>
-                    <option value="oldest_to_lowest" {% if orderBy == 'oldest_to_lowest' %}selected{% endif %}>{{ 'bookmarks.order_by.options.oldest_to_newest'|trans }}</option>
-                    <option value="a_to_z" {% if orderBy == 'a_to_z' %}selected{% endif %}>{{ 'bookmarks.order_by.options.a_to_z'|trans }}</option>
-                    <option value="z_to_a" {% if orderBy == 'z_to_a' %}selected{% endif %}>{{ 'bookmarks.order_by.options.z_to_a'|trans }}</option>
+                    <option value="default"
+                            {% if orderBy == 'default' %}selected{% endif %}>{{ 'bookmarks.order_by.options.default'|trans }}</option>
+                    <option value="oldest_to_lowest"
+                            {% if orderBy == 'oldest_to_lowest' %}selected{% endif %}>{{ 'bookmarks.order_by.options.oldest_to_newest'|trans }}</option>
+                    <option value="a_to_z"
+                            {% if orderBy == 'a_to_z' %}selected{% endif %}>{{ 'bookmarks.order_by.options.a_to_z'|trans }}</option>
+                    <option value="z_to_a"
+                            {% if orderBy == 'z_to_a' %}selected{% endif %}>{{ 'bookmarks.order_by.options.z_to_a'|trans }}</option>
                 </select>
             </div>
         </form>
-        {% if bookmarks|length > 0 %}
+        {% if pagination.getTotalItemCount > 0 %}
             <div class="row container bookmarks-container mt-4">
-                {% for bookmark in bookmarks %}
-                    <div class="card col-md-5 mt-3 offset-1 h-100" {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
+                {% for bookmark in pagination %}
+                    <div class="card col-md-5 mt-3 offset-1 h-100"
+                         {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
                         <div class="card-body">
                             <h3 class="card-title">
                                 {{ bookmark.title }}
                                 <span class="float-right text-muted bookmark-date">
-                                    {% if app.request.locale == 'es' %}
-                                        {{ bookmark.createdAt | date('d/m/Y, H:i') }}
-                                        {% else %}
-                                        {{ bookmark.createdAt | date('Y-m-d, H:i') }}
-                                    {% endif %}
+                                {% if app.request.locale == 'es' %}
+                                    {{ bookmark.createdAt | date('d/m/Y, H:i') }}
+                                {% else %}
+                                    {{ bookmark.createdAt | date('Y-m-d, H:i') }}
+                                {% endif %}
                                 </span>
                             </h3>
                             {% if bookmark.note is not null %}
@@ -67,7 +73,8 @@
                                 <a href="#" class="float-right delete-bookmark ml-3" data-id="{{ bookmark.id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
-                                <a href="{{ path('bookmarks_edit', {'id': bookmark.id}) }}" class="float-right edit-bookmark ml-3" data-id="{{ bookmark.id }}">
+                                <a href="{{ path('bookmarks_edit', {'id': bookmark.id}) }}"
+                                   class="float-right edit-bookmark ml-3" data-id="{{ bookmark.id }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 {% if bookmark.checkValidPublic %}
@@ -79,7 +86,8 @@
                             </div>
                             {% if app.user.enableMultimedia %}
                                 {% if bookmark.isUrl_aImage %}
-                                    <img class="img-fluid img-thumbnail mt-3" src="{{ bookmark.url }}" alt="{{ bookmark.title }} - storybookmarks" />
+                                    <img class="img-fluid img-thumbnail mt-3" src="{{ bookmark.url }}"
+                                         alt="{{ bookmark.title }} - storybookmarks"/>
                                 {% endif %}
                                 {% if bookmark.isUrl_aVideo %}
                                     <div class="text-center">
@@ -93,8 +101,11 @@
                     </div>
                 {% endfor %}
             </div>
-        {% else %}
-            <h3 class="text-center mt-4">{{ 'bookmarks.without'|trans }}</h3>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            {% else %}
+                <h3 class="text-center mt-4">{{ 'bookmarks.without'|trans }}</h3>
         {% endif %}
     </div>
 {% endblock %}
@@ -121,7 +132,7 @@
             });
 
             const deleteBookmarks = document.querySelectorAll('.delete-bookmark');
-            for(let db of deleteBookmarks) {
+            for (let db of deleteBookmarks) {
                 db.addEventListener('click', function (e) {
                     e.preventDefault();
                     let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';

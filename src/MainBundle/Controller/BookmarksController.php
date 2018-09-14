@@ -48,7 +48,12 @@ class BookmarksController extends Controller
             $bookmarks = $this->getDoctrine()->getRepository('MainBundle:Bookmark')->findBy(['user' => $this->getUser()], ['createdAt' => 'DESC']);
         }
 
-        return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks]);
+        $page = $request->query->get('page') ? $request->query->get('page') : 1;
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($bookmarks, $page, 10);
+
+        return $this->render('MainBundle:Bookmarks:list.html.twig', ['bookmarks' => $bookmarks, 'pagination' => $pagination]);
     }
 
     /**
