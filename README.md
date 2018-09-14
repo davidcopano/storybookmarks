@@ -37,6 +37,11 @@ npm install
 ./node_modules/.bin/encore dev
 ```
 
+- Build .scss and .js bundles for production:
+```
+./node_modules/.bin/encore production
+```
+
 - Finally, run the project:
 ```
 php bin/console server:run
