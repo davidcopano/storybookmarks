@@ -70,3 +70,7 @@ fos_user:
 knp_menu:
     twig:
         template: MainBundle:Menu:knp_menu.html.twig
+
+knp_paginator:
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'
