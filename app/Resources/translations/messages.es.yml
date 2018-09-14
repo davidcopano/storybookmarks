@@ -8,6 +8,11 @@ generics:
     edit: Editar perfil
     show: Ver perfil
 # -------------------------------
+seo:
+  meta:
+    description: 'Guarda tus marcadores online de forma segura, compartir marcadores, categorizar por carpetas, y mucho más'
+    keywords: 'marcadores, guardar marcadores, guardar marcadores online, guardar marcadores de forma segura, exportar marcadores, categorias marcadores, categorizar marcadores, compartir marcadores, buscador de marcadores'
+# -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub
   features: Características

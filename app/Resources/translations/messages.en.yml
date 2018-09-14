@@ -8,6 +8,11 @@ generics:
     edit: Edit profile
     show: Show perfil
 # -------------------------------
+seo:
+  meta:
+    description: 'Safely save your bookmarks online, share bookmarks, categorize by folders, and more'
+    keywords: 'bookmarks, save bookmarks, save bookmarks online, save bookmarks securely, export bookmarks, bookmark categories, categorize bookmarks, share bookmarks, bookmark browse, bookmark search'
+# -------------------------------
 navbar:
   show_github: Show project in GitHub
   features: Features
