@@ -1,6 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block html_class %}folders-list{% endblock %}
+
 {% block title %}storybookmarks - {{ 'menu.items.folders'|trans }}{% endblock %}
+
+{% block body_class %}folders-list{% endblock %}
 
 {% block body %}
     {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
@@ -43,6 +47,82 @@
                                     {{ 'folders.no_bookmarks'|trans }}
                                 {% endif %}
                             </p>
+                            {% if folder.bookmarks|length > 0 %}
+                                <!-- Button to Open the Modal -->
+                                <button type="button" class="btn btn-outline-primary float-right rounded-circle pt-2 pb-2" data-toggle="modal" data-target="#folder-modal-{{ folder.id }}">
+                                    <i class="far fa-eye"></i>
+                                </button>
+
+                                <!-- The Modal -->
+                                <div class="modal" id="folder-modal-{{ folder.id }}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">{{ folder.name }}</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                {% for bookmark in folder.bookmarks %}
+                                                    <div class="card mt-2"
+                                                         {% if bookmark.color is not null %}style="border: 1px solid {{ bookmark.color }}"{% endif %}>
+                                                        <div class="card-body">
+                                                            <h3 class="card-title">
+                                                                {{ bookmark.title }}
+                                                                <span class="float-right text-muted bookmark-date">
+                                                                    {% if app.request.locale == 'es' %}
+                                                                        {{ bookmark.createdAt | date('d/m/Y, H:i') }}
+                                                                    {% else %}
+                                                                        {{ bookmark.createdAt | date('Y-m-d, H:i') }}
+                                                                    {% endif %}
+                                                                </span>
+                                                            </h3>
+                                                            {% if bookmark.note is not null %}
+                                                                <p class="card-text">{{ bookmark.note }}</p>
+                                                            {% endif %}
+                                                            <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+                                                            <div class="buttons-container mt-3">
+                                                                <a href="{{ path('bookmarks_edit', {'id': bookmark.id}) }}"
+                                                                   class="float-right edit-bookmark ml-3" data-id="{{ bookmark.id }}">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </a>
+                                                                {% if bookmark.checkValidPublic %}
+                                                                    <a href="#" class="float-right bookmark-public" data-toggle="tooltip"
+                                                                       title="{{ 'bookmarks.public'|trans }}" data-id="{{ bookmark.id }}">
+                                                                        <i class="fas fa-lock-open"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                            </div>
+                                                            {% if app.user.enableMultimedia %}
+                                                                {% if bookmark.isUrl_aImage %}
+                                                                    <img class="img-fluid img-thumbnail mt-3" src="{{ bookmark.url }}"
+                                                                         alt="{{ bookmark.title }} - storybookmarks"/>
+                                                                {% endif %}
+                                                                {% if bookmark.isUrl_aVideo %}
+                                                                    <div class="text-center">
+                                                                        <video class="mt-3" controls>
+                                                                            <source src="{{ bookmark.url }}">
+                                                                        </video>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ 'generics.close'|trans }}</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

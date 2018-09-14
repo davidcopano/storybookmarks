@@ -1,6 +1,7 @@
 generics:
   send: Send
   save: Save
+  close: Close
   login: Login
   register: Register
   profile:
