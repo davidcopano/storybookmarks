@@ -63,6 +63,18 @@ class UserConnection
     private $user;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(name="date", type="datetime", nullable=true)
+     */
+    private $date;
+
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    /**
      * Get id
      *
      * @return int
