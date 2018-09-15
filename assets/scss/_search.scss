@@ -1,8 +1,19 @@
+.search-container {
+  .search-results {
+    position: absolute;
+    z-index: 999;
+    background: white;
+    top: 37px;
+    border: 1px solid;
+    width: 97.1%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .search-container {
     margin-bottom: 0 !important;
     .search-results {
-      margin-top: 20px;
+      width: 90.5%;
     }
   }
 }
