@@ -10,8 +10,8 @@ generics:
 # -------------------------------
 seo:
   meta:
-    description: 'Guarda tus marcadores online de forma segura, compartir marcadores, categorizar por carpetas, y mucho más'
-    keywords: 'marcadores, guardar marcadores, guardar marcadores online, guardar marcadores de forma segura, exportar marcadores, categorias marcadores, categorizar marcadores, compartir marcadores, buscador de marcadores'
+    description: 'storybookmarks, guarda tus marcadores online de forma segura, compartir marcadores, categorizar por carpetas, y mucho más'
+    keywords: 'storybookmarks, story bookmarks, marcadores, guardar marcadores, guardar marcadores online, exportar marcadores, categorias marcadores, categorizar marcadores, compartir marcadores, buscador de marcadores'
 # -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub
