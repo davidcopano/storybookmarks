@@ -6,6 +6,19 @@
     top: 37px;
     border: 1px solid;
     width: 97.1%;
+    ul {
+      li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 10px;
+        padding: 8px;
+        background-color: map_get($custom_colors, primary);
+        a {
+          color: white;
+          padding: 10px;
+        }
+      }
+    }
   }
 }
 

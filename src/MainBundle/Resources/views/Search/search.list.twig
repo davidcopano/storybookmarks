@@ -8,19 +8,19 @@
            v-on:input="getQueryResults()">
     <div class="search-results" v-cloak v-bind:hidden="bookmarks.length === 0 && folders.length === 0 && tags.length === 0">
         <ul v-if="bookmarks.length > 0">
-            <h1>{{ 'menu.items.bookmarks'|trans }}</h1>
+            <h2 class="mt-3">{{ 'menu.items.bookmarks'|trans }}</h2>
             <li v-for="b in bookmarks">
                 <a :href="b.url">[[b.title]]</a>
             </li>
         </ul>
         <ul v-if="folders.length > 0">
-            <h1>{{ 'menu.items.folders'|trans }}</h1>
+            <h2 class="mt-3">{{ 'menu.items.folders'|trans }}</h2>
             <li v-for="f in folders">
                 <a :href="f.url">[[f.name]]</a>
             </li>
         </ul>
         <ul v-if="tags.length > 0">
-            <h1>{{ 'menu.items.tags'|trans }}</h1>
+            <h2 class="mt-3">{{ 'menu.items.tags'|trans }}</h2>
             <li v-for="t in tags">
                 <a :href="t.url">[[t.title]]</a>
             </li>
