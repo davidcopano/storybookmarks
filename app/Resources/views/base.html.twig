@@ -10,6 +10,7 @@
         <title>{% block title %}storybookmarks{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('16x16.ico') }}" type="image/x-icon" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     </head>
@@ -17,7 +18,7 @@
         {% block body %}{% endblock %}
         <script src="{{ asset('build/app.js') }}"></script>
         <!-- vuejs -->
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
         <!-- axios -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
         <!-- sweet alert -->
