@@ -4,9 +4,12 @@
     z-index: 999;
     background: white;
     top: 37px;
-    border: 1px solid;
+    border: 1px solid map_get($custom_colors, primary);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     width: 97.1%;
     ul {
+      padding-left: 20px;
       li {
         list-style-type: none;
         display: inline-block;
