@@ -5,7 +5,7 @@ imports:
     - { resource: "@MainBundle/Resources/config/services.yml" }
 
 parameters:
-    locale: en
+    locale: es
 
 framework:
     #esi: ~
@@ -74,4 +74,4 @@ knp_menu:
 knp_paginator:
     page_range: 3
     template:
-        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'
+        pagination: '::pagination.html.twig'
