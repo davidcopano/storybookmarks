@@ -13,6 +13,13 @@ seo:
     description: 'Safely save your bookmarks online, share bookmarks, categorize by folders, and more'
     keywords: 'storybookmarks, story bookmarks, bookmarks, save bookmarks, save bookmarks online, export bookmarks, bookmark categories, categorize bookmarks, share bookmarks, bookmark browse, bookmark search'
 # -------------------------------
+error_pages:
+  404:
+    text: 404 Error
+    title: Oops, we haven't found what you're looking for...
+    subtitle: We don't seem to find what you're asking for, but you can always return to the
+    homepage: homepage
+# -------------------------------
 navbar:
   show_github: Show project in GitHub
   features: Features

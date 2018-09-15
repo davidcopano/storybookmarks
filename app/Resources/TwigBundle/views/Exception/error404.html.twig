@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block html_class %}error-404{% endblock %}
+
+{% block body_class %}error-404{% endblock %}
+
+{% block body %}
+    {{ include('::_navbar.html.twig') }}
+    <div class="container mt-5">
+        <section class="pt-5">
+            <div class="text-center mt-3 mb-5">
+                <img src="{{ asset('images/sad.svg') }}" alt="storybookmarks | 404" class="w-25">
+            </div>
+            <h1 class="text-center">{{ 'error_pages.404.text'|trans }}</h1>
+            <h2 class="text-center">{{ 'error_pages.404.title'|trans }}</h2>
+            <p class="text-center">{{ 'error_pages.404.subtitle'|trans }}
+                <a href="{{ path('index', {'_locale': app.request.locale}) }}">{{ 'error_pages.404.homepage'|trans }}</a>
+            </p>
+        </section>
+    </div>
+    <footer class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <p>storybookmarks</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="text-right">{{ 'now'|date('Y') }} <span class="copyleft">&copy;</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

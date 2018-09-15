@@ -13,6 +13,13 @@ seo:
     description: 'storybookmarks, guarda tus marcadores online de forma segura, compartir marcadores, categorizar por carpetas, y mucho más'
     keywords: 'storybookmarks, story bookmarks, marcadores, guardar marcadores, guardar marcadores online, exportar marcadores, categorias marcadores, categorizar marcadores, compartir marcadores, buscador de marcadores'
 # -------------------------------
+error_pages:
+  404:
+    text: Error 404
+    title: Ups, no hemos encontrado lo que buscas...
+    subtitle: Parece que no encontramos lo que nos solicitas, pero siempre puedes volver a la
+    homepage: página de inicio
+# -------------------------------
 navbar:
   show_github: Ver proyecto en GitHub
   features: Características
