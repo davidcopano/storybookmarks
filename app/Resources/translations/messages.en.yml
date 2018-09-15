@@ -19,6 +19,12 @@ error_pages:
     title: Oops, we haven't found what you're looking for...
     subtitle: We don't seem to find what you're asking for, but you can always return to the
     homepage: homepage
+  500:
+    text: 500 Error
+    title: Something's broken!
+    subtitle1: Reload this page or go back to the
+    homepage: homepage
+    subtitle2: to contact us
 # -------------------------------
 navbar:
   show_github: Show project in GitHub
