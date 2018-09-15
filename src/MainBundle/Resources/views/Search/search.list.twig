@@ -11,6 +11,9 @@
             <h2 class="mt-3">{{ 'menu.items.bookmarks'|trans }}</h2>
             <li v-for="b in bookmarks">
                 <a :href="b.url">[[b.title]]</a>
+                <a :href="b.referenceUrl" target="_blank">
+                    <i class="fas fa-link"></i>
+                </a>
             </li>
         </ul>
         <ul v-if="folders.length > 0">

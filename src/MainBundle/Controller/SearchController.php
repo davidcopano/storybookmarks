@@ -73,7 +73,8 @@ class SearchController extends Controller
                 $jsonResults['bookmarks'][] = [
                     'id' => $bookmark->getId(),
                     'title' => $bookmark->getTitle(),
-                    'url' => $this->generateUrl('bookmarks_edit', ['id' => $bookmark->getId()], true)
+                    'url' => $this->generateUrl('bookmarks_edit', ['id' => $bookmark->getId()], true),
+                    'referenceUrl' => $bookmark->getUrl()
                 ];
             }
         }
