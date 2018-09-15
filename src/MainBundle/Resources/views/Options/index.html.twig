@@ -37,3 +37,80 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('download.js') }}"></script>
+    <script>
+        window.onload = () => {
+            const bookmarkPublic = document.querySelectorAll('.bookmark-public');
+            for (let bp of bookmarkPublic) {
+                bp.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    let path = '{{ url('bookmarks_public', {'id': 'article_id'}) }}';
+                    path = path.replace('article_id', this.dataset.id);
+                    copyToClipboard(path);
+                    let title = '{{ 'bookmarks.copied'|trans }}';
+                    $(this).attr('data-original-title', title)
+                        .tooltip('show');
+                });
+            }
+
+            $(bookmarkPublic).on('hidden.bs.tooltip', function () {
+                $(this).attr('data-original-title', '{{ 'bookmarks.public'|trans }}');
+            });
+
+            const deleteBookmarks = document.querySelectorAll('.delete-bookmark');
+            for (let db of deleteBookmarks) {
+                db.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';
+                    path = path.replace('bookmark_id', this.dataset.id);
+
+                    swal({
+                        title: '{{ 'bookmarks.delete_alert.title'|trans }}',
+                        text: '{{ 'bookmarks.delete_alert.text'|trans }}',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#ff1654',
+                        cancelButtonColor: '#247ba0',
+                        cancelButtonText: '{{ 'bookmarks.delete_alert.cancel'|trans }}',
+                        confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace(path);
+                        }
+                    })
+                })
+            }
+
+            const searchContainer = new Vue({
+                el: '#search-container',
+                delimiters: ['[[', ']]'],
+                data: {
+                    query: undefined,
+                    bookmarks: [],
+                    folders: [],
+                    tags: []
+                },
+                methods: {
+                    getQueryResults: function () {
+                        if (this.query) {
+                            axios.get('{{ url('search_index') }}' + '?query=' + this.query)
+                                .then(result => {
+                                    let json = result.data;
+                                    this.bookmarks = json.bookmarks;
+                                    this.folders = json.folders;
+                                    this.tags = json.tags;
+                                })
+                        }
+                        else {
+                            this.bookmarks = [];
+                            this.folders = [];
+                            this.tags = [];
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+{% endblock %}
