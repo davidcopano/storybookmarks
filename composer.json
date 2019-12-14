@@ -28,7 +28,7 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/serializer": "^3.4",
         "symfony/swiftmailer-bundle": "^2.6.4",
-        "symfony/symfony": "3.4.*",
+        "symfony/symfony": "^3.4",
         "symfony/templating": "^3.4",
         "twig/twig": "@stable"
     },
