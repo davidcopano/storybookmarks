@@ -10,7 +10,7 @@
             {{ include('MainBundle:UserDropdown:user.html.twig') }}
         </div>
         <h1 class="text-center">{{ 'new_tag.text'|trans }}</h1>
-        <div class="form-container container">
+        <div class="form-container container pb-5">
             {{ form_start(form, { 'attr': { 'id': 'edit-tag-form' } }) }}
             <div class="form-group">
                 {{ form_label(form.title, 'new_folder.fields.name'|trans) }}
