@@ -1,5 +1,7 @@
 <div class="sidenav">
-    <h1 class="text-center text-secondary mt-2 mb-0">{{ 'menu.my_panel'|trans }}</h1>
+    <h1 class="text-center text-secondary mt-2 mb-0">
+        <a href="{{ url('bookmarks_list') }}" class="panel-link text-secondary">{{ 'menu.my_panel'|trans }}</a>
+    </h1>
     <a href="{{ path('index', { '_locale': app.request.locale }) }}" class="text-light text-right mr-2 index-link">storybookmarks</a>
     <hr>
     <div class="dropdown text-center new-dropdown">

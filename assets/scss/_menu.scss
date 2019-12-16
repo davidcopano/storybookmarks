@@ -16,7 +16,9 @@
   a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 22px;
+    &:not(.panel-link) {
+      font-size: 22px;
+    }
     display: block;
     &.index-link {
       font-size: 18px;
