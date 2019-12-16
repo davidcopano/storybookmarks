@@ -40,10 +40,10 @@
             el: '#profile-show',
             methods: {
                 closeSession: function () {
-                    swal({
+                    Swal.fire({
                         title: '{{ 'navbar.logged_user.logout.title'|trans }}',
                         text: '{{ 'navbar.logged_user.logout.text'|trans }}',
-                        type: 'warning',
+                        icon: 'warning',
                         showCancelButton: true,
                         cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
                         cancelButtonColor: '#247ba0',

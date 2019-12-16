@@ -138,10 +138,12 @@
                     let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';
                     path = path.replace('bookmark_id', this.dataset.id);
 
-                    swal({
+                    console.log(path);
+
+                    Swal.fire({
                         title: '{{ 'bookmarks.delete_alert.title'|trans }}',
                         text: '{{ 'bookmarks.delete_alert.text'|trans }}',
-                        type: 'warning',
+                        icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#ff1654',
                         cancelButtonColor: '#247ba0',

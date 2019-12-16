@@ -131,14 +131,14 @@
                         this.isSending = false;
                         console.log(response.data);
 
-                        swal({
-                            type: 'success',
+                        Swal.fire({
+                            icon: 'success',
                             title: '{{ 'index.contact.form.success.title'|trans }}'
                         });
                     }).catch(error => {
                         this.isSending = false;
-                        swal({
-                            type: 'error',
+                        Swal.fire({
+                            icon: 'error',
                             title: '{{ 'index.contact.form.errors.sent_form.title'|trans }}',
                             text: '{{ 'index.contact.form.errors.sent_form.text'|trans }}',
                             animation: false,
@@ -155,10 +155,10 @@
                 el: '#user-dropdown',
                 methods: {
                     closeSession: function () {
-                        swal({
+                        Swal.fire({
                             title: '{{ 'navbar.logged_user.logout.title'|trans }}',
                             text: '{{ 'navbar.logged_user.logout.text'|trans }}',
-                            type: 'warning',
+                            icon: 'warning',
                             showCancelButton: true,
                             cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
                             cancelButtonColor: '#247ba0',
@@ -184,10 +184,10 @@
                     smoothScroll('contact');
                 },
                 closeSession: function () {
-                    swal({
+                    Swal.fire({
                         title: '{{ 'navbar.logged_user.logout.title'|trans }}',
                         text: '{{ 'navbar.logged_user.logout.text'|trans }}',
-                        type: 'warning',
+                        icon: 'warning',
                         showCancelButton: true,
                         cancelButtonText: '{{ 'navbar.logged_user.logout.cancel'|trans }}',
                         cancelButtonColor: '#247ba0',
