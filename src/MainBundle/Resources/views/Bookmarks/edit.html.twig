@@ -44,15 +44,45 @@
                 {{ form_label(form.expirationDate, 'new_bookmark.fields.exp_date'|trans) }}
                 {{ form_widget(form.expirationDate) }}
             </div>
-            <div class="text-center">
+            <div class="text-center pb-3">
                 <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
             </div>
             {{ form_end(form) }}
+            <div class="text-center pb-3">
+                <a href="#" class="float-right btn btn-danger delete-bookmark ml-3 mr-3 mb-4" data-id="{{ bookmark.id }}">
+                    <i class="fas fa-trash-alt"></i>
+                    {{ 'bookmarks.delete'|trans }}
+                </a>
+            </div>
         </div>
     </div>
     <script src="{{ asset('jscolor.js') }}"></script>
     <script>
         window.onload = () => {
+            const db = document.querySelector('.delete-bookmark');
+            if(db) {
+                db.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    let path = '{{ url('bookmarks_delete', {'id': 'bookmark_id'}) }}';
+                    path = path.replace('bookmark_id', this.dataset.id);
+
+                    Swal.fire({
+                        title: '{{ 'bookmarks.delete_alert.title'|trans }}',
+                        text: '{{ 'bookmarks.delete_alert.text'|trans }}',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#ff1654',
+                        cancelButtonColor: '#247ba0',
+                        cancelButtonText: '{{ 'bookmarks.delete_alert.cancel'|trans }}',
+                        confirmButtonText: '{{ 'bookmarks.delete_alert.confirm'|trans }}'
+                    }).then((result) => {
+                        if (result.value) {
+                            location.replace(path);
+                        }
+                    })
+                })
+            }
+
             const publicBookmark = document.querySelector('#new-bookmark-form input[type="checkbox"]');
 
             if(publicBookmark.checked) {
