@@ -31,7 +31,7 @@
                     <small class="form-text text-muted"><strong>{{ 'options.multimedia.help_bold'|trans }}</strong></small>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="enable-dark-theme" id="enable-dark-theme" class="switch vertical-align-middle mr-2">
+                    <input type="checkbox" name="enable-dark-theme" id="enable-dark-theme" class="switch vertical-align-middle mr-2" {% if dark_theme == true %}checked{% endif %}>
                     <label for="enable-dark-theme" class="form-check-label">{{ 'options.dark_theme.text'|trans }}</label>
                     <small class="form-text text-muted">{{ 'options.dark_theme.help'|trans }}.</small>
                 </div>
