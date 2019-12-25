@@ -30,6 +30,11 @@
                     <small class="form-text text-muted">{{ 'options.multimedia.help'|trans }}.</small>
                     <small class="form-text text-muted"><strong>{{ 'options.multimedia.help_bold'|trans }}</strong></small>
                 </div>
+                <div class="form-group">
+                    <input type="checkbox" name="enable-dark-theme" id="enable-dark-theme" class="switch vertical-align-middle mr-2">
+                    <label for="enable-dark-theme" class="form-check-label">{{ 'options.dark_theme.text'|trans }}</label>
+                    <small class="form-text text-muted">{{ 'options.dark_theme.help'|trans }}.</small>
+                </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">{{ 'generics.save'|trans }}</button>
                 </div>
@@ -42,6 +47,19 @@
     <script src="{{ asset('download.js') }}"></script>
     <script>
         window.onload = () => {
+            let toggleDarkTheme = document.getElementById('enable-dark-theme');
+            if(toggleDarkTheme) {
+                toggleDarkTheme.onchange = (event) => {
+                    let isChecked = event.target.checked;
+                    if(isChecked) {
+                        setCookie('dark_theme', true, 365);
+                    }
+                    else {
+                        setCookie('dark_theme', false, 365);
+                    }
+                }
+            }
+
             const bookmarkPublic = document.querySelectorAll('.bookmark-public');
             for (let bp of bookmarkPublic) {
                 bp.addEventListener('click', function (e) {

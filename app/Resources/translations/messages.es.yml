@@ -163,5 +163,8 @@ options:
     text: Habilitar multimedia
     help: Al habilitar esta opción, las URLs que tengas, si son imágenes o vídeos, se mostrarán dentro del marcador, pudiendo ver el contenido sin necesidad de ir al enlace
     help_bold: Si habilitas esta opción, el listado de marcadores puede que consuma más datos
+  dark_theme:
+    text: Habilitar modo oscuro
+    help: Al habilitar esta opción, activarás el modo oscuro en todas las secciones de la web
   success:
     text: Opciones guardadas con éxito
