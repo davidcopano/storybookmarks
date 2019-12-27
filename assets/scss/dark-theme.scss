@@ -1,0 +1,28 @@
+$bg-color-dark-theme: rgb(24, 26, 27);
+$border-color-dark-theme: rgb(80, 93, 106);
+$text-color-dark-theme: rgb(218, 215, 210);
+
+.dark_theme {
+  background: $bg-color-dark-theme;
+  color: $text-color-dark-theme;
+  .search-container {
+    .input-group-prepend {
+      .input-group-text {
+        background: $bg-color-dark-theme;
+        border-color: $border-color-dark-theme;
+        color: $text-color-dark-theme;
+      }
+    }
+    .search-results {
+      background: $bg-color-dark-theme;
+    }
+  }
+  .form-control {
+    background: $bg-color-dark-theme;
+    border-color: $border-color-dark-theme;
+    color: $text-color-dark-theme;
+  }
+  .card {
+    background: $bg-color-dark-theme;
+  }
+}
