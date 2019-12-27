@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% set dark_theme = app.request.cookies.get('dark_theme') %}
-<html class="{% block html_class %}{% endblock %}{% if dark_theme == true %} dark_theme{% endif %}" lang="{{ app.request.locale }}">
+<html class="{% block html_class %}{% endblock %}{% if dark_theme is sameas("true") %} dark_theme{% endif %}" lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     </head>
-    <body class="{% block body_class %}{% endblock %}{% if dark_theme == true %} dark_theme{% endif %}">
+    <body class="{% block body_class %}{% endblock %}{% if dark_theme is sameas("true") %} dark_theme{% endif %}">
         {% block body %}{% endblock %}
         <script src="{{ asset('build/app.js') }}"></script>
         <!-- vuejs -->

@@ -39,6 +39,7 @@ html.dark_theme, body.dark_theme {
   // lists of bookmarks, tags...
   .card {
     background: $bg-color-dark-theme;
+    box-shadow: none;
   }
   // sweet alert
   .swal2-popup {

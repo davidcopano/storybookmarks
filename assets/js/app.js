@@ -94,6 +94,24 @@ function checkCookie() {
     }
 }
 
+function enableDarkTheme() {
+    if(!document.querySelector('html').classList.contains('dark_theme')) {
+        document.querySelector('html').classList.add('dark_theme');
+    }
+    if(!document.querySelector('body').classList.contains('dark_theme')) {
+        document.querySelector('body').classList.add('dark_theme');
+    }
+}
+
+function disableDarkTheme() {
+    if(document.querySelector('html').classList.contains('dark_theme')) {
+        document.querySelector('html').classList.remove('dark_theme');
+    }
+    if(document.querySelector('body').classList.contains('dark_theme')) {
+        document.querySelector('body').classList.remove('dark_theme');
+    }
+}
+
 window.currentYPosition = currentYPosition;
 window.elmYPosition = elmYPosition;
 window.smoothScroll = smoothScroll;
@@ -103,3 +121,5 @@ window.$ = $;
 window.setCookie = setCookie;
 window.getCookie = getCookie;
 window.checkCookie = checkCookie;
+window.enableDarkTheme = enableDarkTheme;
+window.disableDarkTheme = disableDarkTheme;
