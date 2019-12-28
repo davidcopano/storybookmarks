@@ -52,4 +52,15 @@ html.dark_theme, body.dark_theme {
       color: $text-color-muted-dark-theme;
     }
   }
+  // pagination
+  .navigation {
+    .pagination {
+      .page-item {
+        .page-link {
+          background: $bg-color-dark-theme;
+          border-color: $border-color-dark-theme;
+        }
+      }
+    }
+  }
 }
