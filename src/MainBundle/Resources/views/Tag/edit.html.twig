@@ -3,7 +3,7 @@
 {% block title %}storybookmarks - {{ tag.title }}{% endblock %}
 
 {% block body %}
-    {{ knp_menu_render('MainBundle:Builder:mainMenu', { 'currentClass': 'active' }) }}
+    {{ knp_menu_render('mainMenu') }}
     <div class="main">
         <div class="row">
             {{ include('MainBundle:Search:search.list.twig') }}

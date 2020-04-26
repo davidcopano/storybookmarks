@@ -3,14 +3,26 @@
 namespace MainBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Psr\Container\ContainerInterface;
 
-class Builder implements ContainerAwareInterface
+class Builder
 {
-    use ContainerAwareTrait;
+    private $factory;
+    private $container;
 
-    public function mainMenu(FactoryInterface $factory, array $options)
+    /**
+     * @param FactoryInterface $factory
+     *
+     * Add any other dependency you need
+     * @param ContainerInterface $container
+     */
+    public function __construct(FactoryInterface $factory, $container)
+    {
+        $this->factory = $factory;
+        $this->container = $container;
+    }
+
+    public function mainMenu(array $options)
     {
         $translator = $this->container->get('translator');
 
@@ -19,7 +31,7 @@ class Builder implements ContainerAwareInterface
         $tags = $translator->trans('menu.items.tags');
         $optionsString = $translator->trans('menu.items.options');
 
-        $menu = $factory->createItem('root');
+        $menu = $this->factory->createItem('root');
         $menu->addChild($bookmarks, ['route' => 'bookmarks_list', 'extras' => ['icon' => 'fas fa-star']]);
         $menu->addChild($folders, ['route' => 'folders_list', 'extras' => ['icon' => 'fas fa-folder']]);
         $menu->addChild($tags, ['route' => 'tags_list', 'extras' => ['icon' => 'fas fa-tag']]);
