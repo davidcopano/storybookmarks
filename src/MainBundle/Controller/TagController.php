@@ -6,7 +6,7 @@ use MainBundle\Entity\Tag;
 use MainBundle\Form\FolderType;
 use MainBundle\Form\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

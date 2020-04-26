@@ -18,6 +18,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 always_use_default_target_path: false
                 default_target_path: /bookmarks/
+            logout_on_user_change: true
 
             logout:       true
             anonymous:    true

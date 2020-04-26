@@ -6,7 +6,7 @@ use Doctrine\Common\Util\Debug;
 use MainBundle\Entity\Folder;
 use MainBundle\Form\FolderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
