@@ -45,6 +45,12 @@
                             {{ form_widget(form.plainPassword.second, { 'attr': { 'class': 'form-control' } }) }}
                         </div>
 
+                        <div class="form-check mb-4">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="accepts-privacy-policy" class="form-check-input custom-checkbox" required> {{ 'privacy_policy.accept_text'|trans }} <a href="{{ path('index.privacy_policy') }}" target="_blank">{{ 'privacy_policy.title'|trans }}</a>
+                            </label>
+                        </div>
+
                         <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary btn-block"/>
 
                         <div class="margin-top20 text-center">
