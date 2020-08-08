@@ -2,7 +2,7 @@
 
 {% block title %}storybookmarks - {{ 'index.privacy_policy.title'|trans }}{% endblock %}
 
-{% block body_class %}privacy-policy{% endblock %}
+{% block body_class %}index privacy-policy{% endblock %}
 
 {% block body %}
     {{ include('::_navbar.html.twig') }}
@@ -18,4 +18,5 @@
             {{ 'index.privacy_policy.text'|trans|raw }}
         </div>
     </div>
+    {{ include('::_footer.html.twig') }}
 {% endblock %}
