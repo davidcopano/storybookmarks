@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}storybookmarks - {{ 'index.privacy_policy.title'|trans }}{% endblock %}
+
+{% block body_class %}privacy-policy{% endblock %}
+
+{% block body %}
+    {{ include('::_navbar.html.twig') }}
+    <style>
+        .container {
+            margin-top: 80px;
+        }
+    </style>
+    <div class="container">
+        <h1 class="title">{{ 'index.privacy_policy.title'|trans }}</h1>
+        <br>
+        <div class="privacy-text">
+            {{ 'index.privacy_policy.text'|trans|raw }}
+        </div>
+    </div>
+{% endblock %}

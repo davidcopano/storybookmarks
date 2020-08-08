@@ -75,6 +75,57 @@ index:
           text: Try again later
       success:
         title: Form sent successfully
+  privacy_policy:
+    title: Privacy policy
+    text: |
+      <p>This privacy policy sets out the terms on which storybookmarks uses and protects information that is
+      provided by its users when using its website. This company is committed to the security
+      of its users' data. When we ask you to fill in the fields of personal information with which you can
+      be identified, we do so by ensuring that it will only be used in accordance with the terms of this document. Without
+      however this privacy policy may change over time or be updated so we recommend and
+      we emphasize to continuously review this page to make sure that you agree with such changes.</p>
+      <p><strong>Information that is collected</strong></p>
+      <p>Our website may collect personal information such as: name, contact information such as your
+      e-mail address and demographic information. Also when necessary it may be required
+      specific information to process an order or make a delivery or invoice.</p>
+      <p><strong>Use of information collected</strong></p>
+      <p>Our website uses the information in order to provide the best possible service, particularly to
+       maintain a register of users, of orders if applicable, and improve our products and services.  It is
+       may be sent periodic emails through our site with special offers,
+       new products and other advertising information that we think is relevant to you or that might provide you with some
+       benefit, these emails will be sent to the address you provide and may be cancelled at
+       any time.</p>
+      <p>storybookmarks is highly committed to keeping your information secure. We use
+       the most advanced systems and constantly update them to ensure that there is no unreasonable access
+       authorized.</p>
+      <p><strong>Cookies</strong></p>
+      <p>A cookie refers to a file that is sent for the purpose of requesting permission to be stored in your
+       When the computer accepts the file, it is created and the cookie serves to provide information about the traffic
+       website, and also facilitates future visits to a recurring website. Another function of cookies is that with
+       they can recognize you individually and therefore provide you with the best personalized service on their website.</p>
+      <p>Our website uses cookies to be able to identify the pages that are visited and their frequency. This
+       information is used only for statistical analysis and then the information is removed in a
+       permanent. You can delete the cookies at any time from your computer. However, cookies help
+       to provide better service from the websites, these do not give access to information from your computer or from you, to
+       unless you want it and provide it directly. You can accept
+       or deny the use of cookies, however most browsers automatically accept cookies as they serve to
+       to have a better web service. You can also change your computer settings to decline cookies.
+       If they are declined you may not be able to use some of our services.</p>
+      <p><strong>Third party links</strong></p>
+      <p>This website may contain links to other sites that may be of interest to you. Once you click on
+       these links and leave our site, we no longer have control over the site to which you are redirected and therefore do not
+       we are responsible for the terms or privacy and protection of your data on those other third party sites.
+       Such sites are subject to their own privacy policies and you should consult them for
+       to confirm that you agree with these.</p>
+      <p><strong>Control of your personal information</strong></p>
+      <p>At any time you may restrict the collection or use of personal information that is provided
+      to our website. Whenever you are asked to fill in a form, such as the user registration form, you can
+      check or uncheck the option to receive information by email. If you have checked the
+      option to receive our newsletter or advertising you can cancel it at any time.</p>
+      <p>This company will not sell, lease or distribute the personal information that is collected without your consent,
+      unless required by a judge with a court order.</p>
+      <p>storybookmarks reserves the right to change the terms of this privacy policy at any moment.</p>
+
 # -------------------------------
 menu:
   my_panel: My panel

@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +35,7 @@ class IndexController extends Controller
      * @Route("{_locale}/send_form", name="index.send_form")
      * @param Request $request
      * @param Swift_Mailer $mailer
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @return JsonResponse|Response
      */
     public function sendFormAction(Request $request, Swift_Mailer $mailer, LoggerInterface $logger)
     {
@@ -64,5 +65,15 @@ class IndexController extends Controller
             $logger->error('[INDEX] No se han proporcionado suficientes datos para enviar el form. de contacto');
             return new JsonResponse(['type' => 'error']);
         }
+    }
+
+    /**
+     * @Route("{_locale}/privacy-policy", name="index.privacy_policy")
+     * @param Request $request
+     * @return Response|null
+     */
+    public function privacyPolicyAction(Request $request)
+    {
+        return $this->render('@Main/Default/privacy_policy.html.twig');
     }
 }
