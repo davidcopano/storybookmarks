@@ -14,7 +14,7 @@
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3"
   },
